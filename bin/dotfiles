@@ -1,0 +1,35 @@
+#!/bin/sh
+# dotfiles manager
+
+profile=${1}
+results=()
+
+if [ ! -z ${profile} ] && [ -d ${HOME}/.dotfiles/profiles/${profile} ]
+then
+    shopt -s dotglob
+
+    for file in ${HOME}/.dotfiles/profiles/${profile}/*
+    do
+        if [[ ${file} != ${HOME}'/.dotfiles/profiles/'${profile}'/*' ]]
+        then
+            base=`basename ${file}`
+
+            if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
+            then
+                # remove existing files
+                rm -r ${HOME}/${base}
+            fi
+
+            ln -s ${file} ${HOME}/${base}
+
+            results+=("${HOME}/${base} -> ${file}")
+        fi
+    done
+
+    echo "Updated dotfiles:"
+
+    for line in "${results[@]}"
+    do
+        echo ${line}
+    done
+fi
