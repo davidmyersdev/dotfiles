@@ -3,31 +3,53 @@
 
 profile=${1}
 results=()
+meta=false
 
-if [ ! -z ${profile} ] && [ -d ${HOME}/.dotfiles/profiles/${profile} ]
+# make sure the DOTFILES_PATH global exists
+if [ -z ${DOTFILES_PATH} ]
 then
+    export DOTFILES_PATH=${HOME}/.dotfiles
+fi
+
+# only run if a profile was passed in and the profile exists
+if [ ! -z ${profile} ] && [ -d ${DOTFILES_PATH}/profiles/${profile} ]
+then
+    # show hidden files
     shopt -s dotglob
 
-    for file in ${HOME}/.dotfiles/profiles/${profile}/*
+    # loop through all files in the profile directory
+    for file in ${DOTFILES_PATH}/profiles/${profile}/*
     do
-        if [[ ${file} != ${HOME}'/.dotfiles/profiles/'${profile}'/*' ]]
-        then
-            base=`basename ${file}`
+        base=`basename ${file}`
 
+        # if there is a meta .dotfiles directory (or file), set the meta flag to true and skip over it
+        if [[ ${base} == '.dotfiles' ]]
+        then
+            meta=true
+        # make sure a file was actually found in the directory
+        elif [[ ${file} != ${DOTFILES_PATH}/profiles/${profile}'/*' ]]
+        then
+            # if the file already exists in the user's home directory, we need to remove it
             if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
             then
-                # remove existing files
                 rm -r ${HOME}/${base}
             fi
 
+            # set up the symlinks
             ln -s ${file} ${HOME}/${base}
 
+            # append the results to an array for reporting
             results+=("${HOME}/${base} -> ${file}")
         fi
     done
 
-    echo "Updated dotfiles:"
+    # if there is a meta .dotfiles directory, then we might need to perform some special actions
+    if ${meta} && [ -d ${DOTFILES_PATH}/profiles/${profile}/.dotfiles ]
+    then
+        echo "meta actions (coming soon)" # todo
+    fi
 
+    # report the new symlinks to the user
     for line in "${results[@]}"
     do
         echo ${line}
