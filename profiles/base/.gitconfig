@@ -1,5 +1,12 @@
+[core]
+    filemode = false
+    pager = cat
 [user]
     name = drm2
     email = davidrmyersii@gmail.com
 [hub]
     host = github.com
+[alias]
+    hist = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
+    stat = status -vv
+    comm = commit -v
