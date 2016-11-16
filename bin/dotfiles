@@ -43,17 +43,17 @@ then
         fi
     done
 
-    # if there is a meta .dotfiles directory, then we might need to perform some special actions
-    if ${meta} && [ -d ${DOTFILES_PATH}/profiles/${profile}/.dotfiles ]
-    then
-        echo "meta actions (coming soon)" # todo
-    fi
-
     # report the new symlinks to the user
     for line in "${results[@]}"
     do
         echo ${line}
     done
+
+    # if there is a meta .dotfiles directory, then we might need to perform some special actions
+    if ${meta} && [ -d ${DOTFILES_PATH}/profiles/${profile}/.dotfiles ]
+    then
+        echo "meta actions (coming soon)" # todo
+    fi
 # list the available profiles
 else
     echo 'Available profiles:'
