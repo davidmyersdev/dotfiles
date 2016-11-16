@@ -2,8 +2,7 @@
 # dotfiles manager
 
 profile=${1}
-results=()
-meta=false
+dotfiles=()
 
 # make sure the DOTFILES_PATH global exists
 if [ -z ${DOTFILES_PATH} ]
@@ -23,37 +22,53 @@ then
     # update the DOTFILES_CURRENT_PROFILE_PATH global
     export DOTFILES_CURRENT_PROFILE_PATH=${DOTFILES_PATH}/profiles/${profile}
 
+    if [ -f ${DOTFILES_CURRENT_PROFILE_PATH}/.dotignore ]
+    then
+        # read the file into an array
+        IFS=$'\r\n' read -d '' -r -a files_to_ignore < ${DOTFILES_CURRENT_PROFILE_PATH}/.dotignore
+        files_to_ignore+=(".dotfiles")
+        files_to_ignore+=(".dotignore")
+    else
+        files_to_ignore=()
+    fi
+
+    # function to check if file shoud be ignored
+    file_is_ignored () {
+        for index in "${files_to_ignore[@]}"; do [[ ${index} == ${1} ]] && return 0; done
+        return 1
+    }
+
     # show hidden files
     shopt -s dotglob
 
     # loop through all files in the profile directory
     for file in ${DOTFILES_CURRENT_PROFILE_PATH}/*
     do
-        base=`basename ${file}`
-
-        # if there is a meta .dotfiles directory (or file), set the meta flag to true and skip over it
-        if [[ ${base} == '.dotfiles' ]]
-        then
-            meta=true
         # make sure a file was actually found in the directory
-        elif [[ ${file} != ${DOTFILES_CURRENT_PROFILE_PATH}'/*' ]]
+        if [[ ${file} != ${DOTFILES_CURRENT_PROFILE_PATH}'/*' ]]
         then
-            # if the file already exists in the user's home directory, we need to remove it
-            if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
+            base=`basename ${file}`
+
+            # if there is a meta .dotfiles directory (or file), set the meta flag to true and skip over it
+            if ! file_is_ignored ${base}
             then
-                rm -r ${HOME}/${base}
+                # if the file already exists in the user's home directory, we need to remove it
+                if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
+                then
+                    rm -r ${HOME}/${base}
+                fi
+
+                # set up the symlinks
+                ln -s ${file} ${HOME}/${base}
+
+                # append the dotfiles to an array for reporting
+                dotfiles+=(${base})
             fi
-
-            # set up the symlinks
-            ln -s ${file} ${HOME}/${base}
-
-            # append the results to an array for reporting
-            results+=(${base})
         fi
     done
 
     # run necessary actions on each new dotfile
-    for filename in "${results[@]}"
+    for filename in "${dotfiles[@]}"
     do
         # report the new symlinks to the user
         echo "${HOME}/${filename} -> ${DOTFILES_CURRENT_PROFILE_PATH}/${filename}"
