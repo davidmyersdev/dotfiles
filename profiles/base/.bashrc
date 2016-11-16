@@ -1,3 +1,6 @@
+# global
+export EDITOR=vim
+
 # golang
 export GOPATH=/usr/local/Go
 export PATH=${PATH}:${GOPATH}/bin
