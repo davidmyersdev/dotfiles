@@ -54,4 +54,17 @@ then
     do
         echo ${line}
     done
+# list the available profiles
+else
+    echo 'Available profiles:'
+
+    for dir in ${DOTFILES_PATH}/profiles/*
+    do
+        if [[ ${dir} != ${DOTFILES_PATH}/profiles'/*' ]]
+        then
+            base=`basename ${dir}`
+
+            echo " -> ${base}"
+        fi
+    done
 fi
