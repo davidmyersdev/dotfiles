@@ -48,21 +48,23 @@ then
             ln -s ${file} ${HOME}/${base}
 
             # append the results to an array for reporting
-            results+=("${HOME}/${base} -> ${file}")
+            results+=(${base})
         fi
     done
 
-    # report the new symlinks to the user
-    for line in "${results[@]}"
+    # run necessary actions on each new dotfile
+    for filename in "${results[@]}"
     do
-        echo ${line}
-    done
+        # report the new symlinks to the user
+        echo "${HOME}/${filename} -> ${DOTFILES_CURRENT_PROFILE_PATH}/${filename}"
 
-    # if there is a meta .dotfiles directory, then we might need to perform some special actions
-    if ${meta} && [ -d ${DOTFILES_CURRENT_PROFILE_PATH}/.dotfiles ]
-    then
-        echo "meta actions (coming soon)" # todo
-    fi
+        # check for meta script and run if it exists
+        if [ -f ${DOTFILES_CURRENT_PROFILE_PATH}/.dotfiles/scripts/${filename}.sh ]
+        then
+            echo "Running script for ${filename}..."
+            source ${DOTFILES_CURRENT_PROFILE_PATH}/.dotfiles/scripts/${filename}.sh
+        fi
+    done
 # list the available profiles
 else
     echo 'Available profiles:'
