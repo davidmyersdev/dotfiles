@@ -14,11 +14,20 @@ fi
 # only run if a profile was passed in and the profile exists
 if [ ! -z ${profile} ] && [ -d ${DOTFILES_PATH}/profiles/${profile} ]
 then
+    # if the DOTFILES_CURRENT_PROFILE_PATH global exists, store it as previous_profile_path
+    if [ ! -z ${DOTFILES_CURRENT_PROFILE_PATH} ]
+    then
+        previous_profile_path=${DOTFILES_CURRENT_PROFILE_PATH}
+    fi
+
+    # update the DOTFILES_CURRENT_PROFILE_PATH global
+    export DOTFILES_CURRENT_PROFILE_PATH=${DOTFILES_PATH}/profiles/${profile}
+
     # show hidden files
     shopt -s dotglob
 
     # loop through all files in the profile directory
-    for file in ${DOTFILES_PATH}/profiles/${profile}/*
+    for file in ${DOTFILES_CURRENT_PROFILE_PATH}/*
     do
         base=`basename ${file}`
 
@@ -27,7 +36,7 @@ then
         then
             meta=true
         # make sure a file was actually found in the directory
-        elif [[ ${file} != ${DOTFILES_PATH}/profiles/${profile}'/*' ]]
+    elif [[ ${file} != ${DOTFILES_CURRENT_PROFILE_PATH}'/*' ]]
         then
             # if the file already exists in the user's home directory, we need to remove it
             if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
@@ -50,7 +59,7 @@ then
     done
 
     # if there is a meta .dotfiles directory, then we might need to perform some special actions
-    if ${meta} && [ -d ${DOTFILES_PATH}/profiles/${profile}/.dotfiles ]
+    if ${meta} && [ -d ${DOTFILES_CURRENT_PROFILE_PATH}/.dotfiles ]
     then
         echo "meta actions (coming soon)" # todo
     fi
