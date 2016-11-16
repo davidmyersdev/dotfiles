@@ -22,14 +22,18 @@ then
     # update the DOTFILES_CURRENT_PROFILE_PATH global
     export DOTFILES_CURRENT_PROFILE_PATH=${DOTFILES_PATH}/profiles/${profile}
 
+    files_to_ignore=(
+        ".dotfiles"
+        ".dotignore"
+    )
+
     if [ -f ${DOTFILES_CURRENT_PROFILE_PATH}/.dotignore ]
     then
         # read the file into an array
-        IFS=$'\r\n' read -d '' -r -a files_to_ignore < ${DOTFILES_CURRENT_PROFILE_PATH}/.dotignore
-        files_to_ignore+=(".dotfiles")
-        files_to_ignore+=(".dotignore")
-    else
-        files_to_ignore=()
+        IFS=$'\r\n' read -d '' -r -a more_files < ${DOTFILES_CURRENT_PROFILE_PATH}/.dotignore
+
+        # append to the files_to_ignore array
+        files_to_ignore+=more_files
     fi
 
     # function to check if file shoud be ignored
