@@ -36,7 +36,7 @@ then
         then
             meta=true
         # make sure a file was actually found in the directory
-    elif [[ ${file} != ${DOTFILES_CURRENT_PROFILE_PATH}'/*' ]]
+        elif [[ ${file} != ${DOTFILES_CURRENT_PROFILE_PATH}'/*' ]]
         then
             # if the file already exists in the user's home directory, we need to remove it
             if [ -f ${HOME}/${base} ] || [ -d ${HOME}/${base} ]
