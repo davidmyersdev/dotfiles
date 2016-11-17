@@ -11,3 +11,5 @@
     history = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
     stat = status -vv
     comm = commit -v
+[push]
+	default = simple
