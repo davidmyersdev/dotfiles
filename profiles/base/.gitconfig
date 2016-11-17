@@ -7,6 +7,7 @@
 [hub]
     host = github.com
 [alias]
-    hist = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
+    hist = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=20
+    history = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
     stat = status -vv
     comm = commit -v
