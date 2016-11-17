@@ -13,4 +13,4 @@
     history = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
     stat = status -vv
 [push]
-	default = simple
+    default = simple
