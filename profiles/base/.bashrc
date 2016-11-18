@@ -11,3 +11,8 @@ export PATH=${PATH}:${DOTFILES_PATH}/bin
 
 # aliases
 alias ls="ls -GFlash"
+
+# helper functions
+ptree () {
+    tree -a -F -L $([ ! -z ${1} ] && echo ${1} || echo 3) -I .git
+}
