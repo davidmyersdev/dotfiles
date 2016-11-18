@@ -3,3 +3,14 @@
     email = drmyers@covermymeds.com
 [hub]
     host = git.innova-partners.com
+[core]
+    filemode = false
+    pager = cat
+[alias]
+    adda = add -A -v
+    comm = commit -v
+    hist = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=20
+    history = log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative
+    stat = status -vv
+[push]
+    default = simple

@@ -1,11 +1,11 @@
-[core]
-    filemode = false
-    pager = cat
 [user]
     name = drm2
     email = davidrmyersii@gmail.com
 [hub]
     host = github.com
+[core]
+    filemode = false
+    pager = cat
 [alias]
     adda = add -A -v
     comm = commit -v
