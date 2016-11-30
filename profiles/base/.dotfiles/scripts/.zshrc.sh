@@ -19,7 +19,7 @@ then
     RPROMPT=''
 
     # git theming
-    ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}git:( %{$fg[yellow]%}%B"
+    ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}$(git_current_user_name):( %{$fg[yellow]%}%B"
     ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} )"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
     ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg_bold[red]%} +"

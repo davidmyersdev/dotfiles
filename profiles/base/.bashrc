@@ -9,6 +9,10 @@ export PATH=${PATH}:${GOPATH}/bin
 export DOTFILES_PATH=${HOME}/.dotfiles
 export PATH=${PATH}:${DOTFILES_PATH}/bin
 
+# rbenv
+export PATH=${PATH}:${HOME}/.rbenv/bin
+eval "$(rbenv init -)"
+
 # aliases
 alias ls="ls -GFlash"
 
