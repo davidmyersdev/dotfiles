@@ -20,3 +20,8 @@ alias ls="ls -GFlash"
 ptree () {
     tree -a -F -L $([ ! -z ${1} ] && echo ${1} || echo 3) -I .git
 }
+
+prdiff () {
+    git fetch $(git config --get remote.origin.url) "+refs/pull/${1}/*:refs/remotes/origin/pr/${1}/*"
+    git diff origin/pr/${1}/merge
+}
