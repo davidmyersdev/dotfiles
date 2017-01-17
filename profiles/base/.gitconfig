@@ -1,11 +1,14 @@
 [user]
     name = drm2
     email = davidrmyersii@gmail.com
+    hosts = github.com
+    hosts = bitbucket.org
 [hub]
     host = github.com
 [core]
     filemode = false
     pager = cat
+    hooksPath = ~/.git-templates/hooks
 [alias]
     adda = add -A -v
     comm = commit -v
@@ -14,3 +17,5 @@
     stat = status -vv
 [push]
     default = simple
+[init]
+    templatedir = ~/.git-templates

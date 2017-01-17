@@ -1,11 +1,13 @@
 [user]
     name = David R. Myers II
     email = drmyers@covermymeds.com
+    hosts = git.innova-partners.com
 [hub]
     host = git.innova-partners.com
 [core]
     filemode = false
     pager = cat
+    hooksPath = ~/.git-templates/hooks
 [alias]
     adda = add -A -v
     comm = commit -v
@@ -14,3 +16,5 @@
     stat = status -vv
 [push]
     default = simple
+[init]
+    templatedir = ~/.git-templates
