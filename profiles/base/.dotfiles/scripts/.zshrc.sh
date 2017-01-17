@@ -15,7 +15,7 @@ then
     if [ $UID -eq 0 ]; then NCOLOR="green"; else NCOLOR="white"; fi
 
     # prompt
-    PROMPT=$'%{$fg_bold[$NCOLOR]%}%B%n%b%{$reset_color%} in %{$fg_bold[red]%}%~%{$reset_color%}$(git_prompt_info) \n%(!.#.$) '
+    PROMPT=$'\n%{$fg_bold[$NCOLOR]%}%B%n%b%{$reset_color%} in %{$fg_bold[red]%}%~%{$reset_color%}$(git_prompt_info) \n%(!.#.$) '
     RPROMPT=''
 
     # git theming
