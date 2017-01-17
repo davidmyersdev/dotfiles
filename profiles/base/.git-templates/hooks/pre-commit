@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# remove the ability to commit to a repo with an origin that is not globally whitelisted
+# add a host via: `git config --global --add user.hosts github.com`
+hosts=$(git config --global --get-all user.hosts)
+origin=$(git remote get-url origin)
+
+while read -r host
+do
+  if echo ${origin} | grep ${host} > /dev/null
+  then
+    exit 0
+  fi
+done <<< "${hosts}"
+
+echo "Your current git email is configured as $(git config user.email)."
+echo "The origin host for this repo doesn't exist in your user.hosts config."
+echo "You need to switch accounts or add this host before committing."
+
+exit 1
