@@ -1,0 +1,34 @@
+[alias]
+  age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
+  amend = commit --amend -C HEAD
+  co = checkout
+  default = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
+  dn = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
+  fp = push --force-with-lease
+  l = "!f() { count=${1:-10}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count; }; f"
+  rbi = "!f() { git rebase -i $(git default); }; f"
+  rbm = "!f() { git checkout $(git default); git pull --rebase; git checkout -; git rebase $(git default); }; f"
+  rhh = reset --hard HEAD
+  rsh = reset --soft HEAD
+  up = push -u origin HEAD
+[commit]
+  gpgsign = true
+[core]
+  editor = vim
+[gpg]
+  program = gpg
+[pull]
+  rebase = true
+[tag]
+  gpgsign = true
+[user]
+  signingkey = 39172BB67E6A96CC
+  email = davidrmyersii@gmail.com
+  name = David R. Myers
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[init]
+  defaultBranch = main
