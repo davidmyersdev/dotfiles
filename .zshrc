@@ -66,6 +66,10 @@ function is-me() {
   [ "`whoami`" = "david" ] && true || false
 }
 
+function launch() {
+  open -a "$1"
+}
+
 function password-set() {
   security add-generic-password -a "$USER" -s "$1" -w
 }
@@ -141,8 +145,24 @@ function set_env() {
   eval "read -s $1 && export $1"
 }
 
+function quit() {
+  osascript -e "quit app \"$1\""
+}
+
 function title() {
   echo -en "\033]0;${1:?zsh}\007"
+}
+
+function window() {
+  ([ -z "$1" ] || [ -z "$2" ]) && return
+
+  defaults write com.knollsoft.Rectangle specifiedHeight -float $2
+  defaults write com.knollsoft.Rectangle specifiedWidth -float $1
+
+  quit Rectangle
+  launch Rectangle
+
+  echo "Rectangle window size updated to $1x$2."
 }
 
 # must be after function definitions
