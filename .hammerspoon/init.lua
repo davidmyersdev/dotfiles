@@ -1,90 +1,58 @@
-function center(frame)
-  frame.x = (screen().w - frame.w) / 2
-  frame.y = (screen().h - frame.h) / 2
-
-  return frame
-end
-
-function clearAnimation()
-  hs.window.animationDuration = 0
-end
-
-function left(frame)
-  frame.x = ((screen().w / 4) - frame.w) / 2
-  frame.y = (screen().h - frame.h) / 2
-
-  return frame
-end
-
-function resize(frame, dimensions)
-  frame.w = dimensions.w
-  frame.h = dimensions.h
-
-  return frame
-end
-
-function right(frame)
-  frame.x = screen().w - ((screen().w / 8)) - (frame.w / 2)
-  frame.y = (screen().h - frame.h) / 2
-
-  return frame
+function screen()
+  return hs.window.focusedWindow():screen():frame()
 end
 
 function window(details)
   local app = hs.window.focusedWindow()
   local frame = app:frame()
 
-  if details.dimensions ~= nil
-  then
-    frame = resize(frame, details.dimensions)
-  end
+  frame.w = details.width
+  frame.h = details.height
 
-  if details.position ~= nil
-  then
-    frame = _G[details.position](frame)
-  end
+  local columns = details.columns or 4
+  local rows = details.rows or 1
+  local column = details.column or 2.5
+  local row = details.row or 1
 
-  clearAnimation()
+  local columnWidth = screen().w / columns
+  local rowHeight = screen().h / rows
+
+  frame.x = (columnWidth * column) - (columnWidth / 2) - (frame.w / 2)
+  frame.y = (rowHeight * row) - (rowHeight / 2) - (frame.h / 2)
+
+  hs.window.animationDuration = 0
+
   app:setFrame(frame)
 end
 
-function screen()
-  return hs.window.focusedWindow():screen():frame()
-end
-
-hs.hotkey.bind({"control", "option"}, "return", function()
-  window({
-    position = "center",
-    dimensions = screen(),
-  })
+hs.hotkey.bind({"control", "option"}, "1", function()
+  window({ column = 1, width = 700, height = 1080 })
 end)
 
-hs.hotkey.bind({"control", "option"}, "f", function()
-  window({
-    position = "left",
-    dimensions = {
-      w = 760,
-      h = 1080,
-    },
-  })
+hs.hotkey.bind({"control", "option"}, "2", function()
+  window({ column = 2, width = 700, height = 1080 })
 end)
 
-hs.hotkey.bind({"control", "option"}, "l", function()
-  window({
-    position = "right",
-    dimensions = {
-      w = 760,
-      h = 1080,
-    },
-  })
+hs.hotkey.bind({"control", "option"}, "3", function()
+  window({ column = 3, width = 700, height = 1080 })
+end)
+
+hs.hotkey.bind({"control", "option"}, "4", function()
+  window({ column = 4, width = 700, height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "m", function()
-  window({
-    position = "center",
-    dimensions = {
-      w = 1920,
-      h = 1080,
-    },
-  })
+  window({ column = 2.5, width = 1920, height = 1080 })
+end)
+
+hs.hotkey.bind({"control", "option"}, "return", function()
+  window({ column = 2.5, width = screen().w, height = screen().h })
+end)
+
+hs.hotkey.bind({"control", "option"}, "f", function()
+  window({ column = 1, width = 760, height = 1080 })
+end)
+
+hs.hotkey.bind({"control", "option"}, "l", function()
+  window({ column = 4, width = 760, height = 1080 })
 end)
