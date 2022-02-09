@@ -45,12 +45,23 @@ function dox-bundle() {
   fi
 }
 
+# Run `dox-dc logs <service>` without specifying the service name for the current app.
+function dox-logs() {
+  dox-dc logs --tail 500 $@ "$(basename "$(git rev-parse --show-toplevel)")"
+}
+
+
 # Run `bundle exec rails db:migrate` in the Docker container for the current app.
 function dox-migrate() {
   if [ -f "Gemfile" ] && [ ! -z "$(cat Gemfile | grep 'gem \"rails\"')" ]
   then
     dox-do -T bash -c "which bundle && bundle exec rails db:migrate"
   fi
+}
+
+# Run `dox-dc restart <service>` without specifying the service name for the current app.
+function dox-restart() {
+  dox-dc restart "$(basename "$(git rev-parse --show-toplevel)")"
 }
 
 # Pull latest changes, install dependencies, and run migrations for the current app.
