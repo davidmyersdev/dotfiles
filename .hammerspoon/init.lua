@@ -25,6 +25,7 @@ function window(details)
   app:setFrame(frame)
 end
 
+-- The default grid is 4 columns in a single row. E.g. | 1 | 2 | 3 | 4 |
 hs.hotkey.bind({"control", "option"}, "1", function()
   window({ column = 1, width = 700, height = 1080 })
 end)

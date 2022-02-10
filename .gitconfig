@@ -1,9 +1,11 @@
 [alias]
   age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
   amend = commit --amend -C HEAD
+  bp = "!f() { git branch --merged \"$(git default)\" --format \"%(refname:short)\" | grep -v -e \"^master$\" | xargs -n 1 -r git branch -d; }; f"
   co = checkout
   default = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
   dn = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
+  f = fetch --all --prune
   fp = push --force-with-lease
   l = "!f() { count=${1:-10}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count; }; f"
   rbi = "!f() { git rebase -i $(git default); }; f"
