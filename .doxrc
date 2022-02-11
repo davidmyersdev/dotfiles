@@ -55,7 +55,11 @@ function dox-logs() {
 function dox-migrate() {
   if [ -f "Gemfile" ] && [ ! -z "$(cat Gemfile | grep 'gem \"rails\"')" ]
   then
+    local changes="$(git status --porcelain)"
+
     dox-do -T bash -c "which bundle && bundle exec rails db:migrate"
+
+    [ -z "$changes" ] && sleep 1 && git reset --hard HEAD
   fi
 }
 
@@ -77,7 +81,7 @@ function dox-update-app() {
     dox-bundle
     dox-migrate
     # ignore any changes made by the migration
-    [ -f "db/schema.rb" ] && git checkout -- db/schema.rb
+    git reset --hard HEAD
     git checkout - # checkout the previous branch
   else
     echo "Commit or discard changes first. Skipping app..."
@@ -107,7 +111,7 @@ function is-ads-app() {
 
 # Check whether the current directory has uncommitted git changes.
 function is-clean() {
-  if [ ! -z "$(git status | grep 'nothing to commit, working tree clean')" ]
+  if [ -z "$(git status --porcelain)" ]
   then
     true
   else
