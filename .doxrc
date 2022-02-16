@@ -59,7 +59,7 @@ function dox-migrate() {
 
     dox-do -T bash -c "which bundle && bundle exec rails db:migrate"
 
-    [ -z "$changes" ] && sleep 1 && git reset --hard HEAD
+    [ -z "$changes" ] && sleep 1.5 && git reset --hard HEAD
   fi
 }
 
