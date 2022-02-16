@@ -43,8 +43,9 @@ alias ls="ls -alGF"
 alias pbsquish="pbpaste | tr '\n' ' ' | pbcopy"
 alias cd-w="cd $WORKSPACE"
 
-# java (for android studio)
+# android studio (java, adb, etc)
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/Users/david/Library/Android/sdk/platform-tools:$PATH"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
