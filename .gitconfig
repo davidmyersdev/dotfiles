@@ -1,7 +1,9 @@
 [alias]
   age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
+  aliases = config --get-regexp '^alias\\.'
   amend = commit --amend -C HEAD
-  bp = "!f() { git branch --merged \"$(git default)\" --format \"%(refname:short)\" | grep -v -e \"^$(git default)$\" | xargs -n 1 -r git branch -d; }; f"
+  bp = "!f() { git bs | xargs -n 1 -r git branch -d; }; f"
+  bs = "!f() { git branch --merged \"$(git default)\" --format \"%(refname:short)\" | grep -v -e \"^$(git default)$\"; }; f"
   co = checkout
   default = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
   dn = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
