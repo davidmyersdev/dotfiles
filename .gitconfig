@@ -8,6 +8,7 @@
   f = fetch --all --prune
   fp = push --force-with-lease
   l = "!f() { count=${1:-10}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count; }; f"
+  main = "!f() { git checkout $(git default); }; f"
   rbi = "!f() { git rebase -i $(git default); }; f"
   rbm = "!f() { git checkout $(git default); git pull --rebase; git checkout -; git rebase $(git default); }; f"
   rhh = reset --hard HEAD
