@@ -27,19 +27,19 @@ end
 
 -- The default grid is 4 columns in a single row. E.g. | 1 | 2 | 3 | 4 |
 hs.hotkey.bind({"control", "option"}, "1", function()
-  window({ column = 1, width = 700, height = 1080 })
+  window({ column = 1, width = (screen().w / 4), height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "2", function()
-  window({ column = 2, width = 700, height = 1080 })
+  window({ column = 2, width = (screen().w / 4), height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "3", function()
-  window({ column = 3, width = 700, height = 1080 })
+  window({ column = 3, width = (screen().w / 4), height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "4", function()
-  window({ column = 4, width = 700, height = 1080 })
+  window({ column = 4, width = (screen().w / 4), height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "return", function()
