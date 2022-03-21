@@ -71,12 +71,21 @@ function launch() {
   open -a "$1"
 }
 
-function password-set() {
+function password-add() {
   security add-generic-password -a "$USER" -s "$1" -w
 }
 
 function password-get() {
   security find-generic-password -a "$USER" -s "$1" -w
+}
+
+function password-remove() {
+  security delete-generic-password -a "$USER" -s "$1"
+}
+
+function password-replace() {
+  password-remove "$1"
+  password-add "$1"
 }
 
 # always loaded before displaying the prompt
