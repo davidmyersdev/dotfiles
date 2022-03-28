@@ -9,7 +9,7 @@
   dn = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
   f = fetch --all --prune
   fp = push --force-with-lease
-  l = "!f() { count=${1:-10}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count; }; f"
+  l = "!f() { count=${1:-10}; branch=${2:-HEAD}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
   main = "!f() { git checkout $(git default); }; f"
   rbi = "!f() { git rebase -i $(git default); }; f"
   rbm = "!f() { git checkout $(git default); git pull --rebase; git checkout -; git rebase $(git default); }; f"
