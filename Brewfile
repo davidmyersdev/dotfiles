@@ -4,6 +4,8 @@
 # brew leaves | sort | xargs -n 1 brew desc
 # brew list --cask | sort
 
+tap 'helix-editor/helix' # https://github.com/helix-editor/helix
+
 brew 'act' # Run your GitHub Actions locally 🚀
 brew 'xcnotary' # macOS app notarization helper
 brew 'automake' # Tool for generating GNU Standards-compliant Makefiles
@@ -20,6 +22,7 @@ brew 'git' # Distributed revision control system
 brew 'git-lfs' # Git extension for versioning large files
 brew 'gnupg' # GNU Pretty Good Privacy (PGP) package
 brew 'graphviz' # Graph visualization software from AT&T and Bell Labs
+brew 'helix' # Post-modern modal text editor
 brew 'jq' # Lightweight and flexible command-line JSON processor
 brew 'lua' # Powerful, lightweight programming language
 brew 'mysql' # Open source relational database management system
