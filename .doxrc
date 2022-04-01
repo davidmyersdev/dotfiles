@@ -37,6 +37,11 @@ function ads-update() {
   ads-parallel dox-update-app
 }
 
+# Launch an interactive `bash` shell in the Docker container for the current app.
+function dox-bash() {
+  dox-do bash
+}
+
 # Run `bundle` in the Docker container for the current app.
 function dox-bundle() {
   if [ -f "Gemfile" ]
@@ -60,6 +65,14 @@ function dox-migrate() {
     dox-do -T bash -c "which bundle && bundle exec rails db:migrate"
 
     [ -z "$changes" ] && sleep 2 && git reset --hard HEAD
+  fi
+}
+
+# Launch an interactive `rails` command in the Docker container for the current app.
+function dox-rails() {
+  if [ -f "Gemfile" ] && [ ! -z "$(cat Gemfile | grep 'gem \"rails\"')" ]
+  then
+    dox-do bash -c "which bundle && bundle exec rails $@"
   fi
 }
 
