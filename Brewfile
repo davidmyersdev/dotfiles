@@ -7,7 +7,6 @@
 tap 'helix-editor/helix' # https://github.com/helix-editor/helix
 
 brew 'act' # Run your GitHub Actions locally 🚀
-brew 'xcnotary' # macOS app notarization helper
 brew 'automake' # Tool for generating GNU Standards-compliant Makefiles
 brew 'awscli' # Official Amazon AWS command-line interface
 brew 'bash' # Bourne-Again SHell, a UNIX command interpreter
@@ -18,6 +17,7 @@ brew 'diffr' # LCS based diff highlighting tool to ease code review from your te
 brew 'dnsmasq' # Lightweight DNS forwarder and DHCP server
 brew 'fzf' # Command-line fuzzy finder written in Go
 brew 'gawk' # GNU awk utility
+brew 'gh' # GitHub command-line tool
 brew 'git' # Distributed revision control system
 brew 'git-lfs' # Git extension for versioning large files
 brew 'gnupg' # GNU Pretty Good Privacy (PGP) package
@@ -39,6 +39,7 @@ brew 'rbenv' # Ruby version manager
 brew 'scrcpy' # Display and control your Android device
 brew 'swig' # Generate scripting interfaces to C/C++ code
 brew 'tmate' # Instant terminal sharing
+brew 'xcnotary' # macOS app notarization helper
 
 cask '1password' # Password manager that keeps all passwords secure behind one password
 cask 'affinity-photo' # Professional image editing software
