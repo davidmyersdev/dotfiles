@@ -54,6 +54,10 @@ hs.hotkey.bind({"control", "option"}, "right", function()
   window({ column = 2, columns = 2, width = (screen().w / 2), height = screen().h })
 end)
 
+hs.hotkey.bind({"control", "option"}, "c", function()
+  window({ column = 2.5, width = 960, height = 540 })
+end)
+
 hs.hotkey.bind({"control", "option"}, "m", function()
   window({ column = 2.5, width = 1920, height = 1080 })
 end)
