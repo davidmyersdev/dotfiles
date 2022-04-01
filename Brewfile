@@ -45,6 +45,7 @@ cask '1password' # Password manager that keeps all passwords secure behind one p
 cask 'affinity-photo' # Professional image editing software
 cask 'aws-vault' # Securely stores and accesses AWS credentials in a development environment
 cask 'azure-data-studio' # Data management tool that enables working with SQL Server
+cask 'devutils' # Offline toolbox for developers
 cask 'discord' # Voice and text chat software
 cask 'docker' # App to build and share containerized applications and microservices
 cask 'firefox' # Web browser

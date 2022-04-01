@@ -1426,6 +1426,12 @@
         "options": {
           "full_name": "raspberry-pi-imager"
         }
+      },
+      "devutils": {
+        "version": "1.13.0,108",
+        "options": {
+          "full_name": "devutils"
+        }
       }
     },
     "tap": {
@@ -1439,7 +1445,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.4.4",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "a3587626be65f7f450287224ac4fb6b245c189a8",
+        "Homebrew/homebrew-core": "03d32e98bfb27f8407931a8764da77598f9d82bf",
         "CLT": "13.2.0.0.1.1637719136",
         "Xcode": "13.2.1",
         "macOS": "11.4"
