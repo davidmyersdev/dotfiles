@@ -2,7 +2,7 @@
 # packages (including casks), do something like the following.
 #
 # brew leaves | sort | xargs -n 1 brew desc
-# brew list --cask | sort
+# brew list --cask | sort | xargs -n 1 brew desc --cask
 
 tap 'helix-editor/helix' # https://github.com/helix-editor/helix
 
@@ -45,6 +45,7 @@ cask '1password' # Password manager that keeps all passwords secure behind one p
 cask 'affinity-photo' # Professional image editing software
 cask 'aws-vault' # Securely stores and accesses AWS credentials in a development environment
 cask 'azure-data-studio' # Data management tool that enables working with SQL Server
+cask 'dash' # API documentation browser and code snippet manager
 cask 'devutils' # Offline toolbox for developers
 cask 'discord' # Voice and text chat software
 cask 'docker' # App to build and share containerized applications and microservices
