@@ -14,8 +14,7 @@ SAVEHIST=99999
 # workspace
 export WORKSPACE="$HOME/workspace"
 
-# autojump
-# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# j (autojump alternative)
 source $WORKSPACE/personal/j/j.sh
 
 # nvm

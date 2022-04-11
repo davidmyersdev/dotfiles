@@ -49,6 +49,7 @@ cask 'dash' # API documentation browser and code snippet manager
 cask 'devutils' # Offline toolbox for developers
 cask 'discord' # Voice and text chat software
 cask 'docker' # App to build and share containerized applications and microservices
+cask 'figma' # Collaborative team software
 cask 'firefox' # Web browser
 cask 'font-fira-code' # Fira Code font
 cask 'hammerspoon' # Desktop automation application
