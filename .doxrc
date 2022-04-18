@@ -12,9 +12,9 @@ eval "$("$HOME/workspace/work/dox-compose/bin/dox-init")"
 alias ads-ls="echo $ADS_APPS"
 
 # Docker utilities
-alias ads-up="dox-dc up -d $ADS_APPS"
-alias ads-down="dox-dc down"
-alias ads-restart="ads-down && ads-up"
+alias ads-start="dox-dc up -d $ADS_APPS"
+alias ads-stop="dox-dc down"
+alias ads-restart="ads-stop && ads-start"
 alias ads-logs="dox-dc logs -f $ADS_APPS"
 
 # Navigation utilities

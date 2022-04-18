@@ -130,6 +130,8 @@ module.exports = {
     // (inside tmux or vim with mouse mode enabled for example).
     macOptionSelectionMode: 'vertical',
 
+    scrollback: 9999,
+
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
