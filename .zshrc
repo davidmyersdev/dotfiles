@@ -11,6 +11,9 @@ HISTFILE="$HOME/.zsh_histories/.zsh_history.$(date +%s)_$(basename `tty`)"
 HISTSIZE=99999
 SAVEHIST=99999
 
+# Homebrew global bundle file
+export HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
+
 # workspace
 export WORKSPACE="$HOME/workspace"
 
