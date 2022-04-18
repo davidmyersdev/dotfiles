@@ -55,6 +55,7 @@ cask 'font-fira-code' # Fira Code font
 cask 'hammerspoon' # Desktop automation application
 cask 'hyper' # Terminal built on web technologies
 cask 'insomnia' # HTTP and GraphQL Client
+cask 'iterm2' # Terminal emulator as alternative to Apple's Terminal app
 cask 'ngrok' # Reverse proxy, secure introspectable tunnels to localhost
 cask 'raspberry-pi-imager' # Imaging utility to install operating systems to a microSD card
 cask 'rectangle' # Move and resize windows using keyboard shortcuts or snap areas
