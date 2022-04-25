@@ -10,9 +10,10 @@
   f = fetch --all --prune
   force = push --force-with-lease
   l = "!f() { count=${1:-10}; branch=${2:-HEAD}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
-  main = "!f() { git checkout $(git default); }; f"
-  rbi = "!f() { git rebase -i $(git default); }; f"
-  rbm = "!f() { git checkout $(git default); git pull --rebase; git checkout -; git rebase $(git default); }; f"
+  main = "!f() { git co $(git default); }; f"
+  rbi = "!f() { git f; git rebase -i $1; }; f"
+  rbim = "!f() { git rbi origin/$(git default); }; f"
+  rbm = "!f() { git f; git rebase origin/$(git default); }; f"
   rhh = reset --hard HEAD
   rsh = reset --soft HEAD
   up = push -u origin HEAD
