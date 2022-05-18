@@ -53,12 +53,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# include doximity config
-source $HOME/.doxrc
-
-# enable shell completion
-dox completion zsh > "${fpath[1]}/_dox"
-
 # utilities
 
 function is-git() {
@@ -179,5 +173,11 @@ function window() {
 
 # must be after function definitions
 export GITHUB_TOKEN="$(password-get github_token)"
+
+# include doximity config
+source $HOME/.doxrc
+
+# enable shell completion
+dox completion zsh > "${fpath[1]}/_dox"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
