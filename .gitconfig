@@ -11,6 +11,7 @@
   force = push --force-with-lease
   l = "!f() { count=${1:-10}; branch=${2:-HEAD}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
   main = "!f() { git co $(git default); }; f"
+  pr = "!f() { git fetch origin pull/$1/head:pr/$1; git co pr/$1; }; f"
   rbi = "!f() { git f; git rebase -i $1; }; f"
   rbim = "!f() { git rbi origin/$(git default); }; f"
   rbm = "!f() { git f; git rebase origin/$(git default); }; f"
