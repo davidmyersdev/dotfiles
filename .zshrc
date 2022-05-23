@@ -129,6 +129,10 @@ function prompt-user() {
   ! is-me && echo -n "as %F{#ba6ecf}%n%F{252} "
 }
 
+function quit() {
+  osascript -e "quit app \"$1\""
+}
+
 function relative-pwd() {
   local dir="`pwd`"
 
@@ -151,8 +155,12 @@ function set_env() {
   eval "read -s $1 && export $1"
 }
 
-function quit() {
-  osascript -e "quit app \"$1\""
+function timestamp() {
+  date +%Y-%m-%dT%H:%M:%S%z
+}
+
+function timestamp-clip() {
+  timestamp | xargs echo -n | pbcopy
 }
 
 function title() {
