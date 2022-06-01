@@ -1,20 +1,39 @@
 [alias]
+  # List the commit timestamp for all refs.
   age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
+  # List all available git aliases with their definitions.
   aliases = config --get-regexp '^alias\\.'
+  # Amend (fixup) staged changes into the latest commit.
   amend = commit --amend -C HEAD
+  # Prune branches that have been merged into the main branch.
   bp = "!f() { git bs | xargs -n 1 -r git branch -d; }; f"
-  bs = "!f() { git branch --merged \"$(git default)\" --format \"%(refname:short)\" | grep -v -e \"^$(git default)$\"; }; f"
+  # List branches that have been merged into the main branch.
+  bs = "!f() { git branch --merged \"$(git main)\" --format \"%(refname:short)\" | grep -v -e \"^$(git main)$\"; }; f"
+  c = commit
   co = checkout
-  default = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
-  dn = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
+  # Checkout the main branch.
+  com = "!f() { git co $(git main); }; f"
+  # Checkout a pull request by its number into a new branch called `pr/<number>`.
+  copr = "!f() { git fetch origin pull/$1/head:pr/$1; git co pr/$1; }; f"
+  dn = diff --name-only
+  # Show all changed files compared to origin/main.
+  dno = "!f() { git dn origin/$(git main) }; f"
+  # TBD: Looks like it lists all changed files along with the commits they were changed in? I don't remember...
+  dnwc = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
+  # Fetch latest changes from origin.
   f = fetch --all --prune
-  force = push --force-with-lease
-  l = "!f() { count=${1:-10}; branch=${2:-HEAD}; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
-  main = "!f() { git co $(git default); }; f"
-  pr = "!f() { git fetch origin pull/$1/head:pr/$1; git co pr/$1; }; f"
+  # Force-push without erasing unrecognized changes on origin.
+  fwl = push --force-with-lease
+  # List the last X commits for Y ref (can be passed in any order).
+  l = "!f() { if [[ $1 =~ ^[0-9]+$ ]]; then count=${1:-10}; branch=${2:-HEAD}; else count=${2:-10}; branch=${1:-HEAD}; fi; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
+  # Get the name of the main branch on origin.
+  main = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
+  # Interactively rebase the given commit into the current branch.
   rbi = "!f() { git f; git rebase -i $1; }; f"
-  rbim = "!f() { git rbi origin/$(git default); }; f"
-  rbm = "!f() { git f; git rebase origin/$(git default); }; f"
+  # Interactively rebase the main branch into the current branch.
+  rbim = "!f() { git rbi origin/$(git main); }; f"
+  # Rebase the main branch into the current branch.
+  rbm = "!f() { git f; git rebase origin/$(git main); }; f"
   rhh = reset --hard HEAD
   rsh = reset --soft HEAD
   up = push -u origin HEAD
