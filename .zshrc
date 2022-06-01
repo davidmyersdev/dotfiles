@@ -181,6 +181,8 @@ function window() {
 
 # must be after function definitions
 export GITHUB_TOKEN="$(password-get github_token)"
+export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
+export NEXUS_PULL_PASS="$(password-get nexus_pull_pass)"
 
 # include doximity config
 source $HOME/.doxrc
