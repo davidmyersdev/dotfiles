@@ -1,22 +1,22 @@
 [alias]
+  a = add
+  # Stage all changes.
+  aa = add .
   # List the commit timestamp for all refs.
   age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
   # List all available git aliases with their definitions.
   aliases = config --get-regexp '^alias\\.'
   # Amend (fixup) staged changes into the latest commit.
   amend = commit --amend -C HEAD
-  # Prune branches that have been merged into the main branch.
-  bp = "!f() { git bs | xargs -n 1 -r git branch -d; }; f"
-  # List branches that have been merged into the main branch.
-  bs = "!f() { git branch --merged \"$(git main)\" --format \"%(refname:short)\" | grep -v -e \"^$(git main)$\"; }; f"
   c = commit
   co = checkout
   # Checkout the main branch.
-  com = "!f() { git co $(git main); }; f"
+  com = "!f() { git co $(git main) $@; }; f"
   # Checkout a pull request by its number into a new branch called `pr/<number>`.
   copr = "!f() { git fetch origin pull/$1/head:pr/$1; git co pr/$1; }; f"
   d = diff
   dh = diff HEAD
+  dm = "!f() { git diff origin/$(git main) -- $@; }; f"
   dn = diff --name-only
   # Show all changed files compared to origin/main.
   dno = "!f() { git dn origin/$(git main); }; f"

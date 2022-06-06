@@ -12,16 +12,16 @@ HISTSIZE=99999
 SAVEHIST=99999
 
 # Homebrew global bundle file
-export HOMEBREW_BUNDLE_FILE="$HOME/Brewfile"
+export HOMEBREW_BUNDLE_FILE=~/Brewfile
 
 # workspace
-export WORKSPACE="$HOME/workspace"
+export WORKSPACE=~/workspace
 
 # j (autojump alternative)
 source $WORKSPACE/personal/j/j.sh
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR=~/.nvm
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
@@ -185,9 +185,12 @@ export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
 export NEXUS_PULL_PASS="$(password-get nexus_pull_pass)"
 
 # include doximity config
-source $HOME/.doxrc
+source ~/.doxrc
 
 # enable shell completion
 dox completion zsh > "${fpath[1]}/_dox"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add custom bin scripts to path
+export PATH="$HOME/.bin:$PATH"

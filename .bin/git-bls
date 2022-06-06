@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# List branches that have been merged into the main branch.
+git branch --merged "$(git main)" --format "%(refname:short)" | grep -v -e "^$(git main)$"
