@@ -180,9 +180,10 @@ function window() {
 }
 
 # must be after function definitions
+export BUNDLE_ARTIFACTS__DOX__SUPPORT="$(password-get bundler_dox_support_creds)"
 export GITHUB_TOKEN="$(password-get github_token)"
-export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
 export NEXUS_PULL_PASS="$(password-get nexus_pull_pass)"
+export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
 
 # include doximity config
 source ~/.doxrc
