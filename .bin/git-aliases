@@ -2,4 +2,4 @@
 # List all available git aliases with their definitions.
 
 set -v
-git config --get-regexp '^alias\\.'
+git config --get-regexp '^alias\.'
