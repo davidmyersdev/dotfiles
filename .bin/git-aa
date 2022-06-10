@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+# Stage all changes.
+
+set -v
+git add .

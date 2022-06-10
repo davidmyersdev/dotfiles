@@ -1,13 +1,4 @@
 [alias]
-  a = add
-  # Stage all changes.
-  aa = add .
-  # List the commit timestamp for all refs.
-  age = for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)'
-  # List all available git aliases with their definitions.
-  aliases = config --get-regexp '^alias\\.'
-  # Amend (fixup) staged changes into the latest commit.
-  amend = commit --amend -C HEAD
   c = commit
   co = checkout
   # Checkout the main branch.
