@@ -1,16 +1,16 @@
 [alias]
-  c = commit
-  co = checkout
+  c = !zsh -v -c 'git commit $@' '$@'
+  co = !zsh -v -c 'git checkout $@' '$@'
   # Checkout the main branch.
-  com = "!f() { git co $(git main) $@; }; f"
+  com = !zsh -v -c 'git checkout $(git main) $@' '$@'
   # Checkout a pull request by its number into a new branch called `pr/<number>`.
-  copr = "!f() { git fetch origin pull/$1/head:pr/$1; git co pr/$1; }; f"
-  d = diff
-  dh = diff HEAD
-  dm = "!f() { git diff origin/$(git main) -- $@; }; f"
-  dn = diff --name-only
+  copr = !zsh -v -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' '$@'
+  d = !zsh -v -c 'git diff $@' '$@'
+  dh = !zsh -v -c 'git diff HEAD $@' '$@'
+  dn = !zsh -v -c 'git diff --name-only $@' '$@'
   # Show all changed files compared to origin/main.
-  dno = "!f() { git dn origin/$(git main); }; f"
+  dno = !zsh -v -c 'git diff --name-only origin/$(git main) $@' '$@'
+  do = !zsh -v -c 'git diff origin/$(git main) $@' '$@'
   # TBD: Looks like it lists all changed files along with the commits they were changed in? I don't remember...
   dnwc = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
   # Fetch latest changes from origin.
