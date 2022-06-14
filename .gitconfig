@@ -18,9 +18,9 @@
   # Force-push without erasing unrecognized changes on origin.
   fwl = !zsh -v -c 'git push --force-with-lease $@' '$@'
   # Get the name of the main branch on origin.
-  main = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
+  main = !zsh -v -c 'git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename'
   # Interactively rebase the given commit into the current branch.
-  rbi = "!f() { git f; git rebase -i $1; }; f"
+  rbi = !zsh -v -c 'git fetch --all --prune && git rebase -i $@' '$@'
   # Interactively rebase the main branch into the current branch.
   rbim = "!f() { git rbi origin/$(git main); }; f"
   # Rebase the main branch into the current branch.
