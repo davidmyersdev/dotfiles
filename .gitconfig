@@ -14,11 +14,9 @@
   # TBD: Looks like it lists all changed files along with the commits they were changed in? I don't remember...
   dnwc = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
   # Fetch latest changes from origin.
-  f = fetch --all --prune
+  f = !zsh -v -c 'git fetch --all --prune $@' '$@'
   # Force-push without erasing unrecognized changes on origin.
-  fwl = push --force-with-lease
-  # List the last X commits for Y ref (can be passed in any order).
-  l = "!f() { if [[ $1 =~ ^[0-9]+$ ]]; then count=${1:-10}; branch=${2:-HEAD}; else count=${2:-10}; branch=${1:-HEAD}; fi; git log --graph --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=$count $branch; }; f"
+  fwl = !zsh -v -c 'git push --force-with-lease $@' '$@'
   # Get the name of the main branch on origin.
   main = "!f() { git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename; }; f"
   # Interactively rebase the given commit into the current branch.
