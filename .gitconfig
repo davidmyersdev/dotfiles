@@ -1,4 +1,8 @@
 [alias]
+  a = !zsh -v -c 'git add $@' '$@'
+  aa = !zsh -v -c 'git add .'
+  # List the commit timestamp for all refs.
+  age = !zsh -v -c \"git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' $*\" '$*'
   c = !zsh -v -c 'git commit $@' '$@'
   co = !zsh -v -c 'git checkout $@' '$@'
   # Checkout the main branch.
@@ -27,6 +31,7 @@
   rbm = "!f() { git f; git rebase origin/$(git main); }; f"
   rhh = reset --hard HEAD
   rsh = reset --soft HEAD
+  s = !zsh -v -c 'git status'
   up = push -u origin HEAD
 [commit]
   gpgsign = true
