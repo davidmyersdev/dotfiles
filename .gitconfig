@@ -28,7 +28,7 @@
   # Interactively rebase the main branch into the current branch.
   rbim = "!f() { git rbi origin/$(git main); }; f"
   # Rebase the main branch into the current branch.
-  rbm = "!f() { git f; git rebase origin/$(git main); }; f"
+  rbm = !zsh -v -c \"git fetch --all --prune && git rebase origin/\\$(git main) $*\" \"$*\"
   rhh = reset --hard HEAD
   rsh = reset --soft HEAD
   s = !zsh -v -c \"git status\"
