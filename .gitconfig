@@ -1,37 +1,37 @@
 [alias]
-  a = !zsh -v -c 'git add $@' '$@'
-  aa = !zsh -v -c 'git add .'
+  a = !zsh -v -c \"git add $*\" \"$*\"
+  aa = !zsh -v -c \"git add .\"
   # List the commit timestamp for all refs.
-  age = !zsh -v -c \"git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' $*\" '$*'
-  c = !zsh -v -c 'git commit $@' '$@'
-  co = !zsh -v -c 'git checkout $@' '$@'
+  age = !zsh -v -c \"git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' $*\" \"$*\"
+  c = !zsh -v -c \"git commit $*\" \"$*\"
+  co = !zsh -v -c \"git checkout $*\" \"$*\"
   # Checkout the main branch.
-  com = !zsh -v -c 'git checkout $(git main) $@' '$@'
+  com = !zsh -v -c \"git checkout \\$(git main) $*\" \"$*\"
   # Checkout a pull request by its number into a new branch called `pr/<number>`.
-  copr = !zsh -v -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' '$@'
-  d = !zsh -v -c 'git diff $@' '$@'
-  dh = !zsh -v -c 'git diff HEAD $@' '$@'
-  dn = !zsh -v -c 'git diff --name-only $@' '$@'
+  copr = !zsh -v -c \"git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1\" \"$*\"
+  d = !zsh -v -c \"git diff $*\" \"$*\"
+  dh = !zsh -v -c \"git diff HEAD $*\" \"$*\"
+  dn = !zsh -v -c \"git diff --name-only $*\" \"$*\"
   # Show all changed files compared to origin/main.
-  dno = !zsh -v -c 'git diff --name-only origin/$(git main) $@' '$@'
-  do = !zsh -v -c 'git diff origin/$(git main) $@' '$@'
+  dno = !zsh -v -c \"git diff --name-only origin/\\$(git main) $*\" \"$*\"
+  do = !zsh -v -c \"git diff origin/$(git main) $*\" \"$*\"
   # TBD: Looks like it lists all changed files along with the commits they were changed in? I don't remember...
   dnwc = "!f() { for file in `git diff $1 ${2:-HEAD} --name-only`; do echo \"$(git rev-list --abbrev-commit $1..${2:-HEAD} -- \"$file\") $file\"; done }; f"
   # Fetch latest changes from origin.
-  f = !zsh -v -c 'git fetch --all --prune $@' '$@'
+  f = !zsh -v -c \"git fetch --all --prune $*\" \"$*\"
   # Force-push without erasing unrecognized changes on origin.
-  fwl = !zsh -v -c 'git push --force-with-lease $@' '$@'
+  fwl = !zsh -v -c \"git push --force-with-lease $*\" \"$*\"
   # Get the name of the main branch on origin.
-  main = !zsh -v -c 'git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename'
+  main = !zsh -v -c \"git rev-parse --abbrev-ref origin/HEAD | xargs -L 1 basename\"
   # Interactively rebase the given commit into the current branch.
-  rbi = !zsh -v -c 'git fetch --all --prune && git rebase -i $@' '$@'
+  rbi = !zsh -v -c \"git fetch --all --prune && git rebase -i $*\" \"$*\"
   # Interactively rebase the main branch into the current branch.
   rbim = "!f() { git rbi origin/$(git main); }; f"
   # Rebase the main branch into the current branch.
   rbm = "!f() { git f; git rebase origin/$(git main); }; f"
   rhh = reset --hard HEAD
   rsh = reset --soft HEAD
-  s = !zsh -v -c 'git status'
+  s = !zsh -v -c \"git status\"
   up = push -u origin HEAD
 [commit]
   gpgsign = true
