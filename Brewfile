@@ -18,6 +18,7 @@ brew 'dnsmasq' # Lightweight DNS forwarder and DHCP server
 brew 'fzf' # Command-line fuzzy finder written in Go
 brew 'gawk' # GNU awk utility
 brew 'gh' # GitHub command-line tool
+brew 'gifski' # Highest-quality GIF encoder based on pngquant
 brew 'git' # Distributed revision control system
 brew 'git-lfs' # Git extension for versioning large files
 brew 'gnupg' # GNU Pretty Good Privacy (PGP) package
