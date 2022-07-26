@@ -1,0 +1,49 @@
+{
+    "[markdown]":{
+        "editor.wordWrap": "off",
+        "editor.wordWrapColumn": 80,
+    },
+    "editor.accessibilitySupport": "off",
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "editor.rulers": [120],
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "redhat.telemetry.enabled": false,
+    "ruby.specCommand": "dox-do bin/rspec",
+    "terminal.integrated.fontSize": 16,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#ffffff22",
+        "terminal.foreground": "#fefefe",
+        "terminal.background": "#111",
+        "terminalCursor.background":"#fafafa",
+        "terminalCursor.foreground":"#fafafa"
+    },
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "workbench.startupEditor": "none",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.tabs.title": "${cwd}",
+    "terminal.integrated.cursorStyle": "underline",
+    "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
+    "workbench.preferredLightColorTheme": "GitHub Light Default",
+    "window.autoDetectColorScheme": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "files.associations": {
+        "*.slim_ms": "slim"
+    },
+    "svelte.enable-ts-plugin": true,
+    "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+    "svelte.plugin.svelte.compilerWarnings": {
+        "unused-export-let": "ignore"
+    },
+    "workbench.sideBar.location": "right",
+    "markdown.extension.print.theme": "dark",
+    "sync.autoDownload": false,
+    "settingsSync.ignoredExtensions": [
+
+    ]
+}
