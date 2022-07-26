@@ -57,6 +57,10 @@ fi
 
 # utilities
 
+function deprecate-npm() {
+  npm deprecate "$1" "Please install \`$2\` instead"
+}
+
 function is-git() {
   [ -n "$vcs_info_msg_0_" ] && true || false
 }
@@ -197,3 +201,10 @@ dox completion zsh > "${fpath[1]}/_dox"
 
 # Add custom bin scripts to path
 export PATH="$HOME/.bin:$PATH"
+
+# bun completions
+[ -s "/Users/david/.bun/_bun" ] && source "/Users/david/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/david/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
