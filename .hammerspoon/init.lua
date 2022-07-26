@@ -46,12 +46,20 @@ hs.hotkey.bind({"control", "option"}, "return", function()
   window({ column = 2.5, width = screen().w, height = screen().h })
 end)
 
-hs.hotkey.bind({"control", "option"}, "left", function()
+hs.hotkey.bind({"control", "shift", "option"}, "left", function()
   window({ column = 1, columns = 2, width = (screen().w / 2), height = screen().h })
 end)
 
-hs.hotkey.bind({"control", "option"}, "right", function()
+hs.hotkey.bind({"control", "shift", "option"}, "right", function()
   window({ column = 2, columns = 2, width = (screen().w / 2), height = screen().h })
+end)
+
+hs.hotkey.bind({"control", "option"}, "left", function()
+  window({ column = 2, width = (screen().w / 4), height = 1080 })
+end)
+
+hs.hotkey.bind({"control", "option"}, "right", function()
+  window({ column = 3, width = (screen().w / 4), height = 1080 })
 end)
 
 hs.hotkey.bind({"control", "option"}, "c", function()
