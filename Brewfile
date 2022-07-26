@@ -31,6 +31,7 @@ brew 'ncurses' # Text-based UI library
 brew 'nghttp2' # HTTP/2 C Library
 brew 'nvm' # Manage multiple Node.js versions
 brew 'openjdk' # Development kit for the Java programming language
+brew 'pango' # Framework for layout and rendering of i18n text
 brew 'parallel' # Shell command parallelization utility
 brew 'pinentry-mac' # Pinentry for GPG on Mac
 brew 'postgresql' # Object-relational database system
