@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-# Amend the latest commit with the staged changes.
-
-set -v
-git commit --amend -C HEAD

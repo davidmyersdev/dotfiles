@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-# List all available git aliases with their definitions.
-
-set -v
-git config --get-regexp '^alias\.'
