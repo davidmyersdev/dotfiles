@@ -39,6 +39,9 @@
   bp = !~/.dotfiles/git/git-bp.zsh
   ferry = !~/.dotfiles/git/git-ferry.zsh
   clone-all = !~/.dotfiles/git/git-clone-all.zsh
+  flush = !~/.dotfiles/git/git-flush.zsh
+  rbc = !: git rebase && ~/.dotfiles/git/git-rbc.zsh
+  rba = !: git rebase && ~/.dotfiles/git/git-rba.zsh
 [commit]
   gpgsign = true
 [core]
