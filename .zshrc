@@ -184,18 +184,6 @@ function tts() {
   sed -i '' 's/\t/  /g' $@
 }
 
-function window() {
-  ([ -z "$1" ] || [ -z "$2" ]) && return
-
-  defaults write com.knollsoft.Rectangle specifiedHeight -float $2
-  defaults write com.knollsoft.Rectangle specifiedWidth -float $1
-
-  quit Rectangle
-  launch Rectangle
-
-  echo "Rectangle window size updated to $1x$2."
-}
-
 # must be after function definitions
 export BUNDLE_ARTIFACTS__DOX__SUPPORT="$(password-get bundler_dox_support_creds)"
 export GITHUB_TOKEN="$(password-get github_token)"
