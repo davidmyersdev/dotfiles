@@ -153,6 +153,11 @@ function relative-pwd() {
   fi
 }
 
+function reload() {
+  clear
+  exec zsh
+}
+
 function set_env() {
   if [ -z "$1" ]
   then
