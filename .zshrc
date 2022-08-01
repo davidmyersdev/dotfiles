@@ -6,6 +6,8 @@ DISABLE_AUTO_TITLE="true"
 NEWLINE=$'\n'
 PS1='$(prompt-directory)$(prompt-git-branch)$(prompt-git-status)${NEWLINE}$(prompt-user)$(prompt-cursor) '
 
+mkdir -p ~/.zsh_histories
+
 # split history files based on session
 HISTFILE="$HOME/.zsh_histories/.zsh_history.$(date +%s)_$(basename `tty`)"
 HISTSIZE=99999
