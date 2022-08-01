@@ -180,6 +180,10 @@ function title() {
   echo -en "\033]0;${1:?zsh}\007"
 }
 
+function tts() {
+  sed -i '' 's/\t/  /g' $@
+}
+
 function window() {
   ([ -z "$1" ] || [ -z "$2" ]) && return
 
