@@ -28,6 +28,7 @@ brew 'jq' # Lightweight and flexible command-line JSON processor
 brew 'lua' # Powerful, lightweight programming language
 brew 'mysql' # Open source relational database management system
 brew 'ncurses' # Text-based UI library
+brew 'neovim' # Ambitious Vim-fork focused on extensibility and agility
 brew 'nghttp2' # HTTP/2 C Library
 brew 'nvm' # Manage multiple Node.js versions
 brew 'openjdk' # Development kit for the Java programming language
