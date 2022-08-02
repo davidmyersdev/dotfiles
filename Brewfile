@@ -42,10 +42,12 @@ brew 'rbenv' # Ruby version manager
 brew 'scrcpy' # Display and control your Android device
 brew 'swig' # Generate scripting interfaces to C/C++ code
 brew 'tmate' # Instant terminal sharing
+brew 'vim' # Vi 'workalike' with many additional features
 brew 'xcnotary' # macOS app notarization helper
 
 cask '1password' # Password manager that keeps all passwords secure behind one password
 cask 'affinity-photo' # Professional image editing software
+cask 'alacritty' # GPU-accelerated terminal emulator
 cask 'aws-vault' # Securely stores and accesses AWS credentials in a development environment
 cask 'azure-data-studio' # Data management tool that enables working with SQL Server
 cask 'dash' # API documentation browser and code snippet manager
