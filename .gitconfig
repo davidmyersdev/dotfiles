@@ -42,6 +42,7 @@
   flush = !~/.dotfiles/git/git-flush.zsh
   rbc = !: git rebase && ~/.dotfiles/git/git-rbc.zsh
   rba = !: git rebase && ~/.dotfiles/git/git-rba.zsh
+  ds = !: git diff && ~/.dotfiles/git/git-ds.zsh
 [commit]
   gpgsign = true
 [core]
