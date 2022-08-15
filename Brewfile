@@ -8,6 +8,7 @@ tap 'ankitpokhrel/jira-cli' # https://github.com/ankitpokhrel/jira-cli
 tap 'helix-editor/helix' # https://github.com/helix-editor/helix
 
 brew 'act' # Run your GitHub Actions locally 🚀
+brew 'asciinema' # Record and share terminal sessions
 brew 'automake' # Tool for generating GNU Standards-compliant Makefiles
 brew 'awscli' # Official Amazon AWS command-line interface
 brew 'bash' # Bourne-Again SHell, a UNIX command interpreter
