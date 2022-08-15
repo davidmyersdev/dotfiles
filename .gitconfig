@@ -43,6 +43,7 @@
   rbc = !: git rebase && ~/.dotfiles/git/git-rbc.zsh
   rba = !: git rebase && ~/.dotfiles/git/git-rba.zsh
   ds = !: git diff && ~/.dotfiles/git/git-ds.zsh
+	frbm = !~/.dotfiles/git/git-frbm.zsh
 [commit]
   gpgsign = true
 [core]
