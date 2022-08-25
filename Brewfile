@@ -42,6 +42,7 @@ brew 'postgresql' # Object-relational database system
 brew 'pyenv' # Python version management
 brew 'python@3.10' # Interpreted, interactive, object-oriented programming language
 brew 'rbenv' # Ruby version manager
+brew 'ruby-build' # Install various Ruby versions and implementations
 brew 'scrcpy' # Display and control your Android device
 brew 'swig' # Generate scripting interfaces to C/C++ code
 brew 'tmate' # Instant terminal sharing
