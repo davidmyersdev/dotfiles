@@ -59,6 +59,9 @@
   signingkey = 39172BB67E6A96CC
   email = davidrmyersii@gmail.com
   name = David R. Myers
+[url "git@github.com:"]
+  insteadOf = http://github.com/
+  insteadOf = https://github.com/
 [filter "lfs"]
   required = true
   clean = git-lfs clean -- %f
