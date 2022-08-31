@@ -4,7 +4,7 @@
 ##    doximity    ##
 ####################
 
-export ADS_APPS="doximity doximity-workers activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-workers doximity-client-vue-memcached spectrum"
+export ADS_APPS="doximity doximity-workers activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-workers doximity-client-vue-memcached graphql-federation spectrum"
 export ADS_WORKSPACE="$HOME/workspace/work"
 
 # Initialize the `dox-compose` command.
