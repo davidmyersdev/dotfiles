@@ -15,16 +15,25 @@ brew 'bash' # Bourne-Again SHell, a UNIX command interpreter
 brew 'bash-completion' # Programmable completion for Bash 3.2
 brew 'circleci' # Enables you to reproduce the CircleCI environment locally
 brew 'cmake' # Cross-platform make
+brew 'coreutils' # GNU File, Shell, and Text utilities
 brew 'diffr' # LCS based diff highlighting tool to ease code review from your terminal
 brew 'dnsmasq' # Lightweight DNS forwarder and DHCP server
+brew 'findutils' # Collection of GNU find, xargs, and locate
 brew 'fzf' # Command-line fuzzy finder written in Go
+brew 'gawk' # GNU awk utility
 brew 'gawk' # GNU awk utility
 brew 'gh' # GitHub command-line tool
 brew 'gifski' # Highest-quality GIF encoder based on pngquant
 brew 'git' # Distributed revision control system
 brew 'git-lfs' # Git extension for versioning large files
+brew 'gnu-getopt' # Command-line option parsing utility
+brew 'gnu-indent' # C code prettifier
+brew 'gnu-sed' # GNU implementation of the famous stream editor
+brew 'gnu-tar' # GNU version of the tar archiving utility
 brew 'gnupg' # GNU Pretty Good Privacy (PGP) package
+brew 'gnutls' # GNU Transport Layer Security (TLS) Library
 brew 'graphviz' # Graph visualization software from AT&T and Bell Labs
+brew 'grep' # GNU grep, egrep and fgrep
 brew 'helix' # Post-modern modal text editor
 brew 'jira-cli' # 🔥 Feature-rich interactive Jira command-line
 brew 'jq' # Lightweight and flexible command-line JSON processor
