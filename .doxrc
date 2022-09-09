@@ -18,6 +18,11 @@ alias ads-start="dox-dc up -d $ADS_APPS"
 alias ads-stop="dox-dc down"
 alias ads-restart="ads-stop && ads-start"
 alias ads-logs="dox-dc logs -f $ADS_APPS"
+alias dd="dox-do"
+alias ddb="dox-do bash"
+alias ddc="dox-dc"
+alias ddl="dox-logs"
+alias ddu="dox-update-app"
 
 # Navigation utilities
 alias cd-ads="cd $ADS_WORKSPACE"
