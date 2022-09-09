@@ -45,6 +45,7 @@
   ds = !: git diff && ~/.dotfiles/git/aliases/git-ds.zsh
   frbm = !~/.dotfiles/git/aliases/git-frbm.zsh
   cm = !: git commit && ~/.dotfiles/git/aliases/git-cm.zsh
+  rs = !: git reset && ~/.dotfiles/git/aliases/git-rs.zsh
 [commit]
   gpgsign = true
 [core]
