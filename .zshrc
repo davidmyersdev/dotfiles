@@ -45,9 +45,9 @@ export PKG_CONFIG_PATH="/usr/local/opt/ncurses/lib/pkgconfig"
 
 alias de='docker exec -it -e COLUMNS="$(tput cols)" -e LINES="$(tput lines)"'
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}" | sort'
-alias ls="ls -alGF"
-alias pbsquish="pbpaste | tr '\n' ' ' | pbcopy"
-alias cd-w="cd $WORKSPACE"
+alias g='git'
+alias ls='ls -alGF'
+alias pbsquish='pbpaste | tr "\n" " " | pbcopy'
 
 # android studio (java, adb, etc)
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
