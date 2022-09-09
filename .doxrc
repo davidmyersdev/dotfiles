@@ -24,13 +24,6 @@ alias ddc="dox-dc"
 alias ddl="dox-logs"
 alias ddu="dox-update-app"
 
-# Navigation utilities
-alias cd-ads="cd $ADS_WORKSPACE"
-alias cd-activities="cd $ADS_WORKSPACE/activities"
-alias cd-campaigns="cd $ADS_WORKSPACE/campaigns"
-alias cd-doximity="cd $ADS_WORKSPACE/doximity"
-alias cd-vue="cd $ADS_WORKSPACE/doximity-client-vue"
-
 # Run a non-interactive command against all Ads apps in parallel. E.g.
 #
 # $ ads-parallel git diff
@@ -42,11 +35,6 @@ function ads-parallel() {
 # Run `dox-update-app` for all Ads apps in parallel.
 function ads-update() {
   ads-parallel dox-update-app
-}
-
-# Launch an interactive `bash` shell in the Docker container for the current app.
-function dox-bash() {
-  dox-do bash
 }
 
 # Run `bundle` in the Docker container for the current app.
@@ -61,7 +49,6 @@ function dox-bundle() {
 function dox-logs() {
   dox-dc logs --tail 500 $@ "$(basename "$(git rev-parse --show-toplevel)")"
 }
-
 
 # Run `bundle exec rails db:migrate` in the Docker container for the current app.
 function dox-migrate() {
