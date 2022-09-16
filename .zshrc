@@ -1,3 +1,4 @@
+setopt emacs
 setopt prompt_subst
 autoload -Uz vcs_info # enable vcs_info
 zstyle ':vcs_info:git*' formats '%b' # format $vcs_info_msg_0_
