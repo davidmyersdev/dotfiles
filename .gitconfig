@@ -46,6 +46,7 @@
   up = !: git push && ~/.dotfiles/git/aliases/git-up.zsh
   wt = !: git worktree && ~/.dotfiles/git/aliases/git-wt.zsh
   wta = !: git worktree && ~/.dotfiles/git/aliases/git-wta.zsh
+  rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
 [commit]
   gpgsign = true
 [core]
