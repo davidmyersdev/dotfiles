@@ -25,6 +25,7 @@ brew 'gawk' # GNU awk utility
 brew 'gh' # GitHub command-line tool
 brew 'gifski' # Highest-quality GIF encoder based on pngquant
 brew 'git' # Distributed revision control system
+brew 'git-filter-repo' # Quickly rewrite git repository history
 brew 'git-lfs' # Git extension for versioning large files
 brew 'gnu-getopt' # Command-line option parsing utility
 brew 'gnu-indent' # C code prettifier
