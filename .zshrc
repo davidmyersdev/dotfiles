@@ -191,6 +191,7 @@ export GITHUB_TOKEN="$(password-get github_token)"
 export NEXUS_PULL_PASS="$(password-get nexus_pull_pass)"
 export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
 export SEGMENT_KEY="$(password-get dox_vue_segment_key)"
+export YARN_NPM_AUTH_IDENT="$(password-get yarn_npm_auth_ident)"
 
 # include doximity config
 source ~/.doxrc
