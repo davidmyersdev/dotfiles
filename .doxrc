@@ -87,8 +87,6 @@ function dox-update-app() {
     dox-yarn
     dox-bundle
     dox-migrate
-    # ignore any changes made by the migration
-    git reset --hard HEAD
     git checkout - # checkout the previous branch
   else
     echo "Commit or discard changes first. Skipping app..."
