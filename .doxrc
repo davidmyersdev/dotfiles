@@ -75,6 +75,43 @@ function dox-restart() {
   dox-dc restart "$(basename "$(git rev-parse --show-toplevel)")"
 }
 
+function dox-native-add() {
+  app="$1"
+
+  if [[ "$app" == "dialer-web" ]]
+  then
+    sudo dox-cloud native-service dialer 127.0.0.2 3000
+  elif [[ "$app" == "doximity-client-vue" ]]
+  then
+    sudo dox-cloud native-service vueclient 127.0.0.4 5180
+  else
+    echo "$app is not recognized"
+    exit 1
+  fi
+}
+
+function dox-native-remove() {
+  app="$1"
+
+  if [[ "$app" == "dialer-web" ]]
+  then
+    sudo dox-cloud remove-native-service dialer 127.0.0.2
+  elif [[ "$app" == "doximity-client-vue" ]]
+  then
+    sudo dox-cloud remove-native-service vueclient 127.0.0.4
+  else
+    echo "$app is not recognized"
+    exit 1
+  fi
+}
+
+function dox-native-reset() {
+  app="$1"
+
+  dox-native-remove $app
+  dox-native-add $app
+}
+
 # Pull latest changes, install dependencies, and run migrations for the current app.
 function dox-update-app() {
   if is-clean
