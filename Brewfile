@@ -13,6 +13,7 @@ brew 'automake' # Tool for generating GNU Standards-compliant Makefiles
 brew 'awscli' # Official Amazon AWS command-line interface
 brew 'bash' # Bourne-Again SHell, a UNIX command interpreter
 brew 'bash-completion' # Programmable completion for Bash 3.2
+brew 'bat' # Clone of cat(1) with syntax highlighting and Git integration
 brew 'circleci' # Enables you to reproduce the CircleCI environment locally
 brew 'cmake' # Cross-platform make
 brew 'coreutils' # GNU File, Shell, and Text utilities
