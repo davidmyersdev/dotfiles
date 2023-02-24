@@ -47,6 +47,7 @@
   wt = !: git worktree && ~/.dotfiles/git/aliases/git-wt.zsh
   wta = !: git worktree && ~/.dotfiles/git/aliases/git-wta.zsh
   rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
+  fix = !: git commit && ~/.dotfiles/git/aliases/git-fix.zsh
 [commit]
   gpgsign = true
 [core]
