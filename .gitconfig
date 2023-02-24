@@ -57,6 +57,8 @@
   program = gpg
 [pull]
   rebase = true
+[rebase]
+  autosquash = true
 [tag]
   gpgsign = true
 [user]
