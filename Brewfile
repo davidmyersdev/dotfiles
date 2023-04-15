@@ -22,7 +22,7 @@ brew 'dnsmasq' # Lightweight DNS forwarder and DHCP server
 brew 'findutils' # Collection of GNU find, xargs, and locate
 brew 'fzf' # Command-line fuzzy finder written in Go
 brew 'gawk' # GNU awk utility
-brew 'gawk' # GNU awk utility
+brew 'gcc' # GNU compiler collection
 brew 'gh' # GitHub command-line tool
 brew 'gifski' # Highest-quality GIF encoder based on pngquant
 brew 'git' # Distributed revision control system
