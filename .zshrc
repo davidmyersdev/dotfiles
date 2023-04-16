@@ -60,13 +60,18 @@ fi
 
 # utilities
 
-function brew-bundle-add() {
-  brew install $1
-  brew-bundle-update
-}
+# Alias the original Homebrew path for internal use.
+alias pathtobrew="$(which brew)"
 
-function brew-bundle-dump() {
-  brew bundle dump --describe -f
+# Automatically add installed brew dependencies to ~/Brewfile.
+function brew() {
+  pathtobrew $@
+
+  if [[ "$1" == "install" ]]
+  then
+    # Update ~/Brewfile with the latest dependencies.
+    pathtobrew bundle dump --describe -f
+  fi
 }
 
 function deprecate-npm() {
