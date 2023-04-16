@@ -60,6 +60,15 @@ fi
 
 # utilities
 
+function brew-bundle-add() {
+  brew install $1
+  brew-bundle-update
+}
+
+function brew-bundle-dump() {
+  brew bundle dump --describe -f
+}
+
 function deprecate-npm() {
   npm deprecate "$1" "Please install \`$2\` instead"
 }
