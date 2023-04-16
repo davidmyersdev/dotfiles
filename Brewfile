@@ -1,86 +1,217 @@
-# Dependencies should be added here first and then installed with `brew bundle`. To generate a list of all installed
-# packages (including casks), do something like the following.
-#
-# brew leaves | sort | xargs -n 1 brew desc
-# brew list --cask | sort | xargs -n 1 brew desc --cask
-
-tap 'ankitpokhrel/jira-cli' # https://github.com/ankitpokhrel/jira-cli
-tap 'helix-editor/helix' # https://github.com/helix-editor/helix
-
-brew 'act' # Run your GitHub Actions locally 🚀
-brew 'asciinema' # Record and share terminal sessions
-brew 'asdf' # Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew 'automake' # Tool for generating GNU Standards-compliant Makefiles
-brew 'awscli' # Official Amazon AWS command-line interface
-brew 'bash' # Bourne-Again SHell, a UNIX command interpreter
-brew 'bash-completion' # Programmable completion for Bash 3.2
-brew 'bat' # Clone of cat(1) with syntax highlighting and Git integration
-brew 'circleci' # Enables you to reproduce the CircleCI environment locally
-brew 'cmake' # Cross-platform make
-brew 'coreutils' # GNU File, Shell, and Text utilities
-brew 'diffr' # LCS based diff highlighting tool to ease code review from your terminal
-brew 'dnsmasq' # Lightweight DNS forwarder and DHCP server
-brew 'findutils' # Collection of GNU find, xargs, and locate
-brew 'fzf' # Command-line fuzzy finder written in Go
-brew 'gawk' # GNU awk utility
-brew 'gcc' # GNU compiler collection
-brew 'gh' # GitHub command-line tool
-brew 'gifski' # Highest-quality GIF encoder based on pngquant
-brew 'git' # Distributed revision control system
-brew 'git-filter-repo' # Quickly rewrite git repository history
-brew 'git-lfs' # Git extension for versioning large files
-brew 'gnu-getopt' # Command-line option parsing utility
-brew 'gnu-indent' # C code prettifier
-brew 'gnu-sed' # GNU implementation of the famous stream editor
-brew 'gnu-tar' # GNU version of the tar archiving utility
-brew 'gnupg' # GNU Pretty Good Privacy (PGP) package
-brew 'gnutls' # GNU Transport Layer Security (TLS) Library
-brew 'graphviz' # Graph visualization software from AT&T and Bell Labs
-brew 'grep' # GNU grep, egrep and fgrep
-brew 'helix' # Post-modern modal text editor
-brew 'jira-cli' # 🔥 Feature-rich interactive Jira command-line
-brew 'jq' # Lightweight and flexible command-line JSON processor
-brew 'lua' # Powerful, lightweight programming language
-brew 'mysql' # Open source relational database management system
-brew 'ncurses' # Text-based UI library
-brew 'neovim' # Ambitious Vim-fork focused on extensibility and agility
-brew 'nghttp2' # HTTP/2 C Library
-brew 'nvm' # Manage multiple Node.js versions
-brew 'openjdk' # Development kit for the Java programming language
-brew 'pango' # Framework for layout and rendering of i18n text
-brew 'parallel' # Shell command parallelization utility
-brew 'pinentry-mac' # Pinentry for GPG on Mac
-brew 'postgresql' # Object-relational database system
-brew 'pyenv' # Python version management
-brew 'python@3.10' # Interpreted, interactive, object-oriented programming language
-brew 'rbenv' # Ruby version manager
-brew 'ruby-build' # Install various Ruby versions and implementations
-brew 'scrcpy' # Display and control your Android device
-brew 'swig' # Generate scripting interfaces to C/C++ code
-brew 'tmate' # Instant terminal sharing
-brew 'vim' # Vi 'workalike' with many additional features
-brew 'xcnotary' # macOS app notarization helper
-
-cask '1password' # Password manager that keeps all passwords secure behind one password
-cask 'affinity-photo' # Professional image editing software
-cask 'alacritty' # GPU-accelerated terminal emulator
-cask 'aws-vault' # Securely stores and accesses AWS credentials in a development environment
-cask 'azure-data-studio' # Data management tool that enables working with SQL Server
-cask 'dash' # API documentation browser and code snippet manager
-cask 'devutils' # Offline toolbox for developers
-cask 'discord' # Voice and text chat software
-cask 'docker' # App to build and share containerized applications and microservices
-cask 'figma' # Collaborative team software
-cask 'firefox' # Web browser
-cask 'font-fira-code' # Fira Code font
-cask 'hammerspoon' # Desktop automation application
-cask 'hyper' # Terminal built on web technologies
-cask 'insomnia' # HTTP and GraphQL Client
-cask 'iterm2' # Terminal emulator as alternative to Apple's Terminal app
-cask 'ngrok' # Reverse proxy, secure introspectable tunnels to localhost
-cask 'raspberry-pi-imager' # Imaging utility to install operating systems to a microSD card
-cask 'rectangle' # Move and resize windows using keyboard shortcuts or snap areas
-cask 'spotify' # Music streaming service
-cask 'tuple' # Remote pair programming app
-cask 'visual-studio-code' # Open-source code editor
-cask 'zoom' # Video communication and virtual meeting platform
+tap "akeru-inc/tap"
+tap "ankitpokhrel/jira-cli"
+tap "helix-editor/helix"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "ngrok/ngrok"
+# Run your GitHub Actions locally 🚀
+brew "act"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# New file format for still image compression
+brew "jpeg-xl"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Record and share terminal sessions
+brew "asciinema"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Generic library support script
+brew "libtool"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Software library to render fonts
+brew "freetype"
+# XML-based font configuration API for X Windows
+brew "fontconfig"
+# Core application library for C
+brew "glib"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
+# Object-file caching compiler wrapper
+brew "ccache"
+# Enables you to reproduce the CircleCI environment locally
+brew "circleci"
+# Cross-platform make
+brew "cmake"
+# Unit testing framework for C
+brew "cmocka"
+# LCS based diff highlighting tool to ease code review from your terminal
+brew "diffr"
+# Lightweight DNS forwarder and DHCP server
+brew "dnsmasq"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# OpenType text shaping engine
+brew "harfbuzz"
+# Subtitle renderer for the ASS/SSA subtitle format
+brew "libass"
+# Framework for layout and rendering of i18n text
+brew "pango"
+# Compression/decompression library aiming for high speed
+brew "snappy"
+# OCR (Optical Character Recognition) engine
+brew "tesseract"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg@4"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU awk utility
+brew "gawk"
+# GNU compiler collection
+brew "gcc"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
+# GitHub command-line tool
+brew "gh"
+# Highest-quality GIF encoder based on pngquant
+brew "gifski"
+# Distributed revision control system
+brew "git"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
+# Git extension for versioning large files
+brew "git-lfs"
+# Command-line option parsing utility
+brew "gnu-getopt"
+# C code prettifier
+brew "gnu-indent"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
+# GNU version of the tar archiving utility
+brew "gnu-tar"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Generate introspection data for GObject libraries
+brew "gobject-introspection"
+# Image manipulation
+brew "netpbm"
+# Library to render SVG files using Cairo
+brew "librsvg"
+# Graph visualization software from AT&T and Bell Labs
+brew "graphviz"
+# GNU grep, egrep and fgrep
+brew "grep"
+# Post-modern modal text editor
+brew "helix"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Network authentication protocol
+brew "krb5"
+# Provides library functionality for FIDO U2F & FIDO 2.0, including USB
+brew "libfido2"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
+# Powerful, lightweight programming language
+brew "lua"
+# Open source relational database management system
+brew "mysql"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# HTTP/2 C Library
+brew "nghttp2"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Manage multiple Node.js versions
+brew "nvm"
+# Development kit for the Java programming language
+brew "openjdk"
+# Shell command parallelization utility
+brew "parallel"
+# Highly capable, feature-rich programming language
+brew "perl"
+# Pinentry for GPG on Mac
+brew "pinentry-mac"
+# Object-relational database system
+brew "postgresql@14"
+# Python version management
+brew "pyenv"
+# Install various Ruby versions and implementations
+brew "ruby-build"
+# Ruby version manager
+brew "rbenv"
+# Display and control your Android device
+brew "scrcpy"
+# Generate scripting interfaces to C/C++ code
+brew "swig"
+# Instant terminal sharing
+brew "tmate"
+# Vi 'workalike' with many additional features
+brew "vim"
+# Internet file retriever
+brew "wget"
+# macOS app notarization helper
+brew "akeru-inc/tap/xcnotary"
+# 🔥 Feature-rich interactive Jira command-line
+brew "ankitpokhrel/jira-cli/jira-cli"
+# Password manager that keeps all passwords secure behind one password
+cask "1password"
+# Professional image editing software
+cask "affinity-photo"
+# GPU-accelerated terminal emulator
+cask "alacritty"
+# Securely stores and accesses AWS credentials in a development environment
+cask "aws-vault"
+# Data management tool that enables working with SQL Server
+cask "azure-data-studio"
+# API documentation browser and code snippet manager
+cask "dash"
+# All-in-one toolbox for developers
+cask "devutils"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Collaborative team software
+cask "figma"
+# Web browser
+cask "firefox"
+# Free monospaced font with programming ligatures
+cask "font-fira-code"
+# Desktop automation application
+cask "hammerspoon"
+# Terminal built on web technologies
+cask "hyper"
+# HTTP and GraphQL Client
+cask "insomnia"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
+# Imaging utility to install operating systems to a microSD card
+cask "raspberry-pi-imager"
+# Move and resize windows using keyboard shortcuts or snap areas
+cask "rectangle"
+# Music streaming service
+cask "spotify"
+# Remote pair programming app
+cask "tuple"
+# Open-source code editor
+cask "visual-studio-code"
+# Video communication and virtual meeting platform
+cask "zoom"
