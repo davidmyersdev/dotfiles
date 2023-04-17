@@ -74,6 +74,10 @@ function brew() {
   fi
 }
 
+function copy-branch() {
+  git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
+}
+
 function deprecate-npm() {
   npm deprecate "$1" "Please install \`$2\` instead"
 }
