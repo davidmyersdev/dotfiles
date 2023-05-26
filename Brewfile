@@ -137,8 +137,6 @@ brew "neovim"
 brew "nghttp2"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Manage multiple Node.js versions
-brew "nvm"
 # Development kit for the Java programming language
 brew "openjdk"
 # Shell command parallelization utility
@@ -151,10 +149,6 @@ brew "pinentry-mac"
 brew "postgresql@14"
 # Python version management
 brew "pyenv"
-# Install various Ruby versions and implementations
-brew "ruby-build"
-# Ruby version manager
-brew "rbenv"
 # Display and control your Android device
 brew "scrcpy"
 # Generate scripting interfaces to C/C++ code

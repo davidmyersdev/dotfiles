@@ -25,14 +25,6 @@ export WORKSPACE=~/workspace
 # j (autojump alternative)
 source $WORKSPACE/personal/j/j.sh
 
-# nvm
-export NVM_DIR=~/.nvm
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# rbenv
-eval "$(rbenv init -)"
-
 # postgres app
 export PG_VERSION=13
 export PGHOST=localhost
@@ -229,7 +221,5 @@ export PATH="$HOME/.bin:$PATH"
 export BUN_INSTALL="/Users/david/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/david/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+# Init asdf
+. $(brew --prefix asdf)/libexec/asdf.sh
