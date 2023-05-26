@@ -59,7 +59,7 @@ alias pathtobrew="$(which brew)"
 function brew() {
   pathtobrew $@
 
-  if [[ "$1" == "install" ]]
+  if [[ "$1" == "install" || "$1" == "uninstall" ]]
   then
     # Update ~/Brewfile with the latest dependencies.
     pathtobrew bundle dump --describe -f
