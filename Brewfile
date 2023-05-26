@@ -129,6 +129,8 @@ brew "libfido2"
 brew "libssh"
 # Powerful, lightweight programming language
 brew "lua"
+# CLI tool for saving complete web pages as a single HTML file
+brew "monolith"
 # Open source relational database management system
 brew "mysql"
 # Ambitious Vim-fork focused on extensibility and agility
