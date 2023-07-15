@@ -78,6 +78,13 @@ function docker-local() {
   echo 'export DOCKER_HOST=unix:///var/run/docker.sock'
 }
 
+function gif() {
+  input="$1"
+  output="$2"
+
+  gifski --fps 10 --width 720 -o "$output" "$input"
+}
+
 function is-git() {
   [ -n "$vcs_info_msg_0_" ] && true || false
 }
