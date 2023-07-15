@@ -183,6 +183,10 @@ function set_env() {
   eval "read -s $1 && export $1"
 }
 
+function simulator() {
+  open /System/Volumes/Data/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
+}
+
 function timestamp() {
   date +%Y-%m-%dT%H:%M:%S%z
 }
