@@ -52,12 +52,14 @@
   bs = !~/.dotfiles/git/aliases/git-bs.zsh
   bd = !~/.dotfiles/git/aliases/git-bd.zsh
   view = !~/.dotfiles/git/aliases/git-view.zsh
+  pa = !~/.dotfiles/git/aliases/git-pa.zsh
 [commit]
   gpgsign = true
 [core]
   editor = vim
   pager = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10 | less -R
   ignorecase = false
+  excludesfile = /Users/david/.gitignore
 [gpg]
   program = gpg
 [pull]
