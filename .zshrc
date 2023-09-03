@@ -20,10 +20,10 @@ export EDITOR=vim
 export HOMEBREW_BUNDLE_FILE=~/Brewfile
 
 # workspace
-export WORKSPACE=~/workspace
+export WORKSPACE=~
 
 # j (autojump alternative)
-source $WORKSPACE/personal/j/j.sh
+source $WORKSPACE/pub/j/j.sh
 
 # postgres app
 export PG_VERSION=13
