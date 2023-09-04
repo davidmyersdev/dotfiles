@@ -7,14 +7,12 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "ngrok/ngrok"
-# Run your GitHub Actions locally 🚀
+# Run your GitHub Actions locally
 brew "act"
 # Zstandard is a real-time compression algorithm
 brew "zstd"
 # New file format for still image compression
 brew "jpeg-xl"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Record and share terminal sessions
 brew "asciinema"
 # Automatic configure script builder
@@ -41,8 +39,6 @@ brew "freetype"
 brew "fontconfig"
 # Core application library for C
 brew "glib"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Object-file caching compiler wrapper
 brew "ccache"
 # Enables you to reproduce the CircleCI environment locally
@@ -103,8 +99,6 @@ brew "gnu-indent"
 brew "gnu-sed"
 # GNU version of the tar archiving utility
 brew "gnu-tar"
-# GNU Ubiquitous Intelligent Language for Extensions
-brew "guile"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Generate introspection data for GObject libraries
@@ -117,6 +111,8 @@ brew "librsvg"
 brew "graphviz"
 # GNU grep, egrep and fgrep
 brew "grep"
+# GNU Ubiquitous Intelligent Language for Extensions
+brew "guile"
 # Post-modern modal text editor
 brew "helix"
 # Lightweight and flexible command-line JSON processor
@@ -151,6 +147,10 @@ brew "pinentry-mac"
 brew "postgresql@14"
 # Python version management
 brew "pyenv"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Display and control your Android device
 brew "scrcpy"
 # Generate scripting interfaces to C/C++ code
@@ -199,6 +199,8 @@ cask "insomnia"
 cask "iterm2"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Identity and access management
+cask "okta-advanced-server-access"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
