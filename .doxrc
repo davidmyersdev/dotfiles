@@ -5,10 +5,10 @@
 ####################
 
 export ADS_APPS="doximity doximity-workers activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-workers dialer-api doximity-client-vue-memcached graphql-federation spectrum"
-export ADS_WORKSPACE="$HOME/workspace/work"
+export DOX_ROOT="$HOME/dox"
 
 # Initialize the `dox-compose` command.
-eval "$("$HOME/workspace/work/dox-compose/bin/dox-init")"
+eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
 
 # List all Ads services.
 alias ads-ls="echo $ADS_APPS"
@@ -18,11 +18,22 @@ alias ads-start="dox-dc up -d $ADS_APPS"
 alias ads-stop="dox-dc down"
 alias ads-restart="ads-stop && ads-start"
 alias ads-logs="dox-dc logs -f $ADS_APPS"
-alias dd="dox-do"
-alias ddb="dox-do bash"
+alias ddo="dox-do"
 alias ddc="dox-dc"
-alias ddl="dox-logs"
-alias ddu="dox-update-app"
+
+# The `dox-compose-start` function is invoked automatically after running `dox-cloud on`.
+# 
+# #!/usr/bin/env zsh
+#
+# if typeset -f dox-compose-start > /dev/null
+# then
+#   dox-compose-start
+# else
+#   echo 'No `dox-compose-start` function defined.'
+# fi
+function dox-compose-start() {
+  dox-dc up -d campaigns
+}
 
 # Run a non-interactive command against all Ads apps in parallel. E.g.
 #
