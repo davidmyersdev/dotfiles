@@ -19,11 +19,8 @@ export EDITOR=vim
 # Homebrew global bundle file
 export HOMEBREW_BUNDLE_FILE=~/Brewfile
 
-# workspace
-export WORKSPACE=~
-
 # j (autojump alternative)
-source $WORKSPACE/pub/j/j.sh
+source ~/pub/j/j.sh
 
 # postgres app
 export PG_VERSION=13
@@ -51,6 +48,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 # utilities
+
+# Homebrew env (generated with `echo "$(/opt/homebrew/bin/brew shellenv)"`)
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
 # Alias the original Homebrew path for internal use.
 alias pathtobrew="$(which brew)"
@@ -164,15 +169,7 @@ function quit() {
 }
 
 function relative-pwd() {
-  local dir="`pwd`"
-
-  if [[ "$dir" =~ "$WORKSPACE" ]] && [[ "$dir" != "$WORKSPACE" ]]
-  then
-    echo -n "${dir#"$WORKSPACE/"}"
-  elif
-  then
-    print -P "%~"
-  fi
+  print -P "%~"
 }
 
 function reload() {
@@ -210,6 +207,9 @@ function tts() {
   sed -i '' 's/\t/  /g' $@
 }
 
+# Init asdf
+. $(brew --prefix asdf)/libexec/asdf.sh
+
 # must be after function definitions
 export BUNDLE_ARTIFACTS__DOX__SUPPORT="$(password-get bundler_dox_support_creds)"
 export GITHUB_TOKEN="$(password-get github_token)"
@@ -221,8 +221,11 @@ export YARN_NPM_AUTH_IDENT="$(password-get yarn_npm_auth_ident)"
 # include doximity config
 source ~/.doxrc
 
-# enable shell completion
-dox completion zsh > "${fpath[1]}/_dox"
+# Shell completions are automatically loaded from $fpath
+fpath=($HOME/.zsh/functions $fpath)
+
+# Make sure the dox-cli shell completion script stays up-to-date
+dox completion zsh > ~/.zsh/functions/_dox
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -235,6 +238,3 @@ export PATH="$HOME/.bin:$PATH"
 # Bun
 export BUN_INSTALL="/Users/david/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-# Init asdf
-. $(brew --prefix asdf)/libexec/asdf.sh
