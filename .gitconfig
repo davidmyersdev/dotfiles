@@ -59,7 +59,7 @@
   editor = vim
   pager = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10 | less -R
   ignorecase = false
-  excludesfile = /Users/david/.gitignore
+  excludesfile = /Users/david/git/ignore
 [gpg]
   program = gpg
 [pull]
