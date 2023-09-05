@@ -1,0 +1,2 @@
+---
+BUNDLE_BUILD__THRIFT: "--with-cppflags='-D_FORTIFY_SOURCE=0 -fdeclspec -Wno-shift-negative-value -Wno-compound-token-split-by-macro'"
