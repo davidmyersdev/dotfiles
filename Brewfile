@@ -151,6 +151,8 @@ brew "pyenv"
 brew "python@3.10"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Install various Ruby versions and implementations
+brew "ruby-build"
 # Display and control your Android device
 brew "scrcpy"
 # Generate scripting interfaces to C/C++ code
