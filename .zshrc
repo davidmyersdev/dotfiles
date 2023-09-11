@@ -43,10 +43,6 @@ alias pbsquish='pbpaste | tr "\n" " " | pbcopy'
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/Users/david/Library/Android/sdk/platform-tools:$PATH"
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 # utilities
 
 # Homebrew env (generated with `echo "$(/opt/homebrew/bin/brew shellenv)"`)
@@ -56,6 +52,16 @@ export HOMEBREW_REPOSITORY="/opt/homebrew"
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+
+# Necessary for `ruby-build` to use the correct dependencies.
+export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
+export CPPFLAGS=-I/opt/homebrew/opt/ncurses/include
+export PKG_CONFIG_PATH=/opt/homebrew/opt/ncurses/lib/pkgconfig
+
+# Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 # Alias the original Homebrew path for internal use.
 alias pathtobrew="$(which brew)"
@@ -224,6 +230,14 @@ source ~/.doxrc
 # Shell completions are automatically loaded from $fpath
 fpath=($HOME/.zsh/functions $fpath)
 
+if type brew &>/dev/null
+then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # Make sure the dox-cli shell completion script stays up-to-date
 dox completion zsh > ~/.zsh/functions/_dox
 
@@ -238,3 +252,8 @@ export PATH="$HOME/.bin:$PATH"
 # Bun
 export BUN_INSTALL="/Users/david/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+function setup() {
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/pub/dots/profiles/dotfiles/"
+  defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+}
