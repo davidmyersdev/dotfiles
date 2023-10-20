@@ -53,6 +53,7 @@
   bd = !~/.dotfiles/git/aliases/git-bd.zsh
   view = !~/.dotfiles/git/aliases/git-view.zsh
   pa = !~/.dotfiles/git/aliases/git-pa.zsh
+  rb = !: git rebase && ~/.dotfiles/git/aliases/git-rb.zsh
 [commit]
   gpgsign = true
 [core]
