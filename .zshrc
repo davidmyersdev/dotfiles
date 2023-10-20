@@ -108,6 +108,10 @@ function launch() {
   open -a "$1"
 }
 
+function pw() {
+  openssl rand -hex $((${1:-8} / 2))
+}
+
 function password-add() {
   security add-generic-password -a "$USER" -s "$1" -w
 }
