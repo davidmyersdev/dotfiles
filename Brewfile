@@ -2,9 +2,7 @@ tap "akeru-inc/tap"
 tap "ankitpokhrel/jira-cli"
 tap "helix-editor/helix"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "ngrok/ngrok"
 # Run your GitHub Actions locally
@@ -13,6 +11,8 @@ brew "act"
 brew "zstd"
 # New file format for still image compression
 brew "jpeg-xl"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Record and share terminal sessions
 brew "asciinema"
 # Automatic configure script builder
@@ -25,6 +25,10 @@ brew "coreutils"
 brew "libtool"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -47,6 +51,8 @@ brew "circleci"
 brew "cmake"
 # Unit testing framework for C
 brew "cmocka"
+# Dependency manager for Cocoa projects
+brew "cocoapods"
 # LCS based diff highlighting tool to ease code review from your terminal
 brew "diffr"
 # Lightweight DNS forwarder and DHCP server
@@ -125,6 +131,8 @@ brew "libfido2"
 brew "libssh"
 # Powerful, lightweight programming language
 brew "lua"
+# Mac App Store command-line interface
+brew "mas"
 # CLI tool for saving complete web pages as a single HTML file
 brew "monolith"
 # Open source relational database management system
@@ -135,8 +143,6 @@ brew "neovim"
 brew "nghttp2"
 # Small build system for use with gyp or CMake
 brew "ninja"
-# Development kit for the Java programming language
-brew "openjdk"
 # Shell command parallelization utility
 brew "parallel"
 # Highly capable, feature-rich programming language
@@ -153,6 +159,8 @@ brew "python@3.10"
 brew "python@3.9"
 # Install various Ruby versions and implementations
 brew "ruby-build"
+# Rust toolchain installer
+brew "rustup-init"
 # Display and control your Android device
 brew "scrcpy"
 # Generate scripting interfaces to C/C++ code
@@ -173,6 +181,8 @@ cask "1password"
 cask "affinity-photo"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Command-line tools for building and debugging Android apps
+cask "android-commandlinetools"
 # Securely stores and accesses AWS credentials in a development environment
 cask "aws-vault"
 # Data management tool that enables working with SQL Server
@@ -215,9 +225,17 @@ cask "tuple"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Developer", id: 640199958
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
 vscode "apollographql.vscode-apollo"
 vscode "arcanis.vscode-zipfs"
 vscode "austenc.tailwind-docs"
+vscode "bierner.jsdoc-markdown-highlighting"
 vscode "bierner.markdown-mermaid"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
@@ -252,7 +270,6 @@ vscode "noku.rails-run-spec-vscode"
 vscode "Nuxt.mdc"
 vscode "Orta.vscode-jest"
 vscode "pushqrdx.inline-html"
-vscode "rebornix.ruby"
 vscode "redhat.vscode-commons"
 vscode "redhat.vscode-yaml"
 vscode "Shopify.ruby-lsp"
@@ -266,6 +283,5 @@ vscode "vscodevim.vim"
 vscode "Vue.volar"
 vscode "Vue.vscode-typescript-vue-plugin"
 vscode "whizkydee.material-palenight-theme"
-vscode "wingrunr21.vscode-ruby"
 vscode "yoavbls.pretty-ts-errors"
 vscode "yzhang.markdown-all-in-one"
