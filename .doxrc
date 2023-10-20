@@ -22,7 +22,7 @@ alias ddo="dox-do"
 alias ddc="dox-dc"
 
 # The `dox-compose-start` function is invoked automatically after running `dox-cloud on`.
-# 
+#
 # #!/usr/bin/env zsh
 #
 # if typeset -f dox-compose-start > /dev/null
@@ -32,7 +32,7 @@ alias ddc="dox-dc"
 #   echo 'No `dox-compose-start` function defined.'
 # fi
 function dox-compose-start() {
-  dox-dc up -d campaigns
+  dox-dc up -d campaigns graphql-federation dialer-api
 }
 
 # Run a non-interactive command against all Ads apps in parallel. E.g.
