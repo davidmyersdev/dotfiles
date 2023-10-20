@@ -201,6 +201,39 @@ function simulator() {
   open /System/Volumes/Data/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
 }
 
+function sync_icons() {
+  local google_chrome="~/Applications/Chrome Apps.localized/Google Calendar.app"
+  local spotify="/Applications/Spotify.app"
+  local youtube="~/Applications/Chrome Apps.localized/YouTube.app"
+
+  if [ -d "$google_chrome" ]
+  then
+    # Overwrite the Google Chrome default app icon
+    cp ~/.config/dotfiles/icons/google-calendar.icns "$google_chrome/Contents/Resources/app.icns"
+
+    # Touch the app folder to force the icon to refresh.
+    touch "$google_chrome"
+  fi
+
+  if [ -d "$spotify" ]
+  then
+    # Overwrite the Google Chrome default app icon
+    cp ~/.config/dotfiles/icons/spotify.icns "$spotify/Contents/Resources/Icon.icns"
+
+    # Touch the app folder to force the icon to refresh.
+    touch "$spotify"
+  fi
+
+  if [ -d "$youtube" ]
+  then
+    # Overwrite the Google Chrome default app icon.
+    cp ~/.config/dotfiles/icons/youtube.icns "$youtube/Contents/Resources/app.icns"
+
+    # Touch the app folder to force the icon to refresh.
+    touch "$youtube"
+  fi
+}
+
 function timestamp() {
   date +%Y-%m-%dT%H:%M:%S%z
 }
