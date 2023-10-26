@@ -290,6 +290,9 @@ export PATH="$HOME/.bin:$PATH"
 export BUN_INSTALL="/Users/david/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# NPM
+export PATH="$HOME/node_modules/.bin:$PATH"
+
 function setup() {
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/pub/dots/profiles/dotfiles/"
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
