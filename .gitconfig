@@ -54,6 +54,7 @@
   view = !~/.dotfiles/git/aliases/git-view.zsh
   pa = !~/.dotfiles/git/aliases/git-pa.zsh
   rb = !: git rebase && ~/.dotfiles/git/aliases/git-rb.zsh
+  unstage = !: git restore && ~/.dotfiles/git/aliases/git-unstage.zsh
 [commit]
   gpgsign = true
 [core]
