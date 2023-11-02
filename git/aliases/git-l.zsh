@@ -18,4 +18,4 @@ fi
 PS4='' # clear prompt for the set -x call
 set -x # print the subsequent expanded command(s)
 
-git log --graph --color=always --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=${count:-5} ${ref:-HEAD}
+git log --graph --color=always --pretty=format:'%C(auto)%h [%an] (%cr) -%d %s' --date=relative --max-count=${count:-10} ${ref:-HEAD}
