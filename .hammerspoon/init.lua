@@ -1,3 +1,5 @@
+hs.application.enableSpotlightForNameSearches(true)
+
 function getCurrentWindow()
   return hs.window.focusedWindow()
 end
@@ -217,7 +219,7 @@ hs.hotkey.bind({"control", "option"}, "f", function()
   }
 
   local size = {
-    w = (columnWidth - 80),
+    w = (columnWidth - 160),
     h = 1080,
   }
 
@@ -237,7 +239,7 @@ hs.hotkey.bind({"control", "option"}, "l", function()
   }
 
   local size = {
-    w = (columnWidth - 80),
+    w = (columnWidth - 160),
     h = 1080,
   }
 
@@ -245,4 +247,8 @@ hs.hotkey.bind({"control", "option"}, "l", function()
     center = center,
     size = size,
   })
+end)
+
+hs.hotkey.bind({"control", "option"}, "n", function()
+  hs.application.open('Octo')
 end)
