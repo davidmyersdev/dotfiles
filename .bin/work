@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+if [[ -z "$(command -v jira)" ]]
+then
+  echo 'Please install the `jira` command (https://github.com/ankitpokhrel/jira-cli) to use this script.'
+  exit 1
+fi
+
+cache_dir='/tmp/jira'
+cache_file="$cache_dir/my-issues.txt"
+cache_ttl=3600 # 1hr
+subcommand='help'
+
+# Handle flags/arguments
+while [ $# -gt 0 ]
+do
+  case "$1" in
+    help)
+      showhelp=true
+      shift
+      ;;
+    list)
+      subcommand='list'
+      shift
+      ;;
+    -h|--help)
+      showhelp=true
+      shift
+      ;;
+    --cache-ttl)
+      cache_ttl=$2
+      shift 2
+      ;;
+    --*)
+      echo "Unknown option: '$1'"
+      exit 1
+      ;;
+    -*)
+      echo "Unknown option: '$1'"
+      exit 1
+      ;;
+    *)
+      echo "Unknown subcommand: '$1'"
+      exit 1
+      ;;
+  esac
+done
+
+function bold() {
+  echo -n "$(tput bold)${1}$(tput sgr0)"
+}
+
+function print_help() {
+  cat << HELP
+A simple utility to manage your work.
+
+$(bold USAGE)
+  work <command> [flags]
+
+$(bold COMMANDS)
+  help  Show available commands, flags, and examples for using this tool
+  list  Show a list of your open issues
+
+$(bold FLAGS)
+  -h, --help            Show available commands, flags, and examples for using this tool
+  --cache-ttl <number>  Set the cache TTL in seconds (default: 3600)
+
+$(bold EXAMPLES)
+  $ work help
+  $ work list
+  $ work list --cache-ttl 60
+HELP
+}
+
+function update_cache() {
+  mkdir -p $cache_dir
+
+  jira issue list --assignee $(jira me) -q 'status not in (Done, "Will Not Do")' --plain --order-by priority > $cache_file
+}
+
+if [[ "$subcommand" == "help" || "$showhelp" == "true" ]]
+then
+  print_help
+  exit 0
+fi
+
+if [[ -f "$cache_file" ]]
+then
+  cache_age=$(($(date +%s) - $(date -r "$cache_file" +%s)))
+
+  if [[ $cache_age -gt $cache_ttl ]]
+  then
+    echo "Cache expired. Updating..."
+    update_cache
+  else
+    echo "Cache is valid."
+  fi
+else
+  echo "Cache missing. Updating..."
+  update_cache
+fi
+
+case "$subcommand" in
+  list)
+    cat "$cache_file"
+    ;;
+esac
