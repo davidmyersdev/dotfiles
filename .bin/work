@@ -26,6 +26,10 @@ do
       showhelp=true
       shift
       ;;
+    checkout)
+      command='checkout'
+      shift
+      ;;
     list)
       command='list'
       shift
@@ -64,8 +68,6 @@ function bold() {
 function check_cache() {
   cache_file="$1"
 
-  mkdir -p "$cache_dir"
-
   if [[ -f "$cache_file" ]]
   then
     cache_age=$(($(date +%s) - $(date -r "$cache_file" +%s)))
@@ -87,9 +89,10 @@ $(bold USAGE)
   work <command> [flags]
 
 $(bold COMMANDS)
-  help    Show available commands, flags, and examples for using this tool
-  list    Show a list of your open issues
-  status  Show the current status of the issue you're working on
+  help      Show available commands, flags, and examples for using this tool
+  checkout  Select an issue to work on
+  list      Show a list of your open issues
+  status    Show the current status of the issue you're working on
 
 $(bold FLAGS)
   -h, --help            Show available commands, flags, and examples for using this tool
@@ -110,6 +113,25 @@ function read_cache() {
   cat "$cache_file"
 }
 
+function read_storage() {
+  storage_file="$1"
+
+  if [[ -f "$storage_file" ]]
+  then
+    cat "$storage_file"
+  else
+    echo -n ""
+  fi
+}
+
+function run_checkout() {
+  storage_name="issue.txt"
+  storage_file="$data_dir/$storage_name"
+  issue_key=$(run_list | fzf --header-lines=1 --reverse | awk '{print $2}')
+
+  write_storage "$storage_file" "$issue_key"
+}
+
 function run_list() {
   cache_name="list.txt"
   cache_file="$cache_dir/$cache_name"
@@ -118,6 +140,10 @@ function run_list() {
 }
 
 function run_status() {
+  storage_name="issue.txt"
+  storage_file="$data_dir/$storage_name"
+  issue=$(read_storage "$storage_file")
+
   if [[ -z "$issue" ]]
   then
     echo "No issues are active."
@@ -132,6 +158,13 @@ function update_cache() {
   jira issue list --assignee $(jira me) -q 'status not in (Done, "Will Not Do")' --plain --order-by priority > "$cache_file"
 }
 
+function write_storage() {
+  storage_file="$1"
+  data="$2"
+
+  echo -n "$data" > "$storage_file"
+}
+
 if [[ "$command" == "help" || "$showhelp" == "true" ]]
 then
   print_help
@@ -139,6 +172,9 @@ then
 fi
 
 case "$command" in
+  checkout)
+    run_checkout
+    ;;
   list)
     run_list
     ;;
