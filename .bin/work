@@ -6,10 +6,17 @@ then
   exit 1
 fi
 
-cache_dir='/tmp/jira'
-cache_file="$cache_dir/my-issues.txt"
+config_dir="$HOME/.config/work-cli"
+cache_dir="$config_dir/cache"
+data_dir="$config_dir/data"
+
+mkdir -p "$config_dir"
+mkdir -p "$cache_dir"
+mkdir -p "$data_dir"
+
+# defaults
 cache_ttl=3600 # 1hr
-subcommand='help'
+command='help'
 
 # Handle flags/arguments
 while [ $# -gt 0 ]
@@ -20,7 +27,11 @@ do
       shift
       ;;
     list)
-      subcommand='list'
+      command='list'
+      shift
+      ;;
+    status)
+      command='status'
       shift
       ;;
     -h|--help)
@@ -40,7 +51,7 @@ do
       exit 1
       ;;
     *)
-      echo "Unknown subcommand: '$1'"
+      echo "Unknown command: '$1'"
       exit 1
       ;;
   esac
@@ -48,6 +59,24 @@ done
 
 function bold() {
   echo -n "$(tput bold)${1}$(tput sgr0)"
+}
+
+function check_cache() {
+  cache_file="$1"
+
+  mkdir -p "$cache_dir"
+
+  if [[ -f "$cache_file" ]]
+  then
+    cache_age=$(($(date +%s) - $(date -r "$cache_file" +%s)))
+
+    if [[ $cache_age -gt $cache_ttl ]]
+    then
+      update_cache "$cache_file"
+    fi
+  else
+    update_cache "$cache_file"
+  fi
 }
 
 function print_help() {
@@ -58,8 +87,9 @@ $(bold USAGE)
   work <command> [flags]
 
 $(bold COMMANDS)
-  help  Show available commands, flags, and examples for using this tool
-  list  Show a list of your open issues
+  help    Show available commands, flags, and examples for using this tool
+  list    Show a list of your open issues
+  status  Show the current status of the issue you're working on
 
 $(bold FLAGS)
   -h, --help            Show available commands, flags, and examples for using this tool
@@ -72,36 +102,47 @@ $(bold EXAMPLES)
 HELP
 }
 
-function update_cache() {
-  mkdir -p $cache_dir
+function read_cache() {
+  cache_file="$1"
 
-  jira issue list --assignee $(jira me) -q 'status not in (Done, "Will Not Do")' --plain --order-by priority > $cache_file
+  check_cache "$cache_file"
+
+  cat "$cache_file"
 }
 
-if [[ "$subcommand" == "help" || "$showhelp" == "true" ]]
+function run_list() {
+  cache_name="list.txt"
+  cache_file="$cache_dir/$cache_name"
+
+  read_cache "$cache_file"
+}
+
+function run_status() {
+  if [[ -z "$issue" ]]
+  then
+    echo "No issues are active."
+  else
+    echo "Active issue: $issue"
+  fi
+}
+
+function update_cache() {
+  cache_file="$1"
+
+  jira issue list --assignee $(jira me) -q 'status not in (Done, "Will Not Do")' --plain --order-by priority > "$cache_file"
+}
+
+if [[ "$command" == "help" || "$showhelp" == "true" ]]
 then
   print_help
   exit 0
 fi
 
-if [[ -f "$cache_file" ]]
-then
-  cache_age=$(($(date +%s) - $(date -r "$cache_file" +%s)))
-
-  if [[ $cache_age -gt $cache_ttl ]]
-  then
-    echo "Cache expired. Updating..."
-    update_cache
-  else
-    echo "Cache is valid."
-  fi
-else
-  echo "Cache missing. Updating..."
-  update_cache
-fi
-
-case "$subcommand" in
+case "$command" in
   list)
-    cat "$cache_file"
+    run_list
+    ;;
+  status)
+    run_status
     ;;
 esac
