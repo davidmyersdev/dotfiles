@@ -17,6 +17,8 @@ brew "webp"
 brew "jpeg-xl"
 # Codec library for encoding and decoding AV1 video streams
 brew "aom"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.12"
 # Record and share terminal sessions
@@ -33,6 +35,10 @@ brew "libtool"
 brew "unixodbc"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# C parser in Python
+brew "pycparser"
+# C Foreign Function Interface for Python
+brew "cffi"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
 # Official Amazon AWS command-line interface
@@ -51,10 +57,6 @@ brew "fontconfig"
 brew "glib"
 # Object-file caching compiler wrapper
 brew "ccache"
-# C parser in Python
-brew "pycparser"
-# C Foreign Function Interface for Python
-brew "cffi"
 # Enables you to reproduce the CircleCI environment locally
 brew "circleci"
 # Cross-platform make
@@ -63,6 +65,18 @@ brew "cmake"
 brew "cmocka"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
+# Compression/decompression library aiming for high speed
+brew "snappy"
+# Linux virtual machines
+brew "lima"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # LCS based diff highlighting tool to ease code review from your terminal
 brew "diffr"
 # Diff that understands syntax
@@ -81,10 +95,6 @@ brew "docutils"
 brew "duti"
 # Command-line tool to interact with exercism.io
 brew "exercism"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
@@ -93,26 +103,28 @@ brew "openjpeg"
 brew "leptonica"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
-# C library SSHv1/SSHv2 client and server protocols
-brew "libssh"
 # Framework for layout and rendering of i18n text
 brew "pango"
-# Compression/decompression library aiming for high speed
-brew "snappy"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg@4"
+# GNU compiler collection
+brew "gcc"
+# Package for scientific computing with Python
+brew "numpy"
+# Open Visual Inference And Optimization toolkit for AI inference
+brew "openvino"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg@6"
 # Collection of GNU find, xargs, and locate
 brew "findutils"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU awk utility
 brew "gawk"
-# GNU compiler collection
-brew "gcc"
 # Library for encoding and decoding .avif files
 brew "libavif"
 # Graphics library to dynamically manipulate images
@@ -149,6 +161,8 @@ brew "librsvg"
 brew "graphviz"
 # GNU grep, egrep and fgrep
 brew "grep"
+# Next generation open source RPC library and framework
+brew "grpc"
 # GNU Ubiquitous Intelligent Language for Extensions
 brew "guile"
 # Post-modern modal text editor
@@ -165,12 +179,12 @@ brew "libfido2"
 brew "libimobiledevice"
 # Powerful, lightweight programming language
 brew "lua"
+# Drop-in replacement for MySQL
+brew "mariadb@10.11"
 # Mac App Store command-line interface
 brew "mas"
 # CLI tool for saving complete web pages as a single HTML file
 brew "monolith"
-# Open source relational database management system
-brew "mysql"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP/2 C Library
@@ -193,14 +207,18 @@ brew "python@3.10"
 brew "python@3.9"
 # Install various Ruby versions and implementations
 brew "ruby-build"
+# Safe, concurrent, practical language
+brew "rust"
 # Rust toolchain installer
-brew "rustup-init"
+brew "rustup"
 # Display and control your Android device
 brew "scrcpy"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
 # Instant terminal sharing
 brew "tmate"
+# Terminal multiplexer
+brew "tmux"
 # Vi 'workalike' with many additional features
 brew "vim"
 # Internet file retriever
@@ -241,7 +259,6 @@ cask "discord"
 cask "figma"
 # Web browser
 cask "firefox"
-# Free monospaced font with programming ligatures
 cask "font-fira-code"
 # Desktop automation application
 cask "hammerspoon"
@@ -253,6 +270,8 @@ cask "inkscape"
 cask "insomnia"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
 # ZSA keyboard firmware flasher
 cask "keymapp"
 # Reverse proxy, secure introspectable tunnels to localhost
@@ -271,8 +290,10 @@ cask "tuple"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Dato", id: 1470584107
 mas "Developer", id: 640199958
 mas "GarageBand", id: 682658836
+mas "HazeOver", id: 430798174
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
