@@ -100,35 +100,15 @@ end
 
 -- The default grid is 4 columns in a single row. E.g. | 1 | 2 | 3 | 4 |
 hs.hotkey.bind({"control", "option"}, "1", function()
-  moveWindow(getCurrentWindow(), {
-    column = 1,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
+  hs.spaces.moveWindowToSpace(getCurrentWindow(), 1)
 end)
 
 hs.hotkey.bind({"control", "option"}, "2", function()
-  moveWindow(getCurrentWindow(), {
-    column = 2,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
+  hs.spaces.moveWindowToSpace(getCurrentWindow(), 2)
 end)
 
 hs.hotkey.bind({"control", "option"}, "3", function()
-  moveWindow(getCurrentWindow(), {
-    column = 3,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
-end)
-
-hs.hotkey.bind({"control", "option"}, "4", function()
-  moveWindow(getCurrentWindow(), {
-    column = 4,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
+  hs.spaces.moveWindowToSpace(getCurrentWindow(), 3)
 end)
 
 hs.hotkey.bind({"control", "option"}, "return", function()
