@@ -1,5 +1,7 @@
 hs.application.enableSpotlightForNameSearches(true)
 
+local blockSize = 50
+
 function getCurrentWindow()
   return hs.window.focusedWindow()
 end
@@ -149,40 +151,6 @@ hs.hotkey.bind({"control", "shift", "option"}, "return", function()
   end
 end)
 
-hs.hotkey.bind({"control", "shift", "option"}, "left", function()
-  moveWindow(getCurrentWindow(), {
-    column = 1,
-    columns = 2,
-    width = (getScreen().w / 2),
-    height = getScreen().h,
-  })
-end)
-
-hs.hotkey.bind({"control", "shift", "option"}, "right", function()
-  moveWindow(getCurrentWindow(), {
-    column = 2,
-    columns = 2,
-    width = (getScreen().w / 2),
-    height = getScreen().h,
-  })
-end)
-
-hs.hotkey.bind({"control", "option"}, "left", function()
-  moveWindow(getCurrentWindow(), {
-    column = 2,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
-end)
-
-hs.hotkey.bind({"control", "option"}, "right", function()
-  moveWindow(getCurrentWindow(), {
-    column = 3,
-    width = (getScreen().w / 4),
-    height = 1080,
-  })
-end)
-
 hs.hotkey.bind({"control", "option"}, "c", function()
   moveWindow(getCurrentWindow(), {
     column = 2.5,
@@ -251,4 +219,99 @@ end)
 
 hs.hotkey.bind({"control", "option"}, "n", function()
   hs.application.open('Octo')
+end)
+
+hs.hotkey.bind({"control", "option"}, "up", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.h = frame.h / 2
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "option"}, "down", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.h = frame.h / 2
+  frame.y = frame.y + frame.h
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "shift", "option"}, "left", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.x = frame.x - blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "shift", "option"}, "right", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.x = frame.x + blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "shift", "option"}, "down", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.y = frame.y - blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "shift", "option"}, "up", function()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.y = frame.y + blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "option"}, "left", function()
+  local screen = getScreen()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.w = frame.w - blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "option"}, "right", function()
+  local screen = getScreen()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.w = frame.w + blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "option"}, "down", function()
+  local screen = getScreen()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.h = frame.h - blockSize
+
+  window:setFrame(frame, 0)
+end)
+
+hs.hotkey.bind({"control", "option"}, "up", function()
+  local screen = getScreen()
+  local window = getCurrentWindow()
+  local frame = window:frame()
+
+  frame.h = frame.h + blockSize
+
+  window:setFrame(frame, 0)
 end)
