@@ -1,2 +1,4 @@
 ---
-BUNDLE_BUILD__THRIFT: "--with-cppflags='-D_FORTIFY_SOURCE=0 -fdeclspec -Wno-shift-negative-value -Wno-compound-token-split-by-macro'"
+BUNDLE_BUILD__THRIFT: "--with-cppflags='-D_FORTIFY_SOURCE=0 -fdeclspec -Wno-deprecated-declarations -Wno-shift-negative-value -Wno-compound-token-split-by-macro'"
+BUNDLE_BUILD__RUBY___ODBC: "--with-cppflags='-Wno-undef' --with-odbc-dir=/opt/homebrew/opt/unixodbc"
+BUNDLE_BUILD__MYSQL2: "--with-opt-dir=/opt/homebrew/opt/openssl@3 --with-ldflags=-L/opt/homebrew/opt/zstd/lib"
