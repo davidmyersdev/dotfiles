@@ -6,6 +6,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "ngrok/ngrok"
+tap "nikitabobko/tap"
 tap "oven-sh/bun"
 # Run your GitHub Actions locally
 brew "act"
@@ -39,8 +40,6 @@ brew "asdf"
 brew "pycparser"
 # C Foreign Function Interface for Python
 brew "cffi"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Bourne-Again SHell, a UNIX command interpreter
@@ -65,14 +64,6 @@ brew "cmake"
 brew "cmocka"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
-# Validating, recursive, caching DNS resolver
-brew "unbound"
-# GNU Transport Layer Security (TLS) Library
-brew "gnutls"
-# C library SSHv1/SSHv2 client and server protocols
-brew "libssh"
-# Compression/decompression library aiming for high speed
-brew "snappy"
 # Linux virtual machines
 brew "lima"
 # Container runtimes on MacOS (and Linux) with minimal setup
@@ -95,6 +86,10 @@ brew "docutils"
 brew "duti"
 # Command-line tool to interact with exercism.io
 brew "exercism"
+# Validating, recursive, caching DNS resolver
+brew "unbound"
+# GNU Transport Layer Security (TLS) Library
+brew "gnutls"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Library for JPEG-2000 image manipulation
@@ -103,20 +98,18 @@ brew "openjpeg"
 brew "leptonica"
 # Subtitle renderer for the ASS/SSA subtitle format
 brew "libass"
+# C library SSHv1/SSHv2 client and server protocols
+brew "libssh"
 # Framework for layout and rendering of i18n text
 brew "pango"
+# Compression/decompression library aiming for high speed
+brew "snappy"
 # OCR (Optical Character Recognition) engine
 brew "tesseract"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg@4"
-# GNU compiler collection
-brew "gcc"
-# Package for scientific computing with Python
-brew "numpy"
-# Open Visual Inference And Optimization toolkit for AI inference
-brew "openvino"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg@6"
 # Collection of GNU find, xargs, and locate
@@ -125,6 +118,8 @@ brew "findutils"
 brew "fzf"
 # GNU awk utility
 brew "gawk"
+# GNU compiler collection
+brew "gcc"
 # Library for encoding and decoding .avif files
 brew "libavif"
 # Graphics library to dynamically manipulate images
@@ -133,6 +128,10 @@ brew "gd"
 brew "gdk-pixbuf"
 # GitHub command-line tool
 brew "gh"
+# Package for scientific computing with Python
+brew "numpy"
+# Open Visual Inference And Optimization toolkit for AI inference
+brew "openvino"
 # Highest-quality GIF encoder based on pngquant
 brew "gifski"
 # Distributed revision control system
@@ -171,8 +170,6 @@ brew "helix"
 brew "ios-deploy"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Network authentication protocol
-brew "krb5"
 # Provides library functionality for FIDO U2F & FIDO 2.0, including USB
 brew "libfido2"
 # Library to communicate with iOS devices natively
@@ -183,6 +180,8 @@ brew "lua"
 brew "mariadb@10.11"
 # Mac App Store command-line interface
 brew "mas"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
 # CLI tool for saving complete web pages as a single HTML file
 brew "monolith"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -191,6 +190,8 @@ brew "neovim"
 brew "nghttp2"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Libraries for security-enabled client and server applications
+brew "nss"
 # Shell command parallelization utility
 brew "parallel"
 # Highly capable, feature-rich programming language
@@ -204,11 +205,11 @@ brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
 # Install various Ruby versions and implementations
 brew "ruby-build"
-# Safe, concurrent, practical language
-brew "rust"
 # Rust toolchain installer
 brew "rustup"
 # Display and control your Android device
@@ -235,6 +236,8 @@ brew "facebook/fb/idb-companion"
 brew "oven-sh/bun/bun"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 # Professional image editing software
 cask "affinity-photo"
 # GPU-accelerated terminal emulator
@@ -290,16 +293,7 @@ cask "tuple"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Dato", id: 1470584107
-mas "Developer", id: 640199958
-mas "GarageBand", id: 682658836
-mas "HazeOver", id: 430798174
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Transporter", id: 1450874784
-mas "Xcode", id: 497799835
 vscode "antfu.browse-lite"
 vscode "antfu.goto-alias"
 vscode "apollographql.vscode-apollo"
@@ -321,13 +315,16 @@ vscode "esbenp.prettier-vscode"
 vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
+vscode "github.vscode-github-actions"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "hashicorp.terraform"
 vscode "howardzuo.vscode-favorites"
 vscode "jarga.apib"
+vscode "jock.svg"
 vscode "karunamurti.haml"
 vscode "koichisasada.vscode-rdbg"
+vscode "mathiasfrohlich.kotlin"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
 vscode "ms-vscode-remote.remote-containers"
@@ -342,13 +339,14 @@ vscode "noku.rails-run-spec-vscode"
 vscode "nuxt.mdc"
 vscode "orta.vscode-jest"
 vscode "pushqrdx.inline-html"
-vscode "rebornix.ruby"
 vscode "redhat.vscode-commons"
 vscode "redhat.vscode-yaml"
 vscode "rust-lang.rust-analyzer"
 vscode "rvest.vs-code-prettier-eslint"
+vscode "shopify.ruby-extensions-pack"
 vscode "shopify.ruby-lsp"
 vscode "sianglim.slim"
+vscode "sorbet.sorbet-vscode-extension"
 vscode "svelte.svelte-vscode"
 vscode "syler.sass-indented"
 vscode "tamasfe.even-better-toml"
@@ -359,6 +357,5 @@ vscode "vortizhe.simple-ruby-erb"
 vscode "vscodevim.vim"
 vscode "vue.volar"
 vscode "whizkydee.material-palenight-theme"
-vscode "wingrunr21.vscode-ruby"
 vscode "yoavbls.pretty-ts-errors"
 vscode "yzhang.markdown-all-in-one"
