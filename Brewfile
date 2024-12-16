@@ -285,6 +285,8 @@ cask "okta-advanced-server-access"
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Digital design and prototyping platform
+cask "sketch"
 # Music streaming service
 cask "spotify"
 # Remote pair programming app
@@ -293,7 +295,15 @@ cask "tuple"
 cask "visual-studio-code"
 # Video communication and virtual meeting platform
 cask "zoom"
+mas "Dato", id: 1470584107
+mas "Developer", id: 640199958
+mas "GarageBand", id: 682658836
+mas "HazeOver", id: 430798174
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Transporter", id: 1450874784
+mas "Xcode", id: 497799835
 vscode "antfu.browse-lite"
 vscode "antfu.goto-alias"
 vscode "apollographql.vscode-apollo"
