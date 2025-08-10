@@ -115,6 +115,11 @@ function dox-rails() {
   fi
 }
 
+# Run `dox-dc up -d --force-recreate <service>` without specifying the service name for the current app.
+function dox-recreate() {
+  dox-dc up -d --force-recreate "$(basename "$(git rev-parse --show-toplevel)")"
+}
+
 # Run `dox-dc restart <service>` without specifying the service name for the current app.
 function dox-restart() {
   dox-dc restart "$(basename "$(git rev-parse --show-toplevel)")"
