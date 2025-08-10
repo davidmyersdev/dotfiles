@@ -11,6 +11,9 @@ export DOX_HOME="$DOX_ROOT/work"
 # Initialize the `dox-compose` command.
 eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
 
+# Add `ads-cli` binaries to the path.
+export PATH="$HOME/pub/doximity-tools/apps/ads-cli/bin:$PATH"
+
 # List all Ads services.
 alias ads-ls="echo $ADS_APPS"
 
