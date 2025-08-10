@@ -60,6 +60,21 @@ function dox-bundle() {
   fi
 }
 
+# List all available services.
+function dox-dc-all-services() {
+  dox-dc-config --services | sort
+}
+
+# List all available volumes.
+function dox-dc-all-volumes() {
+  dox-dc-config --volumes | sort
+}
+
+# Run `dox-dc config` without checking for AWS credentials.
+function dox-dc-config() {
+  DISABLE_AWS_VAULT=true dox-dc config $@
+}
+
 # Deploy the current app branch to the specified environment (e.g. `dev-ads-1`).
 function dox-deploy() {
   local env="$1"
