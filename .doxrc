@@ -6,6 +6,7 @@
 
 export ADS_APPS="activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-mlr campaigns-workers dialer-api doc-news doc-news-workers doximity doximity-daemons doximity-workers doximity-client-vue-memcached feed-experience graphql-federation push-notification-api spectrum"
 export DOX_ROOT="$HOME/dox"
+export DOX_HOME="$DOX_ROOT/work"
 
 # Initialize the `dox-compose` command.
 eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
