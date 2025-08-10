@@ -72,7 +72,12 @@ function dox-dc-all-volumes() {
 
 # Run `dox-dc config` without checking for AWS credentials.
 function dox-dc-config() {
-  DISABLE_AWS_VAULT=true dox-dc config $@
+  dox-dc-without-aws config $@
+}
+
+# Run `dox-dc` without checking for AWS credentials.
+function dox-dc-without-aws() {
+  DISABLE_AWS_VAULT=true dox-dc $@
 }
 
 # Deploy the current app branch to the specified environment (e.g. `dev-ads-1`).
