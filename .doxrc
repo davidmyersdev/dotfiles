@@ -15,7 +15,7 @@ eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
 alias ads-ls="echo $ADS_APPS"
 
 # Docker utilities
-alias ads-start="dox-dc up -d $ADS_APPS"
+alias ads-start="dox-dc up -d --wait $ADS_APPS"
 alias ads-stop="dox-dc down"
 alias ads-restart="ads-stop && ads-start"
 alias ads-logs="dox-dc logs -f $ADS_APPS"
