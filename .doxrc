@@ -4,7 +4,7 @@
 ##    doximity    ##
 ####################
 
-export ADS_APPS="doximity doximity-workers activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-workers dialer-api doximity-client-vue-memcached graphql-federation spectrum"
+export ADS_APPS="activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-mlr campaigns-workers dialer-api doc-news doc-news-workers doximity doximity-daemons doximity-workers doximity-client-vue-memcached feed-experience graphql-federation push-notification-api spectrum"
 export DOX_ROOT="$HOME/dox"
 
 # Initialize the `dox-compose` command.
