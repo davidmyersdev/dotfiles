@@ -60,6 +60,16 @@ function dox-bundle() {
   fi
 }
 
+# Deploy the current app branch to the specified environment (e.g. `dev-ads-1`).
+function dox-deploy() {
+  local env="$1"
+
+  local app="$(basename `pwd`)"
+  local branch="$(git rev-parse --abbrev-ref HEAD)"
+
+  dox deploy $env $app --yes --revision=$branch
+}
+
 # Run `dox-dc logs <service>` without specifying the service name for the current app.
 function dox-logs() {
   dox-dc logs --tail 500 $@ "$(basename "$(git rev-parse --show-toplevel)")"
