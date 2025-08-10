@@ -19,6 +19,9 @@ export EDITOR=vim
 # Homebrew global bundle file
 export HOMEBREW_BUNDLE_FILE=~/Brewfile
 
+# utilities
+source ~/pub/dots/profiles/dotfiles/utils.sh
+
 # j (autojump alternative)
 source ~/pub/j/j.sh
 
