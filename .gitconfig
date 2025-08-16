@@ -27,6 +27,7 @@
   flush = !~/.dotfiles/git/aliases/git-flush.zsh
   frbm = !~/.dotfiles/git/aliases/git-frbm.zsh
   fwl = !: git force && ~/.dotfiles/git/aliases/git-fwl.zsh
+  head = !~/.dotfiles/git/aliases/git-head.zsh
   l = !: git log && ~/.dotfiles/git/aliases/git-l.zsh
   ls = !: git ls-files && ~/.dotfiles/git/aliases/git-ls.zsh
   lsa = !~/.dotfiles/git/aliases/git-lsa.zsh
