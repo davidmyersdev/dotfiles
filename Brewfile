@@ -263,6 +263,8 @@ cask "figma"
 # Web browser
 cask "firefox"
 cask "font-fira-code"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Desktop automation application
 cask "hammerspoon"
 # Terminal built on web technologies
