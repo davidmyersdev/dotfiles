@@ -44,6 +44,7 @@
   s = !: git status && ~/.dotfiles/git/aliases/git-s.zsh
   stale = !~/.dotfiles/git/aliases/git-stale.zsh
   up = !: git push && ~/.dotfiles/git/aliases/git-up.zsh
+  url = !~/.dotfiles/git/aliases/git-url.zsh
   wt = !: git worktree && ~/.dotfiles/git/aliases/git-wt.zsh
   wta = !: git worktree && ~/.dotfiles/git/aliases/git-wta.zsh
   rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
