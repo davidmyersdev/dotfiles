@@ -5,13 +5,21 @@
   alias = !~/.dotfiles/git/aliases/git-alias.zsh
   aliases = !~/.dotfiles/git/aliases/git-aliases.zsh
   amend = !: git commit && ~/.dotfiles/git/aliases/git-amend.zsh
+  ap = !: git add && ~/.dotfiles/git/aliases/git-ap.zsh
+  b = !: git branch && ~/.dotfiles/git/aliases/git-b.zsh
+  bc = !~/.dotfiles/git/aliases/git-bc.zsh
+  bd = !~/.dotfiles/git/aliases/git-bd.zsh
   bp = !~/.dotfiles/git/aliases/git-bp.zsh
+  br = !~/.dotfiles/git/aliases/git-br.zsh
+  bs = !~/.dotfiles/git/aliases/git-bs.zsh
   c = !: git commit && ~/.dotfiles/git/aliases/git-c.zsh
   clone-all = !~/.dotfiles/git/aliases/git-clone-all.zsh
   cm = !: git commit && ~/.dotfiles/git/aliases/git-cm.zsh
   co = !: git checkout && ~/.dotfiles/git/aliases/git-co.zsh
+  cob = !: git checkout && ~/.dotfiles/git/aliases/git-cob.zsh
   coh = !: git checkout && ~/.dotfiles/git/aliases/git-coh.zsh
   com = !: git checkout && ~/.dotfiles/git/aliases/git-com.zsh
+  coo = !~/.dotfiles/git/aliases/git-coo.zsh
   copr = !~/.dotfiles/git/aliases/git-copr.zsh
   cp = !: git cherry-pick && ~/.dotfiles/git/aliases/git-cp.zsh
   d = !: git diff && ~/.dotfiles/git/aliases/git-d.zsh
@@ -21,10 +29,13 @@
   dnh = !: git diff && ~/.dotfiles/git/aliases/git-dnh.zsh
   dnm = !: git diff && ~/.dotfiles/git/aliases/git-dnm.zsh
   dnwc = !~/.dotfiles/git/aliases/git-dnwc.zsh
+  do = !~/.dotfiles/git/aliases/git-do.zsh
   ds = !: git diff && ~/.dotfiles/git/aliases/git-ds.zsh
   echo = !~/.dotfiles/git/aliases/git-echo.zsh
   f = !: git fetch && ~/.dotfiles/git/aliases/git-f.zsh
+  fco = !: git checkout && ~/.dotfiles/git/aliases/git-fco.zsh
   ferry = !~/.dotfiles/git/aliases/git-ferry.zsh
+  fix = !: git commit && ~/.dotfiles/git/aliases/git-fix.zsh
   flush = !~/.dotfiles/git/aliases/git-flush.zsh
   frbm = !~/.dotfiles/git/aliases/git-frbm.zsh
   fwl = !: git force && ~/.dotfiles/git/aliases/git-fwl.zsh
@@ -33,40 +44,57 @@
   ls = !: git ls-files && ~/.dotfiles/git/aliases/git-ls.zsh
   lsa = !~/.dotfiles/git/aliases/git-lsa.zsh
   lsap = !~/.dotfiles/git/aliases/git-lsap.zsh
+  lsm = !: git ls-files && ~/.dotfiles/git/aliases/git-lsm.zsh
+  lss = !: git ls-files && ~/.dotfiles/git/aliases/git-lss.zsh
   lsu = !: git ls-files && ~/.dotfiles/git/aliases/git-lsu.zsh
   main = !~/.dotfiles/git/aliases/git-main.zsh
+  pa = !~/.dotfiles/git/aliases/git-pa.zsh
+  rb = !: git rebase && ~/.dotfiles/git/aliases/git-rb.zsh
   rba = !: git rebase && ~/.dotfiles/git/aliases/git-rba.zsh
   rbc = !: git rebase && ~/.dotfiles/git/aliases/git-rbc.zsh
   rbi = !: git rebase && ~/.dotfiles/git/aliases/git-rbi.zsh
   rbim = !: git rebase && ~/.dotfiles/git/aliases/git-rbim.zsh
   rbm = !: git rebase && ~/.dotfiles/git/aliases/git-rbm.zsh
+  rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
   rhh = !: git reset && ~/.dotfiles/git/aliases/git-rhh.zsh
   rs = !: git reset && ~/.dotfiles/git/aliases/git-rs.zsh
   rsh = !: git reset && ~/.dotfiles/git/aliases/git-rsh.zsh
   s = !: git status && ~/.dotfiles/git/aliases/git-s.zsh
+  sn = !: git show && ~/.dotfiles/git/aliases/git-sn.zsh
   stale = !~/.dotfiles/git/aliases/git-stale.zsh
+  unstage = !: git restore && ~/.dotfiles/git/aliases/git-unstage.zsh
   up = !: git push && ~/.dotfiles/git/aliases/git-up.zsh
   url = !~/.dotfiles/git/aliases/git-url.zsh
+  view = !~/.dotfiles/git/aliases/git-view.zsh
   wt = !: git worktree && ~/.dotfiles/git/aliases/git-wt.zsh
   wta = !: git worktree && ~/.dotfiles/git/aliases/git-wta.zsh
-  rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
-  fix = !: git commit && ~/.dotfiles/git/aliases/git-fix.zsh
-  br = !~/.dotfiles/git/aliases/git-br.zsh
-  bs = !~/.dotfiles/git/aliases/git-bs.zsh
-  bd = !~/.dotfiles/git/aliases/git-bd.zsh
-  view = !~/.dotfiles/git/aliases/git-view.zsh
-  pa = !~/.dotfiles/git/aliases/git-pa.zsh
-  rb = !: git rebase && ~/.dotfiles/git/aliases/git-rb.zsh
-  unstage = !: git restore && ~/.dotfiles/git/aliases/git-unstage.zsh
 [commit]
   gpgsign = true
 [core]
   editor = vim
-  pager = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10 | less -R
   ignorecase = false
   excludesfile = /Users/david/git/ignore
+  autocrlf = input
+[diff]
+  external = difft
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[init]
+  defaultBranch = main
+[interactive]
+  diffFilter = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10
 [gpg]
   program = gpg
+[pager]
+  difftool = true
 [pull]
   rebase = true
 [rebase]
@@ -77,15 +105,6 @@
   signingkey = 39172BB67E6A96CC
   email = davidrmyersii@gmail.com
   name = David R. Myers
-[url "git@github.com:"]
-  insteadOf = http://github.com/
-  insteadOf = https://github.com/
-[filter "lfs"]
-  required = true
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-[init]
-  defaultBranch = main
-[interactive]
-  diffFilter = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10
+# [url "git@github.com:"]
+#   insteadOf = http://github.com/
+#   insteadOf = https://github.com/
