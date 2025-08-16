@@ -13,6 +13,7 @@
   coh = !: git checkout && ~/.dotfiles/git/aliases/git-coh.zsh
   com = !: git checkout && ~/.dotfiles/git/aliases/git-com.zsh
   copr = !~/.dotfiles/git/aliases/git-copr.zsh
+  cp = !: git cherry-pick && ~/.dotfiles/git/aliases/git-cp.zsh
   d = !: git diff && ~/.dotfiles/git/aliases/git-d.zsh
   dh = !: git diff && ~/.dotfiles/git/aliases/git-dh.zsh
   dm = !: git diff && ~/.dotfiles/git/aliases/git-dm.zsh
