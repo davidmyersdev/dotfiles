@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for package in ./packages/*
+do
+  stow --dir ./packages --target $HOME --stow $(basename $package)
+done

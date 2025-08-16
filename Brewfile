@@ -214,6 +214,8 @@ brew "ruby-build"
 brew "rustup"
 # Display and control your Android device
 brew "scrcpy"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
 # Instant terminal sharing
