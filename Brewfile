@@ -5,9 +5,11 @@ tap "helix-editor/helix"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "libsql/sqld"
 tap "ngrok/ngrok"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
+tap "tursodatabase/tap"
 # Run your GitHub Actions locally
 brew "act"
 # Zstandard is a real-time compression algorithm
@@ -36,6 +38,8 @@ brew "libtool"
 brew "unixodbc"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
+# Core application library for C
+brew "glib"
 # C parser in Python
 brew "pycparser"
 # C Foreign Function Interface for Python
@@ -52,8 +56,6 @@ brew "bat"
 brew "freetype"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
-# Core application library for C
-brew "glib"
 # Object-file caching compiler wrapper
 brew "ccache"
 # Enables you to reproduce the CircleCI environment locally
@@ -73,7 +75,7 @@ brew "diffr"
 # Diff that understands syntax
 brew "difftastic"
 # Lightweight DNS forwarder and DHCP server
-brew "dnsmasq"
+brew "dnsmasq", restart_service: :changed
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Isolated development environments using Docker
@@ -128,10 +130,6 @@ brew "gd"
 brew "gdk-pixbuf"
 # GitHub command-line tool
 brew "gh"
-# Package for scientific computing with Python
-brew "numpy"
-# Open Visual Inference And Optimization toolkit for AI inference
-brew "openvino"
 # Highest-quality GIF encoder based on pngquant
 brew "gifski"
 # Distributed revision control system
@@ -180,10 +178,18 @@ brew "lua"
 brew "mariadb@10.11"
 # Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # CLI tool for saving complete web pages as a single HTML file
 brew "monolith"
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
+# Open source relational database management system
+brew "mysql", link: false
+# Open source relational database management system
+brew "mysql@8.0", restart_service: :changed, link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # HTTP/2 C Library
@@ -192,8 +198,16 @@ brew "nghttp2"
 brew "ninja"
 # Libraries for security-enabled client and server applications
 brew "nss"
+# Package for scientific computing with Python
+brew "numpy"
+# Create, run, and share large language models (LLMs)
+brew "ollama", restart_service: :changed, link: false
+# Open Visual Inference And Optimization toolkit for AI inference
+brew "openvino"
 # Shell command parallelization utility
 brew "parallel"
+# Command-line tools for MySQL, MariaDB and system tasks
+brew "percona-toolkit"
 # Highly capable, feature-rich programming language
 brew "perl"
 # Pinentry for GPG on Mac
@@ -208,6 +222,12 @@ brew "python@3.10"
 brew "python@3.11"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Persistent key-value database, with built-in net interface
+brew "redis", restart_service: :changed
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Rust toolchain installer
@@ -236,6 +256,7 @@ brew "ankitpokhrel/jira-cli/jira-cli"
 brew "facebook/fb/idb-companion"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+brew "tursodatabase/tap/turso"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # AeroSpace is an i3-like tiling window manager for macOS
@@ -244,12 +265,14 @@ cask "aerospace"
 cask "affinity-photo"
 # GPU-accelerated terminal emulator
 cask "alacritty"
+# Enable Windows-like alt-tab
+cask "alt-tab"
 # Command-line tools for building and debugging Android apps
 cask "android-commandlinetools"
 # Chromium based browser
 cask "arc"
 # Securely stores and accesses AWS credentials in a development environment
-cask "aws-vault"
+cask "aws-vault-binary"
 # Data management tool that enables working with SQL Server
 cask "azure-data-studio"
 # API documentation browser and code snippet manager
@@ -267,8 +290,12 @@ cask "firefox"
 cask "font-fira-code"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Free and open-source image editor
+cask "gimp"
 # Desktop automation application
 cask "hammerspoon"
+# Open source API development ecosystem
+cask "hoppscotch"
 # Terminal built on web technologies
 cask "hyper"
 # Vector graphics editor
@@ -279,12 +306,22 @@ cask "insomnia"
 cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
+# Keyboard customiser
+cask "karabiner-elements"
+# Open-source keystroke visualiser
+cask "keycastr"
 # ZSA keyboard firmware flasher
 cask "keymapp"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Identity and access management
 cask "okta-advanced-server-access"
+# Get up and running with large language models locally
+cask "ollama-app"
+# Replacement for Docker Desktop
+cask "orbstack"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -293,21 +330,17 @@ cask "rectangle"
 cask "sketch"
 # Music streaming service
 cask "spotify"
+# Dictation tool including LLM reformatting
+cask "superwhisper"
 # Remote pair programming app
 cask "tuple"
 # Open-source code editor
 cask "visual-studio-code"
+# Gecko based web browser
+cask "zen"
 # Video communication and virtual meeting platform
 cask "zoom"
-mas "Dato", id: 1470584107
-mas "Developer", id: 640199958
-mas "GarageBand", id: 682658836
-mas "HazeOver", id: 430798174
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "Transporter", id: 1450874784
-mas "Xcode", id: 497799835
+vscode "ahmadalli.vscode-nginx-conf"
 vscode "antfu.browse-lite"
 vscode "antfu.goto-alias"
 vscode "apollographql.vscode-apollo"
@@ -316,11 +349,13 @@ vscode "astro-build.astro-vscode"
 vscode "austenc.tailwind-docs"
 vscode "bierner.jsdoc-markdown-highlighting"
 vscode "bierner.markdown-mermaid"
+vscode "bierner.markdown-preview-github-styles"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
 vscode "dawhite.mustache"
 vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
+vscode "docker.docker"
 vscode "dotjoshjohnson.xml"
 vscode "dtsvet.vscode-wasm"
 vscode "eamodio.gitlens"
@@ -330,17 +365,21 @@ vscode "github.copilot"
 vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
 vscode "github.vscode-github-actions"
+vscode "github.vscode-pull-request-github"
 vscode "graphql.vscode-graphql"
 vscode "graphql.vscode-graphql-syntax"
 vscode "hashicorp.terraform"
 vscode "howardzuo.vscode-favorites"
+vscode "inferrinizzard.prettier-sql-vscode"
 vscode "jarga.apib"
 vscode "jock.svg"
 vscode "karunamurti.haml"
 vscode "koichisasada.vscode-rdbg"
 vscode "mathiasfrohlich.kotlin"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-kubernetes-tools.vscode-kubernetes-tools"
+vscode "ms-playwright.playwright"
 vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode-remote.remote-ssh"
 vscode "ms-vscode-remote.remote-ssh-edit"
@@ -355,18 +394,22 @@ vscode "orta.vscode-jest"
 vscode "pushqrdx.inline-html"
 vscode "redhat.vscode-commons"
 vscode "redhat.vscode-yaml"
+vscode "rubocop.vscode-rubocop"
 vscode "rust-lang.rust-analyzer"
 vscode "rvest.vs-code-prettier-eslint"
 vscode "shopify.ruby-extensions-pack"
 vscode "shopify.ruby-lsp"
 vscode "sianglim.slim"
 vscode "sorbet.sorbet-vscode-extension"
+vscode "sumneko.lua"
 vscode "svelte.svelte-vscode"
 vscode "syler.sass-indented"
 vscode "tamasfe.even-better-toml"
+vscode "tauri-apps.tauri-vscode"
 vscode "toba.vsfire"
 vscode "tonybaloney.vscode-pets"
 vscode "tyriar.sort-lines"
+vscode "vitest.explorer"
 vscode "vortizhe.simple-ruby-erb"
 vscode "vscodevim.vim"
 vscode "vue.volar"
