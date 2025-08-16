@@ -10,11 +10,11 @@ set backspace=indent,eol,start " allow backspace to erase indentation, newlines,
 filetype off
 syntax on
 
-packadd! onedark.vim
-packadd! polyglot.vim
+@REM packadd! onedark.vim
+@REM packadd! polyglot.vim
 
 if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme onedark
+@REM colorscheme onedark
