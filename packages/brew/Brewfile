@@ -52,6 +52,8 @@ brew "bash"
 brew "bash-completion"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Powerful, enterprise-ready, open source web server with automatic HTTPS
+brew "caddy"
 # Software library to render fonts
 brew "freetype"
 # XML-based font configuration API for X Windows

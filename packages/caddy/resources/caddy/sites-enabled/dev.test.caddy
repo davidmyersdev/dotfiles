@@ -1,0 +1,11 @@
+auth.dev.test {
+  tls internal
+  encode zstd gzip
+  reverse_proxy 127.0.0.1:5021
+}
+
+campaigns.dev.test {
+  tls internal
+  encode zstd gzip
+  reverse_proxy 127.0.0.1:5020
+}
