@@ -280,18 +280,12 @@ brew "oven-sh/bun/bun"
 brew "tursodatabase/tap/turso"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
-# AeroSpace is an i3-like tiling window manager for macOS
-cask "nikitabobko/tap/aerospace"
 # Professional image editing software
 cask "affinity-photo"
-# GPU-accelerated terminal emulator
-cask "alacritty"
 # Enable Windows-like alt-tab
 cask "alt-tab"
 # Command-line tools for building and debugging Android apps
 cask "android-commandlinetools"
-# Chromium based browser
-cask "arc"
 # Securely stores and accesses AWS credentials in a development environment
 cask "aws-vault-binary"
 # Data management tool that enables working with SQL Server
@@ -323,14 +317,10 @@ cask "gimp"
 cask "hammerspoon"
 # Open source API development ecosystem
 cask "hoppscotch"
-# Terminal built on web technologies
-cask "hyper"
 # Vector graphics editor
 cask "inkscape"
 # HTTP and GraphQL Client
 cask "insomnia"
-# Terminal emulator as alternative to Apple's Terminal app
-cask "iterm2"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # Keyboard customiser
@@ -355,8 +345,6 @@ cask "opencode-desktop"
 cask "orbstack"
 # Imaging utility to install operating systems to a microSD card
 cask "raspberry-pi-imager"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Digital design and prototyping platform
 cask "sketch"
 # Music streaming service
