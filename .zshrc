@@ -253,6 +253,11 @@ function tts() {
   sed -i '' 's/\t/  /g' $@
 }
 
+function weather() {
+  # https://github.com/chubin/wttr.in
+  curl https://wttr.in/
+}
+
 # Init asdf
 . $(brew --prefix asdf)/libexec/asdf.sh
 
