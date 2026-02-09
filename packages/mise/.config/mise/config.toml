@@ -1,0 +1,6 @@
+[tools]
+go = "latest"
+ollama = "0.15.5-rc3"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "ruby"]

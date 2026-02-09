@@ -207,8 +207,6 @@ brew "ninja"
 brew "nss"
 # Package for scientific computing with Python
 brew "numpy"
-# Create, run, and share large language models (LLMs)
-brew "ollama", restart_service: :changed, link: false
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # AI coding agent, built for the terminal
@@ -337,8 +335,6 @@ cask "ngrok"
 cask "obs"
 # Identity and access management
 cask "okta-advanced-server-access"
-# Get up and running with large language models locally
-cask "ollama-app"
 # AI coding agent desktop client
 cask "opencode-desktop"
 # Replacement for Docker Desktop
