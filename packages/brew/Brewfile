@@ -294,6 +294,8 @@ cask "bambu-studio"
 cask "blender"
 # Open source, extensible AI agent that goes beyond code suggestions
 cask "block-goose"
+# Terminal-based AI coding assistant
+cask "claude-code"
 # API documentation browser and code snippet manager
 cask "dash"
 # Virtual monitor for screen sharing
