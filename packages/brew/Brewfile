@@ -55,6 +55,8 @@ brew "circleci"
 brew "cmake"
 # Unit testing framework for C
 brew "cmocka"
+# YAML Parser
+brew "libyaml"
 # Dependency manager for Cocoa projects
 brew "cocoapods"
 # Linux virtual machines
