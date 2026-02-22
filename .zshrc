@@ -71,9 +71,9 @@ alias pathtobrew="$(which brew)"
 
 # Automatically add installed brew dependencies to ~/Brewfile.
 function brew() {
-  pathtobrew $@
+  pathtobrew "$@"
 
-  if [[ "$1" == "install" || "$1" == "uninstall" ]]
+  if [[ "$1" == "install" || "$1" == "uninstall" || "$1" == "upgrade" ]]
   then
     # Update ~/Brewfile with the latest dependencies.
     pathtobrew bundle dump --describe -f
