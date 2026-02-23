@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>HOME</key>
+		<string>/opt/homebrew/var/lib</string>
+		<key>XDG_DATA_HOME</key>
+		<string>/opt/homebrew/var/lib</string>
+	</dict>
+	<key>KeepAlive</key>
+	<true/>
+	<key>Label</key>
+	<string>homebrew.mxcl.caddy</string>
+	<key>LimitLoadToSessionType</key>
+	<array>
+		<string>Aqua</string>
+		<string>Background</string>
+		<string>LoginWindow</string>
+		<string>StandardIO</string>
+		<string>System</string>
+	</array>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/opt/homebrew/opt/caddy/bin/caddy</string>
+		<string>run</string>
+		<string>--watch</string>
+		<string>--config</string>
+		<string>/opt/homebrew/etc/Caddyfile</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>StandardErrorPath</key>
+	<string>/opt/homebrew/var/log/caddy.log</string>
+	<key>StandardOutPath</key>
+	<string>/opt/homebrew/var/log/caddy.log</string>
+</dict>
+</plist>

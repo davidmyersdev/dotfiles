@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+package="$1"
+package_dir="./packages/$package"
+
+if [ $(id -u) -eq 0 ]
+then
+  package_dir="${package_dir}/__sudo__"
+
+  if [ ! -d "${package_dir}" ]
+  then
+    echo "Error: Running stow as root is only supported for packages with a __sudo__ directory."
+    exit 1
+  fi
+fi
+
+# Link `${package_dir}/__home__/*` to `${HOME}/*`.
+if [ -d "${package_dir}/__home__" ]
+then
+  stow --dir "${package_dir}" --target "$HOME" --stow "__home__"
+fi
+
+# Link `${package_dir}/__homebrew__/*` to `$(brew --prefix)/*`.
+if [ -d "${package_dir}/__homebrew__" ]
+then
+  stow --dir "${package_dir}" --target "$(brew --prefix)" --stow "__homebrew__" --ignore "__cellar__"
+
+  # Link `${package_dir}/__homebrew__/__cellar__/*` to `$(brew --prefix $package)/*`.
+  if [ -d "${package_dir}/__homebrew__/__cellar__" ]
+  then
+    stow --dir "${package_dir}/__homebrew__" --target "$(brew --prefix $package)" --stow "__cellar__"
+  fi
+fi
+
+# Link `${package_dir}/__root__/*` to `/*`.
+if [ -d "${package_dir}/__root__" ]
+then
+  stow --dir "${package_dir}" --target "/" --stow "__root__"
+fi

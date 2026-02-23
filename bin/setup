@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-for package in ./packages/*
+for package_dir in ./packages/*
 do
-  stow --dir ./packages --target $HOME --stow $(basename $package)
+  package=$(basename ${package_dir})
+
+  ./bin/stow-package "$package"
+
+  if [ -d "${package_dir}/__sudo__" ]
+  then
+    sudo ./bin/stow-package "$package"
+  fi
 done

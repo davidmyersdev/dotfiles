@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-# All paths are relative to the repo root.
-stow --dir ./packages/caddy --target $(brew --prefix)/etc --stow resources
-
-if command -v brew > /dev/null
-then
-  # Start the caddy service.
-  brew services start caddy
-fi
-
-# Make sure the root cert is trusted.
+# Make sure the Caddy root cert is trusted by the system.
 caddy trust
+
+# Make sure the Caddy root cert is available to OpenSSL for Ruby.
+ln -s $(brew --prefix)/var/lib/caddy/pki/authorities/local/root.crt $(brew --prefix)/etc/openssl@3/certs/caddy-root.pem
+c_rehash $(brew --prefix)/etc/openssl@3/certs
+
+# Make sure the service is running.
+brew services restart caddy

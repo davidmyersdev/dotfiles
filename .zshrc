@@ -272,9 +272,6 @@ export YARN_NPM_AUTH_IDENT="$(password-get yarn_npm_auth_ident)"
 # include doximity config
 source ~/.doxrc
 
-# Shell completions are automatically loaded from $fpath
-fpath=($HOME/.zsh/functions $fpath)
-
 if type brew &>/dev/null
 then
   fpath=($(brew --prefix)/share/zsh/site-functions $fpath)

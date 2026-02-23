@@ -1,0 +1,10 @@
+*.dox.local {
+  encode zstd gzip
+  tls {
+    issuer internal {
+      lifetime 7d
+    }
+  }
+}
+
+import /Users/{$USER}/dox/work/*/Caddyfile
