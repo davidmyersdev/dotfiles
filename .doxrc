@@ -4,9 +4,37 @@
 ##    doximity    ##
 ####################
 
-export ADS_APPS="activities activities-daemons activities-workers analytics-webhook campaigns campaigns-daemons campaigns-mlr campaigns-workers dialer-api doc-news doc-news-workers doximity doximity-daemons doximity-workers doximity-client-vue-memcached feed-experience graphql-federation push-notification-api spectrum"
 export DOX_ROOT="$HOME/dox"
 export DOX_HOME="$DOX_ROOT/work"
+
+dox_apps=(
+  activities
+  activities-daemons
+  activities-workers
+  analytics-webhook
+  campaigns
+  campaigns-daemons
+  campaigns-mlr
+  campaigns-workers
+  dialer-api
+  doc-news
+  doc-news-workers
+  dox-analytics
+  dox-exporter
+  doximity
+  doximity-client-vue-memcached
+  doximity-daemons
+  doximity-workers
+  feed-experience
+  grafana
+  graphql-federation
+  loki
+  otel-collector
+  prometheus
+  push-notification-api
+  spectrum
+  tempo
+)
 
 # Initialize the `dox-compose` command.
 eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
@@ -15,25 +43,20 @@ eval "$("$DOX_ROOT/work/dox-compose/bin/dox-init")"
 export PATH="$HOME/pub/doximity-tools/apps/ads-cli/bin:$PATH"
 
 # List all Ads services.
-alias ads-ls="echo $ADS_APPS"
+alias ads-ls="echo ${dox_apps[*]}"
 
 # Docker utilities
 alias ddo="dox-do"
 alias ddc="dox-dc"
 
-# The `dox-compose-start` function is invoked automatically after running `dox-cloud on`.
-#
-# #!/usr/bin/env zsh
-#
-# if typeset -f dox-compose-start > /dev/null
-# then
-#   dox-compose-start
-# else
-#   echo 'No `dox-compose-start` function defined.'
-# fi
-function dox-compose-start() {
-  dox-dc up -d campaigns graphql-federation dialer-api
+function dox-down() {
+  dox-dc down
 }
+
+function dox-up() {
+  dox-dc up -d --wait ${dox_apps[*]}
+}
+
 
 # Run a non-interactive command against all Ads apps in parallel. E.g.
 #
@@ -208,7 +231,7 @@ function dox-yarn-add() {
 
 # Check whether the current directory is an Ads app.
 function is-ads-app() {
-  if [[ " $ADS_APPS " =~ " $(basename `pwd`) " ]]
+  if [[ " ${dox_apps[*]} " =~ " $(basename `pwd`) " ]]
   then
     true
   else
