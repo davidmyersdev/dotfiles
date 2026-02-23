@@ -1,6 +1,9 @@
 [tools]
 go = "latest"
+node = "latest"
 ollama = "0.15.5-rc3"
+ruby = "latest"
+yarn = "latest"
 
 [settings]
-idiomatic_version_file_enable_tools = ["node", "ruby"]
+idiomatic_version_file_enable_tools = ["node", "ruby", "yarn"]
