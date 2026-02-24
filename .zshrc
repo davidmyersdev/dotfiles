@@ -68,6 +68,18 @@ fi
 
 # Alias the original Homebrew path for internal use.
 alias pathtobrew="$(which brew)"
+function args_or_stdin() {
+  local input
+
+  if [ $# -gt 0 ]
+  then
+    input="$@"
+  else
+    read -r input
+  fi
+
+  echo -n "$input"
+}
 
 # Automatically add installed brew dependencies to ~/Brewfile.
 function brew() {
@@ -81,14 +93,14 @@ function brew() {
 }
 
 function copy-branch() {
-  git rev-parse --abbrev-ref HEAD | tr -d '\n' | pbcopy
+  git head | tr -d '\n' | pbcopy
 }
 
 function deprecate-npm() {
   npm deprecate "$1" "Please install \`$2\` instead"
 }
 
-function docker-local() {
+function docker-local-socket() {
   echo 'export DOCKER_HOST=unix:///var/run/docker.sock'
 }
 
@@ -99,8 +111,22 @@ function gif() {
   gifski --fps 10 --width 720 -o "$output" "$input"
 }
 
-function is-git() {
-  [ -n "$vcs_info_msg_0_" ] && true || false
+function is-clean() {
+  if [[ -z "$(git status --porcelain)" ]]
+  then
+    true
+  else
+    false
+  fi
+}
+
+function is-dirty() {
+  if is-clean
+  then
+    false
+  else
+    true
+  fi
 }
 
 function is-me() {
@@ -111,12 +137,34 @@ function launch() {
   open -a "$1"
 }
 
+function ls-processes() {
+  local pattern="${1:-.}"
+
+  # List all processes and filter by the given pattern without removing the header.
+  ps ax -o user,pid,ppid,%cpu,%mem,command | sed "1p;/${pattern}/!d"
+}
+
+function ls-scripts() {
+  cat ./package.json | jq '.scripts'
+}
+
+function now() {
+  gdate +%s%3N
+}
+
 function pw() {
+  # Could also use -base64 maybe?
   openssl rand -hex $((${1:-8} / 2))
 }
 
 function password-add() {
-  security add-generic-password -a "$USER" -s "$1" -w
+  local password=''
+
+  echo 'Password:'
+  read -s password
+  echo ''
+
+  security add-generic-password -a "$USER" -s "$1" -w "$password"
 }
 
 function password-get() {
@@ -139,11 +187,11 @@ function precmd() {
 }
 
 function prompt-cursor() {
-  echo -n "%F{254}➜%f"
+  echo -n "%F{12}➜%f"
 }
 
 function prompt-directory() {
-  echo -n "%F{#ba6ecf}$(relative-pwd)%F{252}"
+  echo -n "%F{12}$(relative-pwd)%f"
 }
 
 function prompt-git-branch() {
@@ -154,7 +202,7 @@ function prompt-git-branch() {
   branch="${branch#heads/}"
   branch="${branch/.../}"
 
-  echo -n " on %F{#f1502f}$branch%F{252}"
+  echo -n " @ %F{13}$branch%f"
 }
 
 function prompt-git-status() {
@@ -174,7 +222,7 @@ function prompt-git-status() {
 }
 
 function prompt-user() {
-  ! is-me && echo -n "as %F{#ba6ecf}%n%F{252} "
+  ! is-me && echo -n "as %F{#ba6ecf}%n%f "
 }
 
 function quit() {
@@ -249,13 +297,48 @@ function title() {
   echo -en "\033]0;${1:?zsh}\007"
 }
 
+function to_join() {
+  args_or_stdin "$@" | tr '\n' ' '
+}
+
+function to_lower() {
+  args_or_stdin "$@" | tr '[:upper:]' '[:lower:]'
+}
+
+function to_upper() {
+  args_or_stdin "$@" | tr '[:lower:]' '[:upper:]'
+}
+
+function trim() {
+  # Remove whitespace at beginning and end of string.
+  args_or_stdin "$@" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
+}
+
 function tts() {
   sed -i '' 's/\t/  /g' $@
+}
+
+function uuid() {
+  uuidgen | tr '[:upper:]' '[:lower:]'
 }
 
 function weather() {
   # https://github.com/chubin/wttr.in
   curl https://wttr.in/
+}
+
+function when-clean() {
+  if is-clean
+  then
+    $@
+  fi
+}
+
+function when-dirty() {
+  if is-dirty
+  then
+    $@
+  fi
 }
 
 # Init asdf
