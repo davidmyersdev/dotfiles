@@ -108,3 +108,5 @@
 # [url "git@github.com:"]
 #   insteadOf = http://github.com/
 #   insteadOf = https://github.com/
+[notes]
+	rewriteRef = refs/notes/commits
