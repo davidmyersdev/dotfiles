@@ -1,0 +1,3 @@
+rdr pass on lo0 inet proto { udp, tcp } from any to 127.0.0.1 port 53 -> 127.0.0.1 port 5354
+rdr pass on lo0 inet proto tcp from any to 127.0.0.2 port 80  -> 127.0.0.1 port 8080
+rdr pass on lo0 inet proto tcp from any to 127.0.0.2 port 443 -> 127.0.0.1 port 8443

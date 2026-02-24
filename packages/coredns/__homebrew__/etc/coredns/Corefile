@@ -1,0 +1,48 @@
+test:5354 {
+  bind 127.0.0.1
+
+  # IPv4 only to keep routing deterministic via pf
+  template IN A {
+    match .*
+    answer "{{ .Name }} 60 IN A 127.0.0.2"
+  }
+
+  # (optional, nice-to-have) minimal authority + cache
+  template IN SOA {
+    match ^test\.$
+    answer "test. 60 IN SOA ns1.test. hostmaster.test. (1 7200 3600 1209600 3600)"
+  }
+  template IN NS {
+    match ^test\.$
+    answer "test. 60 IN NS ns1.test."
+  }
+  template IN A {
+    match ^ns1\.test\.$
+    answer "ns1.test. 60 IN A 127.0.0.1"
+  }
+
+  cache 30
+  errors
+  # log
+}
+
+local:5354 {
+  bind 127.0.0.1
+
+  # Always answer A with 127.0.0.2
+  template IN A {
+    match .*
+    answer "{{ .Name }} 60 IN A 127.0.0.2"
+  }
+
+  # Answer AAAA with NOERROR/NODATA (no AAAA records)
+  template IN AAAA {
+    match .*
+    rcode NOERROR
+  }
+
+  cache 30
+  errors
+  reload
+  # log
+}
