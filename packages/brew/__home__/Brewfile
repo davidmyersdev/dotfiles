@@ -1,6 +1,7 @@
 tap "akeru-inc/tap"
 tap "ankitpokhrel/jira-cli"
 tap "facebook/fb"
+tap "gabe565/tap"
 tap "helix-editor/helix"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -275,6 +276,8 @@ brew "akeru-inc/tap/xcnotary"
 brew "ankitpokhrel/jira-cli/jira-cli"
 # A Powerful Command Line for automating iOS Simulators
 brew "facebook/fb/idb-companion"
+# Convert text containing ANSI control codes into plain ASCII text.
+brew "gabe565/tap/ansi2txt"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
 brew "tursodatabase/tap/turso"
