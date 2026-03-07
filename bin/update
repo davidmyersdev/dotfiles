@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Ensure Homebrew itself is up to date.
+brew update
+
+# Ensure all dependencies are listed in the Brewfile.
+brew bundle dump --describe --force
+
+# Ensure all dependencies are up to date.
+brew bundle upgrade
+
+# Run cleanup tasks.
+brew bundle cleanup --force
