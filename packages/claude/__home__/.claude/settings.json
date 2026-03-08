@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "apiKeyHelper": "~/.claude/bin/auth.sh",
+  "enabledPlugins": {
+    "dox-common@doximity-claude-code-tools": true
+  },
+  "extraKnownMarketplaces": {
+    "doximity-claude-code-tools": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com:doximity/claude-code-tools.git"
+      }
+    }
+  },
+  "model": "opus"
+}

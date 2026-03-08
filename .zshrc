@@ -385,3 +385,13 @@ function setup() {
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/pub/dots/profiles/dotfiles/"
   defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 }
+
+# Anthropic / Claude Code
+# Note: This env is exposed to Claude Code via `~/.claude/bin/auth.sh`.
+export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
+
+# Note: The global `ANTHROPIC_API_KEY` env var is intentionally not set, because
+# Claude Code displays a warning if it is. Instead, the `~/.claude/bin/auth.sh`
+# script is used to provide the API key directly to Claude Code via its special
+# `apiKeyHelper` option in `~/.claude/settings.json`.
+# export ANTHROPIC_API_KEY="$DOX_ANTHROPIC_API_KEY"
