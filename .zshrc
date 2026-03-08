@@ -352,18 +352,24 @@ function when-dirty() {
 eval "$(mise activate zsh --shims)"
 eval "$(mise activate zsh)"
 
-# must be after function definitions
-export BUNDLE_ARTIFACTS__DOX__SUPPORT="$(password-get bundler_dox_support_creds)"
+# These must be declared after function definitions.
+# NEXUS_USER and NEXUS_PASS must be defined before the rest.
+export NEXUS_USER=$(password-get nexus_user)
+export NEXUS_PASS=$(password-get nexus_pass)
+
+export NEXUS_PULL_USER="$NEXUS_USER"
+export NEXUS_PULL_PASS="$NEXUS_PASS"
+
+export BUNDLE_ARTIFACTS__DOX__SUPPORT="$NEXUS_USER:$NEXUS_PASS"
+
+export NEXUS_BASE64="$(echo -n "$NEXUS_USER:$NEXUS_PASS" | base64)"
+export YARN_NPM_AUTH_IDENT="$NEXUS_BASE64"
+
 export GITHUB_TOKEN="$(password-get github_token)"
-export NEXUS_PULL_PASS="$(password-get nexus_pull_pass)"
-export NEXUS_PULL_USER="$(password-get nexus_pull_user)"
 export SEGMENT_KEY="$(password-get dox_vue_segment_key)"
-export YARN_NPM_AUTH_IDENT="$(password-get yarn_npm_auth_ident)"
 
 # include doximity config
 source ~/.doxrc
-
-
 
 # Make sure the dox-cli shell completion script stays up-to-date
 dox completion zsh > ~/.zsh/functions/_dox
