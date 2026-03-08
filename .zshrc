@@ -373,9 +373,6 @@ export JIRA_API_TOKEN="$(password-get jira_api_token)"
 # include doximity config
 source ~/.doxrc
 
-# Make sure the dox-cli shell completion script stays up-to-date
-dox completion zsh > ~/.zsh/functions/_dox
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add custom bin scripts to path
