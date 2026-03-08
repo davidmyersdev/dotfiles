@@ -25,6 +25,9 @@ source ~/pub/dots/profiles/dotfiles/utils.sh
 # j (autojump alternative)
 source ~/pub/j/j.sh
 
+# local binaries
+export PATH="$HOME/.local/bin:$PATH"
+
 # postgres app
 export PG_VERSION=13
 export PGHOST=localhost
