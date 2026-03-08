@@ -248,9 +248,19 @@ function simulator() {
 }
 
 function sync_icons() {
+  local ghostty="/Applications/Ghostty.app"
   local google_chrome="~/Applications/Chrome Apps.localized/Google Calendar.app"
   local spotify="/Applications/Spotify.app"
   local youtube="~/Applications/Chrome Apps.localized/YouTube.app"
+
+  if [ -d "$ghostty" ]
+  then
+    # Overwrite the Ghostty default app icon
+    cp ~/pub/dots/profiles/dotfiles/.config/dotfiles/icons/ghostty.icns "$ghostty/Contents/Resources/Ghostty.icns"
+
+    # Touch the app folder to force the icon to refresh.
+    touch "$ghostty"
+  fi
 
   if [ -d "$google_chrome" ]
   then
