@@ -348,8 +348,9 @@ function when-dirty() {
   fi
 }
 
-# Init asdf
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Init mise
+eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh)"
 
 # must be after function definitions
 export BUNDLE_ARTIFACTS__DOX__SUPPORT="$(password-get bundler_dox_support_creds)"
