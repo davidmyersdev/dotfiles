@@ -368,6 +368,8 @@ export YARN_NPM_AUTH_IDENT="$NEXUS_BASE64"
 export GITHUB_TOKEN="$(password-get github_token)"
 export SEGMENT_KEY="$(password-get dox_vue_segment_key)"
 
+export JIRA_API_TOKEN="$(password-get jira_api_token)"
+
 # include doximity config
 source ~/.doxrc
 
