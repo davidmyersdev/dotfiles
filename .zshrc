@@ -28,6 +28,9 @@ source ~/pub/j/j.sh
 # local binaries
 export PATH="$HOME/.local/bin:$PATH"
 
+# Init Homebrew
+source ~/.zshrc.d/brew.zsh
+
 # ncurses (for cbonsai)
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ncurses/lib"
@@ -46,13 +49,6 @@ export PATH="/Users/david/Library/Android/sdk/platform-tools:$PATH"
 
 # utilities
 
-# Homebrew env (generated with `echo "$(/opt/homebrew/bin/brew shellenv)"`)
-export HOMEBREW_PREFIX="/opt/homebrew"
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
-export HOMEBREW_REPOSITORY="/opt/homebrew"
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
 # Necessary for `ruby-build` to use the correct dependencies.
 export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
@@ -66,6 +62,7 @@ fi
 
 # Alias the original Homebrew path for internal use.
 alias pathtobrew="$(which brew)"
+
 function args_or_stdin() {
   local input
 
@@ -353,13 +350,7 @@ export YARN_NPM_AUTH_IDENT="$(password-get yarn_npm_auth_ident)"
 # include doximity config
 source ~/.doxrc
 
-if type brew &>/dev/null
-then
-  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
-  autoload -Uz compinit
-  compinit
-fi
 
 # Make sure the dox-cli shell completion script stays up-to-date
 dox completion zsh > ~/.zsh/functions/_dox
