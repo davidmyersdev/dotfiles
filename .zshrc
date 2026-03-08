@@ -395,6 +395,10 @@ export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";
 # Set default config location.
 export XDG_CONFIG_HOME="$HOME/.config"
 
+# https://github.com/zsh-users/zsh-autosuggestions
+# https://github.com/zsh-users/zsh-autosuggestions/blob/85919cd1ffa7d2d5412f6d3fe437ebdbeeec4fc5/INSTALL.md#homebrew
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # Anthropic / Claude Code
 # Note: This env is exposed to Claude Code via `~/.claude/bin/auth.sh`.
 export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
