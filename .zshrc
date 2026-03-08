@@ -388,6 +388,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # NPM
 export PATH="$HOME/node_modules/.bin:$PATH"
 
+# proto
+export PROTO_HOME="$HOME/.proto";
+export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";
+
 # Anthropic / Claude Code
 # Note: This env is exposed to Claude Code via `~/.claude/bin/auth.sh`.
 export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
