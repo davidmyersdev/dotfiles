@@ -228,8 +228,6 @@ brew "perl"
 brew "pinentry-mac"
 # Object-relational database system
 brew "postgresql@14"
-# Python version management
-brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
 # Interpreted, interactive, object-oriented programming language

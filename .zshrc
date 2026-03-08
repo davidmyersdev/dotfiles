@@ -57,11 +57,6 @@ export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
 export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/ncurses/include"
 export PKG_CONFIG_PATH=/opt/homebrew/opt/ncurses/lib/pkgconfig
 
-# Pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
 # Alias the original Homebrew path for internal use.
 alias pathtobrew="$(which brew)"
 
