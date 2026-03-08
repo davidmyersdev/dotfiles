@@ -49,6 +49,9 @@ export NDK_HOME="$ANDROID_HOME/ndk/26.1.10909125"
 export PATH="$ANDROID_HOME/emulator:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
+# MySQL
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
 # Necessary for `ruby-build` to use the correct dependencies.
 export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
 export CPPFLAGS=-I/opt/homebrew/opt/ncurses/include
