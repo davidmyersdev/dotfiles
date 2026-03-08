@@ -37,12 +37,17 @@ alias g='git'
 alias ls='ls -alGF'
 alias pbsquish='pbpaste | tr "\n" " " | pbcopy'
 
-# android studio (java, adb, etc)
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH="/Users/david/Library/Android/sdk/platform-tools:$PATH"
+# Java / Android
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/openjdk/include"
 
-# utilities
+export JAVA_HOME="$(dirname "$(dirname "$(asdf which java)")")"
+export JDK_HOME="$JAVA_HOME"
+export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
+export NDK_HOME="$ANDROID_HOME/ndk/26.1.10909125"
 
+export PATH="$ANDROID_HOME/emulator:$PATH"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
 # Necessary for `ruby-build` to use the correct dependencies.
 export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
