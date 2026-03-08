@@ -28,11 +28,6 @@ source ~/pub/j/j.sh
 # local binaries
 export PATH="$HOME/.local/bin:$PATH"
 
-# postgres app
-export PG_VERSION=13
-export PGHOST=localhost
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/$PG_VERSION/bin"
-
 # ncurses (for cbonsai)
 export PATH="/usr/local/opt/ncurses/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ncurses/lib"
