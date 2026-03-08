@@ -54,7 +54,7 @@ export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # Necessary for `ruby-build` to use the correct dependencies.
 export LDFLAGS=-L/opt/homebrew/opt/ncurses/lib
-export CPPFLAGS=-I/opt/homebrew/opt/ncurses/include
+export CPPFLAGS="$CPPFLAGS -I/opt/homebrew/opt/ncurses/include"
 export PKG_CONFIG_PATH=/opt/homebrew/opt/ncurses/lib/pkgconfig
 
 # Pyenv
