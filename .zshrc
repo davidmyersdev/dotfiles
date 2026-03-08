@@ -392,6 +392,9 @@ export PATH="$HOME/node_modules/.bin:$PATH"
 export PROTO_HOME="$HOME/.proto";
 export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH";
 
+# Set default config location.
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # Anthropic / Claude Code
 # Note: This env is exposed to Claude Code via `~/.claude/bin/auth.sh`.
 export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
