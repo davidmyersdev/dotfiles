@@ -388,11 +388,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # NPM
 export PATH="$HOME/node_modules/.bin:$PATH"
 
-function setup() {
-  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/pub/dots/profiles/dotfiles/"
-  defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
-}
-
 # Anthropic / Claude Code
 # Note: This env is exposed to Claude Code via `~/.claude/bin/auth.sh`.
 export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
