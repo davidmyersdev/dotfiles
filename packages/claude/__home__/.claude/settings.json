@@ -6,7 +6,8 @@
     "pr": ""
   },
   "enabledPlugins": {
-    "dox-common@doximity-claude-code-tools": true
+    "dox-common@doximity-claude-code-tools": true,
+    "ruby-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "doximity-claude-code-tools": {
