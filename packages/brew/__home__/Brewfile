@@ -252,6 +252,8 @@ brew "slackdump"
 brew "stow"
 # Generate scripting interfaces to C/C++ code
 brew "swig"
+# Official tldr client written in Rust
+brew "tlrc"
 # Instant terminal sharing
 brew "tmate"
 # ODBC 3 connectivity for UNIX
