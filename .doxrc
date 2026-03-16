@@ -79,6 +79,10 @@ function dox-bundle() {
   fi
 }
 
+function dox-circleci-id() {
+  circleci info org --json | jq -r '.[] | select(.name == "doximity") | .id'
+}
+
 # List all available services.
 function dox-dc-all-services() {
   dox-dc-config --services | sort
