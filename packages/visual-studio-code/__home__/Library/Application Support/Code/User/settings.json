@@ -109,10 +109,10 @@
   "githubPullRequests.pullBranch": "never",
   "gitlens.gitkraken.mcp.autoEnabled": false,
   "gitlens.rebaseEditor.openOnPausedRebase": false,
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferGoToSourceDefinition": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "jest.autoRun": "on-save",
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.preferGoToSourceDefinition": true,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "Lua.workspace.library": [
     "/Users/david/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
   ],
@@ -172,9 +172,6 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   "terminal.integrated.fontSize": 16,
   "terminal.integrated.tabs.title": "${cwd}",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferGoToSourceDefinition": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
   "vim.disableExtension": true,
   "window.autoDetectColorScheme": true,
   "window.autoDetectHighContrast": false,
