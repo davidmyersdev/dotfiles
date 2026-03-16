@@ -1,0 +1,194 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dockercompose]": {
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.quickSuggestions": {
+      "comments": false,
+      "other": true,
+      "strings": true
+    },
+    "editor.tabSize": 2
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.viewSessions.orientation": "stacked",
+  "css.enabledLanguages": [
+    "html"
+  ],
+  "docker.extension.enableComposeLanguageServer": false,
+  "editor.accessibilitySupport": "off",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 16,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.hover.delay": 200,
+  "editor.hover.hidingDelay": 200,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.rulers": [
+    120
+  ],
+  "editor.tabSize": 2,
+  "eslint.nodePath": "./node_modules/.bin/eslint",
+  "eslint.options": {},
+  "eslint.probe": [
+    "astro",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "yaml"
+  ],
+  "eslint.validate": [
+    "astro",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "vue"
+  ],
+  "favorites.saveSeparated": true,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.slim_ms": "slim"
+  },
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.blame.editorDecoration.enabled": false,
+  "github.copilot.advanced": {},
+  "github.copilot.chat.agent.thinkingTool": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "plaintext": false,
+    "scminput": false
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "github.copilot.selectedCompletionModel": "",
+  "githubPullRequests.pullBranch": "never",
+  "gitlens.gitkraken.mcp.autoEnabled": false,
+  "gitlens.rebaseEditor.openOnPausedRebase": false,
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferGoToSourceDefinition": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "jest.autoRun": "on-save",
+  "Lua.workspace.library": [
+    "/Users/david/.hammerspoon/Spoons/EmmyLua.spoon/annotations"
+  ],
+  "markdown.extension.print.theme": "dark",
+  "playwright.reuseBrowser": true,
+  "redhat.telemetry.enabled": false,
+  "rewrap.autoWrap.enabled": true,
+  "rewrap.wrappingColumn": 80,
+  "rubocop.mode": "enableViaGemfile",
+  "ruby.specCommand": "dox-do bin/rspec",
+  "rubyLsp.addonSettings": {
+    "Ruby LSP Rails": {
+      "debug": true,
+      "rspecCommand": "RAILS_ENV=test bin/env/localhost bin/rspec"
+    }
+  },
+  "rubyLsp.enabledFeatures": {
+    "codeActions": true,
+    "codeLens": true,
+    "completion": true,
+    "definition": true,
+    "diagnostics": true,
+    "documentHighlights": true,
+    "documentLink": true,
+    "documentSymbols": true,
+    "foldingRanges": true,
+    "formatting": true,
+    "hover": true,
+    "inlayHint": true,
+    "onTypeFormatting": true,
+    "selectionRanges": true,
+    "semanticHighlighting": true,
+    "signatureHelp": true,
+    "typeHierarchy": true,
+    "workspaceSymbol": true
+  },
+  "rubyLsp.featuresConfiguration": {
+    "inlayHint": {
+      "enableAll": true
+    }
+  },
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "mise"
+  },
+  "rubyLsp.trace.server": "verbose",
+  "settingsSync.ignoredExtensions": [],
+  "solargraph.commandPath": "/Users/david/.rbenv/shims/solargraph",
+  "svelte.enable-ts-plugin": true,
+  "svelte.plugin.svelte.compilerWarnings": {
+    "unused-export-let": "ignore"
+  },
+  "svelte.plugin.svelte.defaultScriptLanguage": "ts",
+  "sync.autoDownload": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.tabs.title": "${cwd}",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferGoToSourceDefinition": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vim.disableExtension": true,
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": false,
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#ffffff22",
+    "terminal.background": "#111",
+    "terminal.foreground": "#fefefe",
+    "terminalCursor.background": "#fafafa",
+    "terminalCursor.foreground": "#fafafa"
+  },
+  "workbench.colorTheme": "Spinel",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Dimmed",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.startupEditor": "none",
+  "yaml.validate": false
+}
