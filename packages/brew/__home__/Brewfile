@@ -382,6 +382,7 @@ mas "Xcode", id: 497799835
 vscode "ahmadalli.vscode-nginx-conf"
 vscode "antfu.browse-lite"
 vscode "antfu.goto-alias"
+vscode "anthropic.claude-code"
 vscode "apollographql.vscode-apollo"
 vscode "arcanis.vscode-zipfs"
 vscode "astro-build.astro-vscode"
