@@ -106,4 +106,4 @@
   email = davidrmyersii@gmail.com
   name = David R. Myers
 [notes]
-	rewriteRef = refs/notes/commits
+  rewriteRef = refs/notes/commits
