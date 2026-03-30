@@ -1,5 +1,6 @@
 tap "akeru-inc/tap"
 tap "ankitpokhrel/jira-cli"
+tap "atlassian/acli"
 tap "facebook/fb"
 tap "gabe565/tap"
 tap "helix-editor/helix"
@@ -276,6 +277,8 @@ brew "zsh-autosuggestions"
 brew "akeru-inc/tap/xcnotary"
 # Feature-rich interactive Jira command-line
 brew "ankitpokhrel/jira-cli/jira-cli"
+# Software to interact with Atlassian Cloud from the terminal
+brew "atlassian/acli/acli"
 # A Powerful Command Line for automating iOS Simulators
 brew "facebook/fb/idb-companion"
 # Convert text containing ANSI control codes into plain ASCII text.
