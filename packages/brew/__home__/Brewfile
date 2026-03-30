@@ -246,6 +246,8 @@ brew "ruby-build"
 brew "rustup"
 # Display and control your Android device
 brew "scrcpy"
+# Intuitive find & replace CLI
+brew "sd"
 # Export Slack data without admin privileges
 brew "slackdump"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
