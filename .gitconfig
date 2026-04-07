@@ -56,6 +56,7 @@
   rbc = !: git rebase && ~/.dotfiles/git/aliases/git-rbc.zsh
   rbi = !: git rebase && ~/.dotfiles/git/aliases/git-rbi.zsh
   rbim = !: git rebase && ~/.dotfiles/git/aliases/git-rbim.zsh
+  rbimb = !~/.dotfiles/git/aliases/git-rbimb.zsh
   rbm = !: git rebase && ~/.dotfiles/git/aliases/git-rbm.zsh
   rh = !: git reset && ~/.dotfiles/git/aliases/git-rh.zsh
   rhh = !: git reset && ~/.dotfiles/git/aliases/git-rhh.zsh
