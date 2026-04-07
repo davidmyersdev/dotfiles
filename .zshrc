@@ -317,7 +317,7 @@ function trim() {
 }
 
 function tts() {
-  sed -i '' 's/\t/  /g' $@
+  sed -i '' 's/\t/  /g' "$(realpath "$@")"
 }
 
 function uuid() {
