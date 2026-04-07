@@ -48,6 +48,7 @@
   lss = !: git ls-files && ~/.dotfiles/git/aliases/git-lss.zsh
   lsu = !: git ls-files && ~/.dotfiles/git/aliases/git-lsu.zsh
   main = !~/.dotfiles/git/aliases/git-main.zsh
+  mb = !: git merge-base && ~/.dotfiles/git/aliases/git-mb.zsh
   pa = !~/.dotfiles/git/aliases/git-pa.zsh
   rb = !: git rebase && ~/.dotfiles/git/aliases/git-rb.zsh
   rba = !: git rebase && ~/.dotfiles/git/aliases/git-rba.zsh
