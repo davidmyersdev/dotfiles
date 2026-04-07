@@ -16,6 +16,14 @@ else
 fi
 
 PS4='' # clear prompt for the set -x call
+
+if [[ -z "$count" && -z "$ref" && "$(git branch --show-current)" != "$(git main)" ]]
+then
+  # Fall-back to `git lmb` when on a feature branch (by default).
+  git lmb
+  exit $?
+fi
+
 set -x # print the subsequent expanded command(s)
 
 # https://git-scm.com/docs/pretty-formats
