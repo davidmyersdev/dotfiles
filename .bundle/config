@@ -1,4 +1,9 @@
 ---
-BUNDLE_BUILD__MYSQL2: "--with-opt-dir=/opt/homebrew/opt/openssl@3 --with-ldflags=-L/opt/homebrew/opt/zstd/lib"
-BUNDLE_BUILD__RUBY___ODBC: "--with-cppflags='-Wno-undef' --with-odbc-dir=/opt/homebrew/opt/unixodbc"
+BUNDLE_BUILD__GRPC: "--with-cflags=-Wno-error=incompatible-function-pointer-types"
+BUNDLE_BUILD__HPRICOT: "--with-cflags=-Wno-error=incompatible-function-pointer-types"
+BUNDLE_BUILD__MYSQL2: "--with-mysql-config=/opt/homebrew/opt/mariadb@10.11/bin/mysql_config --with-ldflags=-L/opt/homebrew/opt/zstd/lib -L/opt/homebrew/opt/openssl@3/lib --with-cppflags=-I/opt/homebrew/opt/openssl@3/include"
+BUNDLE_BUILD__OPENSSL: "--with-openssl-dir=/opt/homebrew/opt/openssl@3"
+BUNDLE_BUILD__RUBY___ODBC: "--with-odbc-dir=/opt/homebrew/opt/unixodbc"
+BUNDLE_BUILD__SNAPPY: "--with-snappy-dir=/opt/homebrew/opt/snappy"
 BUNDLE_BUILD__THRIFT: "--with-cppflags='-D_FORTIFY_SOURCE=0 -fdeclspec -Wno-deprecated-declarations -Wno-shift-negative-value -Wno-compound-token-split-by-macro'"
+BUNDLE_CACHE_ALL_PLATFORMS: "true"
