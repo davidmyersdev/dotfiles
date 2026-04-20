@@ -53,6 +53,8 @@ brew "pycparser"
 brew "cffi"
 # Enables you to reproduce the CircleCI environment locally
 brew "circleci"
+# Statistics utility to count lines of code
+brew "cloc"
 # Cross-platform make
 brew "cmake"
 # Unit testing framework for C
