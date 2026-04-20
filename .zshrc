@@ -31,6 +31,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # Init Homebrew
 source ~/.zshrc.d/brew.zsh
 
+# Init Worktrunk
+source ~/.zshrc.d/worktrunk.zsh
+
 alias de='docker exec -it -e COLUMNS="$(tput cols)" -e LINES="$(tput lines)"'
 alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{.Status}}" | sort'
 alias g='git'
