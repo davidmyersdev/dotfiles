@@ -1,7 +1,7 @@
 [tools]
 go = "latest"
 node = "latest"
-ollama = "0.15.5-rc3"
+ollama = "latest"
 pnpm = "latest"
 ruby = "latest"
 yarn = "latest"
