@@ -4,3 +4,4 @@
 clipboard-paste-protection = false
 font-size = 16
 macos-titlebar-style = tabs
+theme = dark: Aizen Dark, light: Aizen Light
