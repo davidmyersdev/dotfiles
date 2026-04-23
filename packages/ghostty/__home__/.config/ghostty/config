@@ -1,3 +1,6 @@
+# https://ghostty.org/docs/config
+# https://ghostty.org/docs/config/reference
+
 clipboard-paste-protection = false
 font-size = 16
 macos-titlebar-style = tabs
