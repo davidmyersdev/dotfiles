@@ -5,8 +5,16 @@
     "pr": ""
   },
   "enabledPlugins": {
+    "atlassian@claude-plugins-official": true,
+    "chrome-devtools-mcp@claude-plugins-official": true,
+    "claude-api@anthropic-agent-skills": true,
     "dox-common@doximity-claude-code-tools": true,
-    "ruby-lsp@claude-plugins-official": true
+    "playwright@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
