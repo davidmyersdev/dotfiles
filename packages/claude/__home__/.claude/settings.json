@@ -9,6 +9,12 @@
     "ruby-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
+    "anthropic-agent-skills": {
+      "source": {
+        "repo": "anthropics/skills",
+        "source": "github"
+      }
+    },
     "doximity-claude-code-tools": {
       "source": {
         "source": "git",
