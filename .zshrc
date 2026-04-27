@@ -406,3 +406,6 @@ export DOX_ANTHROPIC_API_KEY="$(password-get dox_anthropic_api_key)"
 # script is used to provide the API key directly to Claude Code via its special
 # `apiKeyHelper` option in `~/.claude/settings.json`.
 # export ANTHROPIC_API_KEY="$DOX_ANTHROPIC_API_KEY"
+
+# https://viteplus.dev
+source "$HOME/.vite-plus/env"
