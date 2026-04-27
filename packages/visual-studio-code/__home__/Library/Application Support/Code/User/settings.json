@@ -86,7 +86,8 @@
   "favorites.saveSeparated": true,
   "files.associations": {
     "*.css": "tailwindcss",
-    "*.slim_ms": "slim"
+    "*.slim_ms": "slim",
+    "*.erb_ms": "erb"
   },
   "files.eol": "\n",
   "files.insertFinalNewline": true,
