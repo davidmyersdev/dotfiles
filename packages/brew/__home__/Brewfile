@@ -217,10 +217,6 @@ brew "ninja"
 brew "nss"
 # Package for scientific computing with Python
 brew "numpy"
-# Search tool like grep and The Silver Searcher
-brew "ripgrep"
-# AI coding agent, built for the terminal
-brew "opencode"
 # Open Visual Inference And Optimization toolkit for AI inference
 brew "openvino"
 # Terminal multiplexer
@@ -247,6 +243,8 @@ brew "python@3.9"
 brew "qemu"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: :changed
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Rust toolchain installer
@@ -355,8 +353,6 @@ cask "ngrok"
 cask "obs"
 # Identity and access management
 cask "okta-advanced-server-access"
-# AI coding agent desktop client
-cask "opencode-desktop"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Imaging utility to install operating systems to a microSD card
@@ -415,7 +411,6 @@ vscode "dtsvet.vscode-wasm"
 vscode "eamodio.gitlens"
 vscode "ecmel.vscode-html-css"
 vscode "esbenp.prettier-vscode"
-vscode "github.copilot-chat"
 vscode "github.github-vscode-theme"
 vscode "github.vscode-github-actions"
 vscode "github.vscode-pull-request-github"
