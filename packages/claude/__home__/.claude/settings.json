@@ -14,7 +14,8 @@
     "ruby-lsp@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "webdev@doximity-claude-code-tools": true
   },
   "extraKnownMarketplaces": {
     "anthropic-agent-skills": {
