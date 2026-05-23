@@ -1,9 +1,11 @@
 [tools]
+bats = "latest"
 go = "latest"
 node = "latest"
 ollama = "latest"
 pnpm = "latest"
 ruby = "latest"
+shellcheck = "latest"
 yarn = "latest"
 
 [settings]
