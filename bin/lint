@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+fd \
+  --hidden \
+  --extension bats \
+  --extension sh \
+  --exec-batch shellcheck

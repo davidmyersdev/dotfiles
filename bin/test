@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+fd \
+  --hidden \
+  --extension bats \
+  --exec-batch bats
