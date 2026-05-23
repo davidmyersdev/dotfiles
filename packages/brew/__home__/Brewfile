@@ -312,6 +312,8 @@ cask "blender"
 cask "block-goose"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# OpenAI's coding agent that runs in your terminal
+cask "codex"
 # API documentation browser and code snippet manager
 cask "dash"
 # Virtual monitor for screen sharing
