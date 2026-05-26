@@ -1,0 +1,115 @@
+[list]
+branches = false   # Include branches without worktrees (--branches)
+full = false       # Show CI, main…± diffstat, and LLM summaries (--full)
+remotes = false    # Include remote-only branches (--remotes)
+summary = false    # Enable LLM branch summaries (requires [commit.generation])
+
+[step.copy-ignored]
+exclude = [
+  ".eslintcache",
+  ".yarn/install-state.gz",
+  "coverage/**/*",
+  "log/**/*",
+  "public/**/*",
+  "storage/**/*",
+  "tmp/**/*"
+]
+
+[aliases]
+claude-code-get-project-name = "realpath '{{ repo_path }}' | sed 's/[^[:alnum:]]/-/g'"
+claude-code-get-project-worktree-name = "realpath '{{ worktree_path }}' | sed 's/[^[:alnum:]]/-/g'"
+
+claude-code-link-project = '''
+cc_project_name="$(wt step claude-code-get-project-name)"
+cc_project_worktree_name="$(wt step claude-code-get-project-worktree-name)"
+
+if [[ ! -e "${HOME}/.claude/projects/${cc_project_worktree_name}" ]]
+then
+  ln -s "./${cc_project_name}" "${HOME}/.claude/projects/${cc_project_worktree_name}"
+else
+  echo "Skipping Claude project link (project already exists)."
+fi
+'''
+
+claude-code-unlink-project = '''
+cc_project_name="$(wt step claude-code-get-project-name)"
+cc_project_worktree_name="$(wt step claude-code-get-project-worktree-name)"
+
+if [[ -L "${HOME}/.claude/projects/${cc_project_worktree_name}" ]]
+then
+  unlink "${HOME}/.claude/projects/${cc_project_worktree_name}"
+elif [[ -e "${HOME}/.claude/projects/${cc_project_worktree_name}" ]]
+then
+  echo "Skipping Claude project unlink (project exists but is not a symlink)."
+else
+  echo "Skipping Claude project unlink (project does not exist)."
+fi
+'''
+
+install-javascript-deps = '''
+if [[ -e 'pnpm-lock.yaml' ]]
+then
+  pnpm install
+fi
+
+if [[ -e 'yarn.lock' ]]
+then
+  yarn install
+fi
+
+if [[ -e 'package-lock.json' ]]
+then
+  npm install
+fi
+'''
+
+install-ruby-deps = '''
+if [[ -e 'Gemfile' ]]
+then
+  bundle install
+fi
+'''
+
+setup-database = '''
+rails_env="$1"
+rails_env_file=".env.${rails_env}.local"
+
+if [[ -e 'config/database.yml' && -e "$rails_env_file" ]]
+then
+  export RAILS_ENV="$rails_env"
+
+  echo 'DATABASE_URL=mysql2://root:@127.0.0.1:3306/{{ repo }}-{{ branch | sanitize_db }}-${rails_env}' >> "$rails_env_file"
+
+  bin/rails db:create
+  bin/rails db:schema:load
+fi
+'''
+
+teardown-database = '''
+rails_env="$1"
+rails_env_file=".env.${rails_env}.local"
+
+if [[ -e 'config/database.yml' && -e "$rails_env_file" ]]
+then
+  export RAILS_ENV="$rails_env"
+
+  bin/rails db:drop
+fi
+'''
+
+[[pre-start]]
+copy-files = "wt step copy-ignored"
+link-claude-code-project = "wt step claude-code-link-project"
+
+[[pre-start]]
+deps-javascript = "wt install-javascript-deps"
+deps-ruby = "wt install-ruby-deps"
+
+[[pre-start]]
+db-setup-development = "wt setup-database development"
+db-setup-test = "wt setup-database test"
+
+[[pre-remove]]
+db-teardown-development = "wt teardown-database development"
+db-teardown-test = "wt teardown-database test"
+unlink-claude-code-project = "wt step claude-code-unlink-project"
