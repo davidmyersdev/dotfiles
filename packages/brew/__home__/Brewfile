@@ -3,6 +3,7 @@ tap "ankitpokhrel/jira-cli"
 tap "atlassian/acli"
 tap "facebook/fb"
 tap "gabe565/tap"
+tap "hashicorp/tap"
 tap "helix-editor/helix"
 tap "homebrew/bundle"
 tap "homebrew/services"
@@ -289,6 +290,8 @@ brew "atlassian/acli/acli"
 brew "facebook/fb/idb-companion"
 # Convert text containing ANSI control codes into plain ASCII text.
 brew "gabe565/tap/ansi2txt"
+# Terraform
+brew "hashicorp/tap/terraform"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
 brew "tursodatabase/tap/turso"
