@@ -321,6 +321,7 @@ hs.hotkey.bind(hyper, "m", function()
   })
 end)
 
+-- Inspect the current screen and window dimensions.
 hs.hotkey.bind(hyper, "i", function()
   local screen = getCurrentScreen()
   local window = getCurrentWindow()
@@ -525,3 +526,36 @@ hs.hotkey.bind(hyper, "up", function()
 
   window:setFrame(frame, 0)
 end)
+
+local mapping = hs.hotkey.new(hyper, "\\", function ()
+  local activeApp = hs.application.frontmostApplication()
+  local bundleId = activeApp and activeApp:bundleID()
+
+  if bundleId == "com.google.Chrome" then
+    hs.execute("/usr/local/bin/toggle-sidebar")
+  elseif bundleId == "app.zen-browser.zen" then
+    hs.eventtap.keyStroke({ "command", "option" }, "s")
+  end
+end)
+
+local function refresh(appName, eventType, app)
+  -- Get the Bundle ID of the currently active app
+  local activeApp = hs.application.frontmostApplication()
+  local bundleId = activeApp and activeApp:bundleID()
+
+  if bundleId == "com.google.Chrome" then
+    mapping:enable()
+  elseif bundleId == "app.zen-browser.zen" then
+    mapping:enable()
+  else
+    mapping:disable()
+  end
+end
+
+-- 3. Watch for app switching/activation events
+local appWatcher = hs.application.watcher.new(refresh)
+
+-- 5. Start the watcher and ensure the initial state is set
+appWatcher:start()
+-- Trigger it once right now to check the currently active app
+refresh()

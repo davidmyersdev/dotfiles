@@ -99,9 +99,21 @@ function link-module-dir() {
 }
 
 link-module git
+link-module hammerspoon
 link-module zsh
 
 if test -n "$(ls -A "$backup_dir")"
 then
   echo "Backup: ${backup_dir}"
 fi
+
+# Hammerspoon init
+hammerspoon_config_file=$(defaults read org.hammerspoon.Hammerspoon MJConfigFile 2> /dev/null || echo "")
+
+if ! test "$hammerspoon_config_file" = "~/.config/hammerspoon/init.lua"
+then
+  echo "Setting Hammerspoon config (previously '${hammerspoon_config_file}')"
+fi
+
+# https://github.com/Hammerspoon/hammerspoon/issues/1734
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
