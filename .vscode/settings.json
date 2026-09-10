@@ -1,0 +1,5 @@
+{
+  "files.associations": {
+    "**/modules/git/__xdg_config_home__/config": "properties"
+  }
+}

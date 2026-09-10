@@ -8,7 +8,48 @@ backup_dir=$(mktemp -d -t dotfiles-backup)
 function link-module() {
   local module="$1"
 
+  link-module-bins "$module"
   link-module-dir "$module" __xdg_config_home__
+}
+
+function link-module-bins() {
+  local module="$1"
+
+  local bin_dir="./modules/${module}/__bin__"
+
+  if ! test -d "$bin_dir"
+  then
+    return 0
+  fi
+
+  for bin in "${bin_dir}"/*
+  do
+    local path_to_source=$(grealpath "$bin")
+    local binary_name="${bin##*/}"
+    local path_to_symlink="${XDG_BIN_HOME}/${binary_name%.*}"
+    local path_to_backup="${backup_dir}/${path_to_symlink#/}"
+    local relative_path_to_source=$(grealpath --relative-to $(dirname "$path_to_symlink") "$path_to_source")
+
+    if test -L "$path_to_symlink"
+    then
+      local existing_link="$(readlink "$path_to_symlink")"
+
+      if test "$existing_link" = "$relative_path_to_source"
+      then
+        # If a link already exists and points to the correct location, we can move on.
+        continue
+      fi
+    fi
+
+    if test -e "$path_to_symlink"
+    then
+      mkdir -p "$path_to_backup"
+
+      mv "$path_to_symlink" "$path_to_backup"
+    fi
+
+    ln -s  "$relative_path_to_source" "$path_to_symlink"
+  done
 }
 
 # Note: This function currently assumes we already have Homebrew deps installed,
