@@ -5,6 +5,10 @@
   ignorecase = false
   excludesfile = /Users/david/git/ignore
   autocrlf = input
+[credential "https://github.com"]
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = !/opt/homebrew/bin/gh auth git-credential
 [diff]
   external = difft
   tool = difftastic
@@ -13,16 +17,19 @@
 [difftool "difftastic"]
   cmd = difft "$LOCAL" "$REMOTE"
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
 [init]
   defaultBranch = main
 [interactive]
   diffFilter = diffr --colors added:none:foreground:0,0xdd,0 --colors refine-added:none:foreground:0,0xdd,0:background:0x10,0x30,0x10 --colors removed:none:foreground:0xdd,0,0 --colors refine-removed:none:foreground:0xdd,0,0:background:0x30,0x10,0x10
 [gpg]
-  program = gpg
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = "~/.config/git/allowed_signers"
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [pager]
   difftool = true
 [pull]
@@ -32,14 +39,8 @@
 [tag]
   gpgsign = true
 [user]
-  signingkey = 39172BB67E6A96CC
   email = davidrmyersii@gmail.com
-	name = David Myers
+  name = David Myers
+  signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICFpVk7jP/GB+SQe5lw8Gl536vZRXlE09JxUCOao2yJo"
 [notes]
   rewriteRef = refs/notes/commits
-[credential "https://github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential

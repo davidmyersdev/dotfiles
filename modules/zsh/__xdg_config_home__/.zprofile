@@ -10,6 +10,9 @@ export DOTFILES_HOME=${DOTFILES_HOME:-${HOME}/.dotfiles}
 # Disable macOS shell snapshots (can help performance in native Terminal.app).
 export SHELL_SESSIONS_DISABLE=1
 
+# Configure SSH to use 1password.
+export SSH_AUTH_SOCK="${XDG_DATA_HOME}/apps/1password/container/t/agent.sock"
+
 # A custom XDG env var to represent my local bin dir.
 export XDG_BIN_HOME=${XDG_BIN_HOME:-${HOME}/.local/bin}
 

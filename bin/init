@@ -9,6 +9,7 @@ function link-module() {
   local module="$1"
 
   link-module-bins "$module"
+  link-module-dir "$module" __home__
   link-module-dir "$module" __xdg_config_home__
 }
 
@@ -22,33 +23,9 @@ function link-module-bins() {
     return 0
   fi
 
-  for bin in "${bin_dir}"/*
+  ls -A1 "$bin_dir" | while read -r bin
   do
-    local path_to_source=$(grealpath "$bin")
-    local binary_name="${bin##*/}"
-    local path_to_symlink="${XDG_BIN_HOME}/${binary_name%.*}"
-    local path_to_backup="${backup_dir}/${path_to_symlink#/}"
-    local relative_path_to_source=$(grealpath --relative-to $(dirname "$path_to_symlink") "$path_to_source")
-
-    if test -L "$path_to_symlink"
-    then
-      local existing_link="$(readlink "$path_to_symlink")"
-
-      if test "$existing_link" = "$relative_path_to_source"
-      then
-        # If a link already exists and points to the correct location, we can move on.
-        continue
-      fi
-    fi
-
-    if test -e "$path_to_symlink"
-    then
-      mkdir -p "$path_to_backup"
-
-      mv "$path_to_symlink" "$path_to_backup"
-    fi
-
-    ln -s  "$relative_path_to_source" "$path_to_symlink"
+    link-with-backup "$bin_dir/$bin" "${XDG_BIN_HOME}/${bin%.*}"
   done
 }
 
@@ -63,10 +40,19 @@ function link-module-dir() {
 
   # Todo: Make sure targets exist too. If not, we can likely just return early.
   case "$module_dir" in
+    __home__)
+      if ! test -d "./modules/${module}/__home__"
+      then
+        return 0
+      fi
+
+      ls -A1 "./modules/${module}/__home__" | while read -r source
+      do
+        link-with-backup "./modules/${module}/__home__/${source}" "${HOME}/${source}"
+      done
+      ;;
     __xdg_config_home__)
-      path_to_source=$(grealpath "./modules/${module}/__xdg_config_home__")
-      path_to_symlink="${XDG_CONFIG_HOME}/${module}"
-      path_to_backup="${backup_dir}/${path_to_symlink#/}"
+      link-with-backup "./modules/${module}/__xdg_config_home__" "${XDG_CONFIG_HOME}/${module}"
       ;;
     *)
       echo "Unknown module dir: ${module_dir}" >&2
@@ -74,12 +60,25 @@ function link-module-dir() {
       return 1
       ;;
   esac
+}
 
-  local relative_path_to_source=$(grealpath --relative-to $(dirname "$path_to_symlink") "$path_to_source")
+function link-with-backup() {
+  local path_to_source="$1"
+  local path_to_symlink="$2"
 
-  if test -L "$path_to_symlink"
+  if ! test -d "$(dirname "$path_to_symlink")"
   then
-    local existing_link="$(readlink "$path_to_symlink")"
+    mkdir -p "$(dirname "$path_to_symlink")"
+  fi
+
+  local absolute_path_to_source=$(grealpath "$path_to_source")
+  local absolute_path_to_symlink=$(grealpath --no-symlinks "$path_to_symlink")
+  local absolute_path_to_backup="${backup_dir}/${absolute_path_to_symlink#/}"
+  local relative_path_to_source=$(grealpath --relative-to $(dirname "$absolute_path_to_symlink") "$absolute_path_to_source")
+
+  if test -L "$absolute_path_to_symlink"
+  then
+    local existing_link="$(readlink "$absolute_path_to_symlink")"
 
     if test "$existing_link" = "$relative_path_to_source"
     then
@@ -88,20 +87,31 @@ function link-module-dir() {
     fi
   fi
 
-  if test -e "$path_to_symlink"
+  if test -e "$absolute_path_to_symlink"
   then
-    mkdir -p "$path_to_backup"
+    mkdir -p "$absolute_path_to_backup"
 
-    mv "$path_to_symlink" "$path_to_backup"
+    mv "$absolute_path_to_symlink" "$absolute_path_to_backup"
   fi
 
-  ln -s  "$relative_path_to_source" "$path_to_symlink"
+  ln -s  "$relative_path_to_source" "$absolute_path_to_symlink"
 }
 
+# Common utils
+link-with-backup "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password" "${XDG_DATA_HOME}/apps/1password/container"
+
+# Todo: Run each module layer-by-layer instead.
+#
+# - link-module-zshenvs
+# - link-module-bins
+# - link-module-dirs (cache, config, data, and state)
+# - link-module-zprofiles
+# - link-module-zshrcs (depends on envs + dirs being present)
 link-module git
 link-module hammerspoon
 link-module homebrew
 link-module karabiner
+link-module ssh
 link-module zsh
 
 if test -n "$(ls -A "$backup_dir")"
