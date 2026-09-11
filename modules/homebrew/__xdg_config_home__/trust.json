@@ -1,0 +1,17 @@
+{
+  "trustedformulae": [
+    "akeru-inc/tap/xcnotary",
+    "anchore/syft/syft",
+    "atlassian/acli/acli",
+    "facebook/fb/idb-companion",
+    "fw-ai/firectl/firectl",
+    "gabe565/tap/ansi2txt",
+    "hashicorp/tap/terraform",
+    "immanuwell/droast/droast",
+    "libsql/sqld/sqld",
+    "oven-sh/bun/bun"
+  ],
+  "trustedcasks": [
+    "jhlee0409/tap/claude-code-history-viewer"
+  ]
+}

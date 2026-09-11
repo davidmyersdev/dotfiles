@@ -9,3 +9,6 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:-${HOME}/.local/state}
 
 # GPG
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+
+# Homebrew
+export HOMEBREW_USER_CONFIG_HOME="${XDG_CONFIG_HOME}/homebrew"

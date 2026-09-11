@@ -13,6 +13,12 @@ export SHELL_SESSIONS_DISABLE=1
 # A custom XDG env var to represent my local bin dir.
 export XDG_BIN_HOME=${XDG_BIN_HOME:-${HOME}/.local/bin}
 
+# Homebrew
+if test -z "$HOMEBREW_PREFIX"
+then
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+fi
+
 prepath=(
   $XDG_BIN_HOME(N/)
 )
