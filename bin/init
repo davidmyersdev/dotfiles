@@ -107,12 +107,10 @@ link-with-backup "${HOME}/Library/Group Containers/2BUA8C4S2C.com.1password" "${
 # - link-module-dirs (cache, config, data, and state)
 # - link-module-zprofiles
 # - link-module-zshrcs (depends on envs + dirs being present)
-link-module git
-link-module hammerspoon
-link-module homebrew
-link-module karabiner
-link-module ssh
-link-module zsh
+ls -A1 ./modules | while read -r module
+do
+  link-module "$module"
+done
 
 if test -n "$(ls -A "$backup_dir")"
 then
