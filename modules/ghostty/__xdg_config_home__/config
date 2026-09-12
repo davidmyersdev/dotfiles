@@ -3,5 +3,7 @@
 
 clipboard-paste-protection = false
 font-size = 16
+macos-icon = xray
 macos-titlebar-style = tabs
 theme = dark: Aizen Dark, light: Aizen Light
+window-save-state = always
