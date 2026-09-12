@@ -1,11 +1,12 @@
 [tools]
 bats = "latest"
 go = "latest"
-node = "latest"
+node = "24.11.1"
 ollama = "latest"
 pnpm = "latest"
 ruby = "latest"
 shellcheck = "latest"
+uv = "latest"
 yarn = "latest"
 
 [settings]

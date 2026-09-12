@@ -22,6 +22,12 @@ then
   eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 fi
 
+# Mise
+if test -z "$MISE_SHELL"
+then
+  eval "$(mise activate zsh)"
+fi
+
 prepath=(
   $XDG_BIN_HOME(N/)
 )
