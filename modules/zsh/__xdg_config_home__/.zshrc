@@ -7,12 +7,6 @@ export VISUAL=vim
 # Worktrunk
 eval "$(wt config shell init zsh)"
 
-# Initialize shell completions.
-#
-# -U: ignore compinit aliases
-# -z: ensure proper (non-emulated) shell environment
-autoload -Uz compinit && compinit
-
 # An `ls` wrapper for listing directory contents in a human-readable format.
 #
 # -1: List one item per line.
@@ -34,6 +28,12 @@ function inspect-array() {
 
   printf '%s\n' "${array[@]}"
 }
+
+# Initialize shell completions.
+#
+# -U: ignore compinit aliases
+# -z: ensure proper (non-emulated) shell environment
+autoload -Uz compinit && compinit
 
 # Return a successful status code.
 true
