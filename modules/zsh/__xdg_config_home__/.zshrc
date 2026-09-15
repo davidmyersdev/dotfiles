@@ -21,5 +21,12 @@ autoload -Uz compinit && compinit
 # -G: Enable colorized output.
 alias ll='ls -1AFG '
 
+# A `tree` wrapper for listing directory contents in a human-readable format.
+#
+# -C: Enable colorized output.
+# -F: Append indicators (one of `*/=>@|`) to entries.
+# -a: Include hidden files (excluding `.` and `..`).
+alias tl='tree -CFa '
+
 # Return a successful status code.
 true
