@@ -28,5 +28,12 @@ alias ll='ls -1AFG '
 # -a: Include hidden files (excluding `.` and `..`).
 alias tl='tree -CFa '
 
+# A debugging utility to print each item in an array, one per line.
+function inspect-array() {
+  local array=($@)
+
+  printf '%s\n' "${array[@]}"
+}
+
 # Return a successful status code.
 true
