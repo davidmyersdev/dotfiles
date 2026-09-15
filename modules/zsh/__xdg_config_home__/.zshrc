@@ -4,6 +4,9 @@ export EDITOR=vim
 export PAGER=less
 export VISUAL=vim
 
+# Worktrunk
+eval "$(wt config shell init zsh)"
+
 # Initialize shell completions.
 #
 # -U: ignore compinit aliases
