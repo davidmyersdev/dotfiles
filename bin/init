@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+#
+# An idempotent init script to ensure these dotfiles are correctly configured
+# for the current user.
+
+backup_dir=$(mktemp -d -t dotfiles-backup)
+
+function link-module() {
+  local module="$1"
+
+  link-module-dir "$module" __xdg_config_home__
+}
+
+# Note: This function currently assumes we already have Homebrew deps installed,
+# because it relies on the `grealpath` util.
+function link-module-dir() {
+  local module="$1"
+  local module_dir="$2"
+
+  local path_to_source=""
+  local path_to_symlink=""
+
+  # Todo: Make sure targets exist too. If not, we can likely just return early.
+  case "$module_dir" in
+    __xdg_config_home__)
+      path_to_source=$(grealpath "./modules/${module}/__xdg_config_home__")
+      path_to_symlink="${XDG_CONFIG_HOME}/${module}"
+      path_to_backup="${backup_dir}/${path_to_symlink#/}"
+      ;;
+    *)
+      echo "Unknown module dir: ${module_dir}" >&2
+
+      return 1
+      ;;
+  esac
+
+  local relative_path_to_source=$(grealpath --relative-to $(dirname "$path_to_symlink") "$path_to_source")
+
+  if test -L "$path_to_symlink"
+  then
+    local existing_link="$(readlink "$path_to_symlink")"
+
+    if test "$existing_link" = "$relative_path_to_source"
+    then
+      # If a link already exists and points to the correct location, we can move on.
+      return 0
+    fi
+  fi
+
+  if test -e "$path_to_symlink"
+  then
+    mkdir -p "$path_to_backup"
+
+    mv "$path_to_symlink" "$path_to_backup"
+  fi
+
+  ln -s  "$relative_path_to_source" "$path_to_symlink"
+}
+
+link-module git
+link-module zsh
+
+if test -n "$(ls -A "$backup_dir")"
+then
+  echo "Backup: ${backup_dir}"
+fi
